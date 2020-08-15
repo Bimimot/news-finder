@@ -1,0 +1,25 @@
+{
+  "name": "news-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "node": "^14.8.0",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bimimot/News-frontend.git"
+  },
+  "author": "Stepan Popov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bimimot/News-frontend/issues"
+  },
+  "homepage": "https://github.com/Bimimot/News-frontend#readme"
+}
