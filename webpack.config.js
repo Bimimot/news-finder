@@ -8,10 +8,10 @@ const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development'; // флаг для режима разработки
 
 module.exports = {
-  entry: { main: './src/index.js' },
+  entry: { main: './src/index.js' },  // источник для js
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js'
+    filename: '[name].[chunkhash].js' // точка выхода для js
   },
   module: {
     rules: [
@@ -32,7 +32,7 @@ module.exports = {
       {
         test: /\.(png|jpg|gif|ico|svg)$/,
         use: [
-            'file-loader?name=./images/[name].[ext]', // указали папку, куда складывать изображения
+            'file-loader?name=./images/[name].[ext]', // папка выхода для изображений
             {
                 loader: 'image-webpack-loader',
                 options: {}
@@ -47,7 +47,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({ //
-      filename: 'style.[contenthash].css',
+      filename: 'style.[contenthash].css',  // точка выходая для css
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
