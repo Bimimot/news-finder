@@ -23,7 +23,7 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/i,
+        test: /\.css$/,
         use: [ (isDev ? 'style-loader' : MiniCssExtractPlugin.loader), // для режима разработки MiniCss не загружаем
                'css-loader',
                'postcss-loader'
@@ -46,8 +46,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({ //
-      filename: 'style.[contenthash].css',  // точка выходая для css
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+  }),
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',  // точка выхода для css
     }),
     new OptimizeCssAssetsPlugin({
       assetNameRegExp: /\.css$/g,
@@ -62,9 +65,11 @@ module.exports = {
       template: './src/index.html',  // источник для сборки html
       filename: 'index.html'        // точка выхода для html
     }),
-    new WebpackMd5Hash(),
-    new webpack.DefinePlugin({
-        'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
-    })
+    new HtmlWebpackPlugin({
+      inject: false,
+      template: './src/index2.html',  // источник для сборки доп страницы html
+      filename: 'index2.html'        // точка выхода для html
+    }),
+    new WebpackMd5Hash()
   ]
 };
