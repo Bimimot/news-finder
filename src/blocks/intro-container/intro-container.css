@@ -3,10 +3,9 @@ display: flex;
 position: relative;
     margin: 0;
      flex-direction: column;
-     align-items: center;  
+     align-items: center;
      height: min-content;
      width: 100%;
-       background-color: black;
      color: white;
      font-family: Roboto, Arial, sans-serif;
 

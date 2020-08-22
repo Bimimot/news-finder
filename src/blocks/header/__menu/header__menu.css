@@ -1,8 +1,10 @@
+@import url('./_type/header__menu_type_light.css');
+@import url('./_type/header__menu_type_image.css');
+
 .header__menu{
     position: relative;
     display: flex;
     margin: 0 116px 0 0;
     padding: 0;
       height: 100%;
- 
    }
