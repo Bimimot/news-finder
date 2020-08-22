@@ -1,0 +1,15 @@
+@import url(./__about/intro__about.css);
+@import url(./__keys/intro__keys.css);
+@import url(./__title/intro__title.css);
+
+.intro{
+  display: flex;
+  flex-direction: column;
+  display: relative;
+    
+
+  box-sizing: border-box;
+  padding: 50px 104px 56px 104px;
+  width: 100%;
+    background-color:white;
+}

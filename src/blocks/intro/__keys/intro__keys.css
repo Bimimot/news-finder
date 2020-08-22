@@ -1,0 +1,10 @@
+@import url(./accent/intro__keys_accent_span.css);
+
+.intro__keys{
+  font-family: Roboto;
+font-style: normal;
+font-size: 18px;
+line-height: 24px;
+
+color: #1A1B22;
+}
