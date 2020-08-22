@@ -29,14 +29,6 @@
           </div>
         </section>
       </div>
-      <section class="author">
-          <img class="author__photo" alt="author-photo" src="<%=require('./images/author-photo.jpg').default%>">
-          <div class="author__column">
-            <h2 class="author__title">Об авторе
-          </h2>
-            <p class="author__paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
-                    <p class="author__paragraph">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
-            </section>
 
         <section class="cards">
           <h2 class="cards__title">Результаты поиска</h2>
@@ -44,7 +36,7 @@
 
             <div class="cards__item">
               <div class="cards__image-container">
-                  <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-blue.svg').default%>">
+                  <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
                   <img class="cards__photo" alt="photo" src="<%=require('./images/card-1.jpg').default%>">
               </div>
               <div class="cards__text">
@@ -69,8 +61,9 @@
 
             <div class="cards__item">
               <div class="cards__image-container">
-                  <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-blue.svg').default%>">
+                  <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
                   <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
+
               </div>
 
               <div class="cards__text">
@@ -86,13 +79,27 @@
           <button class="cards__button">Показать ещё</button>
         </section>
 
+        <section class="author">
+          <img class="author__photo" alt="author-photo" src="<%=require('./images/author-photo.jpg').default%>">
+          <div class="author__column">
+            <h2 class="author__title">Об авторе
+          </h2>
+            <p class="author__paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы занимаетесь, какими технологиями разработки владеете.</p>
+                    <p class="author__paragraph">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и чем можете помочь потенциальным заказчикам.</p>
+        </section>
+
+
         <footer class="footer">
-          <a class="footer__copyright" href="">2020 SuperSite, powered by News API </a>
+          <a class="footer__copyright" href="">&#169 2020 SuperSite, powered by News API </a>
           <div class="footer__menu">
             <a class="footer__link" href="">Главная</a>
             <a class="footer__link" href="">Яндекс.Практикум</a>
-          <a class="footer__icon" href=""></a>
-          <a class="footer__icon" href=""></a>
+          <a class="footer__icon" href="">
+            <img class="icons" alt= "github-icon" src="<%=require('./images/icon-github.svg').default%>">
+          </a>
+          <a class="footer__icon" href="">
+            <img class="icons" alt= "facebook-icon" src="<%=require('./images/icon-facebook.svg').default%>">
+          </a>
           </div>
         </footer>
 

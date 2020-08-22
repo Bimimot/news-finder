@@ -1,13 +1,8 @@
 .footer__icon{
 display: flex;
 position: relative;
-    min-width: 24px;
-    min-height: 24px;
-    margin-right: 24px;
+    min-width: 20px;
+    height: 100%;
+    margin-left: 28px;
       padding: 0;
-      border: 1px solid green;
 }
-    
-.footer__icon:last-child{
-      margin-right: 0;
-    }

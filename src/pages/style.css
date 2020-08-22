@@ -45,6 +45,11 @@ flex-flow: column;
      align-items: center;
      min-height: 0;
      max-width: 1440px;
-     font-family: Roboto, Arial;   
+     font-family: Roboto, Arial;
    }
- 
+
+.icons{
+position: relative;
+  width: 100%;
+  height: 100%;
+}

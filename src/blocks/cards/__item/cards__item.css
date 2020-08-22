@@ -4,4 +4,5 @@ flex-direction: column;
    max-width: 400px;
    min-height: 576px;
      border-radius: 16px;
+     box-shadow: 0 17px 58px -16px rgba(8, 29, 45, 0.1);
      }
