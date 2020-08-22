@@ -5,8 +5,11 @@
     padding: 0;
     position: relative;
     justify-content: flex-end;
+    height: 100%;
         font-size: 16px;
         line-height: 20px;
         color: #B6BCBF;
-        height: 100%;
+        font-family: 'Roboto Slab', Times, serif;
+        text-transform: uppercase;
+        font-weight: bold;
       }

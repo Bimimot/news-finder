@@ -9,7 +9,7 @@
         font-size: 18px;
         line-height: 24px;
         font-weight: normal;
-        font-family: Roboto, Arial;
+        font-family: Roboto, Arial, sans-serif;
         color: white;
         text-decoration: none;
     }
@@ -17,4 +17,3 @@
 .header__link:last-child{
   margin: 0;
 }
-  

@@ -5,6 +5,7 @@
 @import url(../blocks/author/author.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/icons/icons.css);
 
 @font-face {
     font-family: 'Roboto';
@@ -17,26 +18,35 @@
   }
 
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Slab';
     font-style:  normal;
-    font-weight: 700;
+    font-weight: normal;
     font-display: swap;
 
-    src: url("../fonts/Roboto/Roboto-Bold.woff2") format("woff2"),
-         url("../fonts/Roboto/Roboto-Bold.woff") format("woff");
+    src: url("../fonts/Roboto-Slab/Robotoslabregular.woff2") format("woff2"),
+         url("../fonts/Roboto-Slab/Robotoslabregular.woff") format("woff");
   }
 
 @font-face {
-    font-family: 'Roboto';
+    font-family: 'Roboto Slab';
     font-style:  normal;
-    font-weight: 900;
+    font-weight: bold;
     font-display: swap;
 
-    src: url("../fonts/Roboto/Roboto-Black.woff2") format("woff2"),
-         url("../fonts/Roboto/Roboto-Black.woff") format("woff");
+    src: url("../fonts/Roboto-Slab/Robotoslabbold.woff2") format("woff2"),
+         url("../fonts/Roboto-Slab/Robotoslabbold.woff") format("woff");
+
   }
 
-  /* !!!!!!!!!!!!!! Подключить шрифт ROboto Slab */
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style:  normal;
+    font-weight: normal;
+    font-display: swap;
+
+    src: url("../fonts/Source-Sans-Pro/SourceSansPro-Regular.woff2") format("woff2"),
+         url("../fonts/Source-Sans-Pro/SourceSansPro-Regular.woff") format("woff");
+  }
 
 .page {
 position: relative;
@@ -46,10 +56,6 @@ flex-flow: column;
      min-height: 0;
      max-width: 1440px;
      font-family: Roboto, Arial;
+     background-color: black;
    }
 
-.icons{
-position: relative;
-  width: 100%;
-  height: 100%;
-}

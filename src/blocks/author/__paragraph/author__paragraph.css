@@ -2,7 +2,7 @@
     font-size: 18px;
     line-height: 24px;
     margin: 0 0 24px 0;
-    font-family: Roboto, Arial;
+    font-family: Roboto, Arial, sans-serif;
   }
 
   .author__paragraph:last-child{

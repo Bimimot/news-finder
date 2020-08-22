@@ -4,18 +4,18 @@
 @import url(./__menu/footer__menu.css);
 
 .footer{
-    display: flex;
-    position: relative;
+display: flex;
+position: relative;
     box-sizing: border-box;
     padding: 0 104px 0 104px;
     width: 100%;
     min-height: 80px;
       align-items: center;
-    justify-content: space-between;
-      border: 1px solid red;
+      justify-content: space-between;
+  background-color: white;
   }
 
 
-  
 
-  
+
+
