@@ -1,3 +1,5 @@
 .header__link_type_selected{
-    border-bottom:3px solid white;
+  box-sizing: content-box;
+    padding-top: 3px;
+    border-bottom: 3px solid;
   }
