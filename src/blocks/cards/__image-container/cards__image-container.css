@@ -1,0 +1,9 @@
+.cards__image-container{
+    position: relative;
+    width: 100%;
+    min-height: 272px;
+    margin: 0;
+      border-radius: 15px 15px 0 0;
+        /* overflow: hidden; */
+      display: flex;
+  }

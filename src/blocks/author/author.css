@@ -1,0 +1,15 @@
+@import url(./__column/author__column.css);
+@import url(./__paragraph/author__paragraph.css);
+@import url(./__photo/author__photo.css);
+@import url(./__title/author__title.css);
+
+.author{
+display: flex;
+position: relative;
+    box-sizing: border-box;
+    padding: 80px 104px 80px 104px;
+    height: min-content;
+    width: 100%;
+      background-color: white;
+      color: black;    
+  }

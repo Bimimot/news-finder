@@ -1,0 +1,7 @@
+.cards__item-article{ 
+    margin: 0;
+      display: flex;
+      font-size: 16px;
+      line-height: 22px;
+      color: black;
+      }

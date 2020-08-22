@@ -1,0 +1,10 @@
+.cards__photo{
+display: flex;
+position: relative;
+     margin: 0;
+     flex-shrink: 0;
+     justify-self: center;
+     align-self: center;
+       border-radius: 16px 16px 0 0;
+         overflow: hidden;
+}

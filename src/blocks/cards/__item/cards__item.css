@@ -1,0 +1,7 @@
+.cards__item{
+display: flex;
+flex-direction: column;
+   max-width: 400px;
+   min-height: 576px;
+     border-radius: 16px;
+     }

@@ -1,0 +1,21 @@
+@import url(./__copyright/footer__copyright.css);
+@import url(./__icon/footer__icon.css);
+@import url(./__link/footer__link.css);
+@import url(./__menu/footer__menu.css);
+
+.footer{
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    padding: 0 104px 0 104px;
+    width: 100%;
+    min-height: 80px;
+      align-items: center;
+    justify-content: space-between;
+      border: 1px solid red;
+  }
+
+
+  
+
+  

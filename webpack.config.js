@@ -67,8 +67,8 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index2.html',  // источник для сборки доп страницы html
-      filename: 'index2.html'        // точка выхода для html
+      template: './src/articles.html',  // источник для сборки доп страницы html
+      filename: 'articles.html'        // точка выхода для html
     }),
     new WebpackMd5Hash()
   ]

@@ -1,0 +1,10 @@
+.search__form{
+position: relative;
+display: flex;
+    width: 100%;
+    min-height: 64px;
+      margin: 0 0 80px 0;
+      border-radius: 32px;
+      background-color: white;
+    
+    }

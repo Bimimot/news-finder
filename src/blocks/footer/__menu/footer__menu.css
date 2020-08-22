@@ -1,0 +1,7 @@
+.footer__menu{
+display: flex;
+position: relative;
+    margin: 0;
+    width: min-content;
+
+}

@@ -1,0 +1,10 @@
+.search__button{
+    min-width: 168px;
+    border-radius: 32px;
+    flex-grow: 0;
+      color: white;
+      background-color: #2F71E5;
+      border: none;
+        font-size: 18px;
+        line-height: 24px;
+  }

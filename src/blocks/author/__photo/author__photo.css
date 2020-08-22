@@ -1,0 +1,7 @@
+.author__photo{
+    display: flex;
+    position: relative;
+     max-width: 464px;
+     height: 100%;
+       border-radius: 50%;
+   }
