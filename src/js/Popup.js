@@ -22,17 +22,13 @@ export default class Popup {
 
   _popupListeners() {                                                                       //слушаем нажатия на вызов попапа
     this.button.addEventListener('click', (event) => {
-      console.log('нажали открытие элемента');
       this.open()});
   }
 
 
   open() {                                                                                  //открытие попапа
-
     this.validator.setEventListeners(this.formElement);                                     //вызываем валидацию полей;
-
     this.container.classList.add('popup_is-opened');
-    console.log(this.container.classList);
     this._setEventListeners();                                                              //вызываем слушатели для закрытия
 
   }

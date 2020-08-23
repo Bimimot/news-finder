@@ -3,10 +3,12 @@
 @import url(./__title/popup__title.css);
 @import url(./__form/popup__form.css);
 @import url(./__input/popup__input.css);
+@import url(./__submit/popup__submit.css);
 @import url(./__button/popup__button.css);
-@import url(./__image/popup__image.css);
 @import url(./__input-container/popup__input-container.css);
+@import url(./__input-title/popup__input-title.css);
 @import url(./_is-opened/popup_is-opened.css);
+
 
 .popup {
   position: fixed;
@@ -21,14 +23,8 @@
   display: none;
 }
 
-.popup_type_add-place {
-
-}
 
 .popup_type_login {
 
 }
 
-.popup_type_card {
-
-}

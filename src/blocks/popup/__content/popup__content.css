@@ -2,6 +2,10 @@
   background-color: #fff;
   position: relative;
   box-sizing: border-box;
+    width: 430px;
+    max-height: 383px;
+    border-radius: 16px;
+    padding: 34px 36px 28px 36px;
 
 }
 
@@ -9,16 +13,4 @@
 .popup__content {
     width: calc(100% - 60px);
   }
-}
-
-.popup__content_type_form{ 
-  width: 430px;
-  min-height: 330px;
-  border-radius: 10px;
-  padding: 34px 36px;
-}
-
-.popup__content_type_card{
-  border-radius: 0px;
-  padding: 0;
 }

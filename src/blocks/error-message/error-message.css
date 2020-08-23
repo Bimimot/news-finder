@@ -1,0 +1,18 @@
+.error-message{
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  height: 14px;
+  color: #FF0000;
+    margin: 3px 0 0 0;
+
+}
+
+
+.error-message_type_email{
+    /*opacity: 0;*/
+}
+.error-message_type_password{
+    /*opacity: 0;*/
+}

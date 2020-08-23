@@ -103,19 +103,22 @@
         </footer>
 
         <div class="popup popup_type_login">
-          <div class="popup__content popup__content_type_form">
+          <div class="popup__content">
             <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
             <h3 class="popup__title">Вход</h3>
             <form class="popup__form popup__form_type_login" name="login">
               <div class="popup__input-container">
-                <input type="text" name="name"  minlength="2" maxlength="30" class="popup__input popup__input_type_name" placeholder="Имя">
-                <span class="error-message error-message_type_name"> </span>
+                <p class="popup__input-title">Email</p>
+                <input type="text" name="email"  minlength="2" maxlength="30" class="popup__input popup__input_type_email" placeholder="Введите почту">
+                <span class="error-message error-message_type_email"> </span>
               </div>
               <div class="popup__input-container">
-                <input type="text" name="job"  minlength="2" maxlength="30" class="popup__input popup__input_type_job" placeholder="О себе">
-                <span class="error-message error-message_type_job"> </span>
+                <p class="popup__input-title">Пароль</p>
+                <input type="text" name="password"  minlength="2" maxlength="30" class="popup__input popup__input_type_password" placeholder="Введите пароль">
+                <span class="error-message error-message_type_password"> </span>
               </div>
-                <button type="submit" class="button popup__button popup__button_type_login">Войти</button>
+                <button type="submit" class="popup__submit">Войти</button>
+                <span class="popup__text">или<button class="popup__button">Зарегистрироваться</button></span>
             </form>
           </div>
         </div>
