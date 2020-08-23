@@ -4,12 +4,31 @@
 .header__menu{
     position: relative;
     display: flex;
-    margin: 0 116px 0 0;
     padding: 0;
     height: 100%;
-      font-size: 18px;
-      line-height: 24px;
       font-weight: 500;
       font-family: Roboto, Arial, sans-serif;
 
    }
+
+@media screen and (max-width: 767px){
+.header__menu{
+display: none;
+  }
+}
+
+@media screen and (min-width: 768px){
+.header__menu{
+margin: 0 40px 0 0;
+font-size: 16px;
+  line-height: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px){
+.header__menu{
+margin: 0 104px 0 0;
+  font-size: 18px;
+  }
+}
+

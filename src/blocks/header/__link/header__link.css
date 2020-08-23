@@ -3,9 +3,7 @@
 .header__link{
     position: relative;
     display: flex;
-      min-height: 80px;
       align-items: center;
-      margin: 0 32px 0 0;
         color: inherit;
         text-decoration: none;
 
@@ -13,4 +11,24 @@
 
 .header__link:last-child{
   margin: 0;
+}
+
+@media screen and (max-width: 767px){
+.header__link{
+display: none;
+  }
+}
+
+@media screen and (min-width: 768px){
+.header__link{
+min-height: 80px;
+margin: 0 16px 0 0;
+}
+}
+
+@media screen and (min-width: 1440px){
+.header__link{
+min-height: 80px;
+margin: 0 32px 0 0;
+  }
 }

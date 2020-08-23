@@ -1,6 +1,22 @@
 @import url('./_type/header__logo_type_light.css');
 
+@media screen and (max-width: 767px){
 .header__logo{
-    margin: 0 0 0 104px;
-      height: min-content;
+  margin: 0 0 0 16px;
+  height: 16px;
   }
+}
+
+@media screen and (min-width: 768px){
+.header__logo{
+  margin: 0 0 0 40px;
+  height: 20px;
+  }
+}
+
+@media screen and (min-width: 1440px){
+.header__logo{
+  margin: 0 0 0 104px;
+  }
+}
+

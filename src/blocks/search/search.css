@@ -6,10 +6,32 @@
 
 .search{
     display: flex;
+    position: relative;
     flex-direction: column;
     align-items: start;
-    margin: 0;
-    padding: 80px 0 0 0;
      height: min-content;
-     max-width: 608px;
+     
+        box-sizing: border-box;
+        border: 1px solid red;
+
+
   }
+
+@media screen and (max-width: 767px){
+.search{
+margin: 30px 16px 32px 16px;
+}
+}
+
+
+@media screen and (min-width: 768px){
+.search{
+margin: 38px 160px 48px 160px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.search{
+margin: 80px 0 80px 0;
+}
+}
