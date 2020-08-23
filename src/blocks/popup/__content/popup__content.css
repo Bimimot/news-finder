@@ -1,0 +1,24 @@
+.popup__content {
+  background-color: #fff;
+  position: relative;
+  box-sizing: border-box;
+
+}
+
+@media screen and (max-width: 540px) {
+.popup__content {
+    width: calc(100% - 60px);
+  }
+}
+
+.popup__content_type_form{ 
+  width: 430px;
+  min-height: 330px;
+  border-radius: 10px;
+  padding: 34px 36px;
+}
+
+.popup__content_type_card{
+  border-radius: 0px;
+  padding: 0;
+}

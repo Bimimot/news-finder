@@ -15,7 +15,7 @@
           <div class="header__menu header__menu_type_image">
             <a class="header__link header__link_type_selected" href="index.html">Главная</a>
             <a class="header__link" href="articles.html">Сохраненные</a>
-            <a class="header__button" href="">Авторизоваться</a>
+            <button class="header__button" href="">Авторизоваться</button>
 
           </div>
         </header>
@@ -101,6 +101,24 @@
           </a>
           </div>
         </footer>
+
+        <div class="popup popup_type_login">
+          <div class="popup__content popup__content_type_form">
+            <img src="<%=require('./images/close.svg').default%>" alt="" class="popup__close">
+            <h3 class="popup__title">Вход</h3>
+            <form class="popup__form popup__form_type_login" name="login">
+              <div class="popup__input-container">
+                <input type="text" name="name"  minlength="2" maxlength="30" class="popup__input popup__input_type_name" placeholder="Имя">
+                <span class="error-message error-message_type_name"> </span>
+              </div>
+              <div class="popup__input-container">
+                <input type="text" name="job"  minlength="2" maxlength="30" class="popup__input popup__input_type_job" placeholder="О себе">
+                <span class="error-message error-message_type_job"> </span>
+              </div>
+                <button type="submit" class="button popup__button popup__button_type_login">Войти</button>
+            </form>
+          </div>
+        </div>
 
 <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 
