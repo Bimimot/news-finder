@@ -1,4 +1,4 @@
 .popup__input-container{
-    min-height: 64px;
+    height: min-content;
     margin: 0 0 12px 0;
 }

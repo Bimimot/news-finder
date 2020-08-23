@@ -7,38 +7,51 @@ export default class FormValidator {
   }
 
   checkInputValidaty(curInput, curError) {                                          //валидация одного поля, принимает на входе текущее значени в поле и элемент ошибки
-    if (!this.validateBlank(curInput, curError)) { return false }
-    else {
-      if (!this.validateText(curInput, curError)) { return false };
-      if (!this.validateUrl(curInput, curError)) { return false };
-    }
-
+  if (!this.validateBlank(curInput, curError)) { return false }
+  else {
+    if (!this.validateNameLength(curInput, curError) ||
+        !this.validatePasswordLength(curInput, curError) ||
+        !this.validateEmail(curInput, curError)
+      )
+    {return false };
+  }
     curError.textContent = '';                                                       //если ошибок не было - текста ошибки нет, значение проверки true
     return true
 
   }
   validateBlank(curInput, curError) {                                                //валидация пустого поля
-    if (curInput.value.length === 0)                                                 //текст ошибки для 0 длины значения поля
-    {
-      curError.textContent = this.errorsMessages.validateBlank;
+    if (curInput.value.length === 0)                                                 //для 0 длины значения поля ошибку не выводим
+    { curError.textContent = '';
       return false
     };
     return true
   }
 
-  validateText(curInput, curError) {                                                 //валидация текстового поля
-
-    if (curInput.getAttribute('type') === 'text' && (curInput.validity.tooShort || curInput.validity.toolong)) {
-      curError.textContent = this.errorsMessages.validateText;                       //текст ошибки для текстового поля по условию
+  validateNameLength(curInput, curError) {
+    if (curInput.getAttribute('type') === 'text'
+     && (curInput.getAttribute('name')==='name')
+     && (curInput.validity.tooShort || curInput.validity.toolong)) {
+      curError.textContent = this.errorsMessages.validateNameL;                       //текст ошибки поля c именем по условию длины
       return false
     };
     return true
   }
 
-  validateUrl(curInput, curError) {                                                   //валидация поля для ссылки
-    if (curInput.getAttribute('type') === 'url' && !curInput.checkValidity())         //текст ошибки для url поля
-    {
-      curError.textContent = this.errorsMessages.validateUrl;
+  validatePasswordLength(curInput, curError) {
+    if (curInput.getAttribute('type') === 'text'
+     && (curInput.getAttribute('name')==='password')
+     && (curInput.validity.tooShort)) {
+      curError.textContent = this.errorsMessages.validatePasswordL;                       //текст ошибки поля c паролем по условию длины
+      return false
+    };
+    return true
+  }
+
+  validateEmail(curInput, curError) {
+    if (curInput.getAttribute('type') === 'text'
+     && (curInput.getAttribute('name')==='email')
+     && (curInput.validity.patternMismatch)) {                                           //несовпадение паттерна
+      curError.textContent = this.errorsMessages.validateEmail;                       //текст ошибки поля c email по паттерну
       return false
     };
     return true
