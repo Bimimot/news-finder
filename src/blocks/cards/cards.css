@@ -11,6 +11,7 @@
 @import url(./__text/cards__text.css);
 @import url(./__title/cards__title.css);
 @import url(./__mark/cards__mark.css);
+@import url(./__label/cards__label.css);
 
 
 .cards{
