@@ -1,6 +1,7 @@
 .popup__form {
-  margin: 0 0 22px 0;
+  margin: 0;
   padding: 0;
+    height: min-content;
 }
 
 
@@ -8,3 +9,6 @@
 
 }
 
+.popup__form_type_signup {
+
+}

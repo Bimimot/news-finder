@@ -10,6 +10,7 @@
 @import url(../blocks/intro/intro.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/error-message/error-message.css);
+@import url(../blocks/button/button.css);
 
 @font-face {
     font-family: 'Roboto';

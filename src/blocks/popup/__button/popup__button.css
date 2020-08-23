@@ -2,19 +2,8 @@
   border: none;
   background-color: transparent;
   color: #2F71E5;
+    margin: 0;
 
-}
-
-.popup__text{
-display: flex;
-width: 100%;
-font-family: Inter;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 17px;
-justify-content: center;
-  margin: 16px auto 0 auto;
 }
 
 

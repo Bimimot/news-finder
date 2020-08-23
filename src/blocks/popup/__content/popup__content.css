@@ -3,7 +3,7 @@
   position: relative;
   box-sizing: border-box;
     width: 430px;
-    max-height: 383px;
+    height: min-content;
     border-radius: 16px;
     padding: 34px 36px 28px 36px;
 

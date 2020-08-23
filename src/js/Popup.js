@@ -1,9 +1,9 @@
 export default class Popup {
-  constructor(container, button, validator) {
+  constructor(container, buttonSelector, validator) {
     this.container = container;
     this.formElement = container.querySelector('.popup__form');
     this.validator = validator;
-    this.button = button;
+    this.buttonSelector = buttonSelector;
     this._closeByKey = this._closeByKey.bind(this);
     this._closeByClick = this._closeByClick.bind(this);
     this.close = this.close.bind(this);
@@ -20,13 +20,15 @@ export default class Popup {
     }
   }
 
-  _popupListeners() {                                                                       //слушаем нажатия на вызов попапа
-    this.button.addEventListener('click', (event) => {
-      this.open()});
+  _popupListeners() {
+    const elements = document.querySelectorAll(this.buttonSelector);
+    for (let element of elements) {
+      element.addEventListener('click', (event) => { this.open();}) //слушаем нажатия на вызов попапа
+    }
   }
 
 
-  open() {                                                                                  //открытие попапа
+  open() {                                                                                   // открытие попапа
     this.validator.setEventListeners(this.formElement);                                     //вызываем валидацию полей;
     this.container.classList.add('popup_is-opened');
     this._setEventListeners();                                                              //вызываем слушатели для закрытия
@@ -58,8 +60,8 @@ export default class Popup {
     this.container.classList.remove('popup_is-opened');
 
 
-      this._hideErrors();
-      this._resetForm()
+    this._hideErrors();
+    this._resetForm()
   }
 
   _resetForm() {                                                                            //очистка формы
