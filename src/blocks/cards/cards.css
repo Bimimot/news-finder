@@ -1,4 +1,3 @@
-@import url(./__bookmark/cards__bookmark.css);
 @import url(./__button/cards__button.css);
 @import url(./__description/cards__description.css);
 @import url(./__grid/cards__grid.css);
@@ -11,6 +10,7 @@
 @import url(./__sign/cards__sign.css);
 @import url(./__text/cards__text.css);
 @import url(./__title/cards__title.css);
+@import url(./__mark/cards__mark.css);
 
 
 .cards{

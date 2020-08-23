@@ -20,7 +20,7 @@
   </header>
 
   <section class="intro">
-    <p class="intro__about">Сохраненные статьи</p>
+    <p class="intro__about">Сохранённые статьи</p>
     <h2 class="intro__title title__section">Грета, у вас 5 сохранённых статей</h2>
     <p class="intro__keys">По ключевым словам:
       <span class="intro__keys intro__keys_accent_span">Природа, Тайга</span>&#160и&#160
@@ -34,7 +34,8 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-            <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
+            <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+            <p class="cards__label">Природа</p>
             <img class="cards__photo" alt="photo" src="<%=require('./images/card-1.jpg').default%>">
         </div>
         <div class="cards__text">
@@ -47,21 +48,22 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-            <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-blue.svg').default%>">
+            <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+            <p class="cards__label">Парки</p>
             <img class="cards__photo" alt="photo" src="<%=require('./images/card-2.jpg').default%>">              </div>
         <div class="cards__text">
             <p class="cards__item-date">2 августа 2019</p>
             <h3 class="cards__item-title">Лесные огоньки: история одной фотографии</h3>
-            <p class="cards__item-article">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+            <p   class="cards__item-article">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
           <p class="cards__sign">МЕДУЗА</p>
         </div>
       </div>
 
       <div class="cards__item">
         <div class="cards__image-container">
-            <img class="cards__bookmark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
+            <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+            <p class="cards__label">Фотография</p>
             <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
-
         </div>
 
         <div class="cards__text">
@@ -71,7 +73,33 @@
           <p class="cards__sign">РИА</p>
         </div>
       </div>
+      <div class="cards__item">
+        <div class="cards__image-container">
+            <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+            <p class="cards__label">Парки</p>
+            <img class="cards__photo" alt="photo" src="<%=require('./images/card-2.jpg').default%>">              </div>
+        <div class="cards__text">
+            <p class="cards__item-date">2 августа 2019</p>
+            <h3 class="cards__item-title">Лесные огоньки: история одной фотографии</h3>
+            <p   class="cards__item-article">Фотограф отвлеклась от освещения суровой политической реальности Мексики, чтобы запечатлеть ускользающую красоту одного из местных чудес природы.</p>
+          <p class="cards__sign">МЕДУЗА</p>
+        </div>
+      </div>
 
+      <div class="cards__item">
+        <div class="cards__image-container">
+            <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+            <p class="cards__label">Фотография</p>
+            <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
+        </div>
+
+        <div class="cards__text">
+            <p class="cards__item-date">55 апреля 2030</p>
+            <h3 class="cards__item-title">«Первозданная тайга»: новый фотопроект Игоря Шпиленка</h3>
+            <p class="cards__item-article">Знаменитый фотограф снимает первозданные леса России, чтобы рассказать о необходимости их сохранения. В этот раз он отправился в Двинско-Пинежскую тайгу, где...</p>
+          <p class="cards__sign">РИА</p>
+        </div>
+      </div>
 
     </div>
 
