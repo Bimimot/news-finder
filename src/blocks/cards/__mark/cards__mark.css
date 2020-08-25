@@ -1,13 +1,31 @@
 .cards__mark{
     position: absolute;
-        top: 24px;
-        right: 24px;
-        box-sizing: content-box;
-        padding: 9px;
-        min-height: 19px;
-        max-height: 40px;
-            border-radius: 8px;
-            background-color: white;
-                z-index: 5;
+    box-sizing: content-box;
+    padding: 9px;
+    min-height: 19px;
+    max-height: 40px;
+        border-radius: 8px;
+        background-color: white;
+        z-index: 5;
      }
 
+@media screen and (max-width: 767px){
+.cards__mark{
+top: 16px;
+right: 16px;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__mark{
+top: 8px;
+right: 8px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__mark{
+top: 24px;
+right: 24px;
+}
+}

@@ -1,5 +1,4 @@
 @import url(./__button/cards__button.css);
-@import url(./__description/cards__description.css);
 @import url(./__grid/cards__grid.css);
 @import url(./__image-container/cards__image-container.css);
 @import url(./__item-article/cards__item-article.css);
@@ -21,7 +20,24 @@
     align-items: center;
 
     box-sizing: border-box;
-    padding: 80px 104px 80px 104px;
     width: 100%;
       background-color: #F5F6F7;
   }
+
+@media screen and (max-width: 767px){
+.cards{
+  padding: 32px 16px 32px 16px;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards{
+  padding: 40px 40px 40px 40px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards{
+padding: 80px 104px 80px 104px;
+}
+}

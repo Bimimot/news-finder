@@ -1,9 +1,10 @@
 .cards__image-container{
     position: relative;
+    display: flex;
     width: 100%;
-    min-height: 272px;
+    height: calc(width*68%);
     margin: 0;
       border-radius: 15px 15px 0 0;
         /* overflow: hidden; */
-      display: flex;
+
   }

@@ -1,7 +1,26 @@
 .author__column{
     flex-flow: column;
     align-items: start;
-    margin: 50px 0 0 56px;  
-      max-width: 600px;
+
       height: min-content;
   }
+
+@media screen and (max-width: 767px){
+.author__column{
+  margin: 24px 0 0 0;
+}
+}
+
+@media screen and (min-width: 768px){
+.author__column{
+  margin: -20px 0 0 32px;
+  max-width: 424px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.author__column{
+  margin: 50px 0 0 56px;
+  max-width: 600px;
+}
+}

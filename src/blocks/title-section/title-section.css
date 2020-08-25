@@ -1,5 +1,26 @@
-.title__section{
+.title-section{
+  font-family: 'Roboto Slab', Times, serif;
+  font-style: normal;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 767px){
+.title-section{
+  font-size: 30px;
+  line-height: 34px;
+}
+}
+
+@media screen and (min-width: 768px){
+.title-section{
+  font-size: 30px;
+  line-height: 34px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.title-section{
   font-size: 40px;
   line-height: 46px;
-    font-family: 'Roboto Slab', Times, serif;
+}
 }

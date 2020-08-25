@@ -1,8 +1,19 @@
 .cards__item-date{
-    margin: 0 0 12px 0;
     color: #B6BCBF;
     font-size: 18px;
     line-height: 24px;
       font-family: 'Source Sans Pro', Arial, sans-serif;
       text-transform: lowercase;
     }
+    
+@media screen and (max-width: 767px){
+.cards__item-date{
+margin: 0 0 10px 0;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__item-date{
+margin: 0 0 12px 0;
+}
+}

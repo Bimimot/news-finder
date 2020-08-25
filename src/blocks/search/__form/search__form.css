@@ -2,24 +2,25 @@
 position: relative;
 display: flex;
     width: 100%;
-      background-color: white;
-
     }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 767px){
 .search__form{
 flex-direction: column;
+justify-items: space-between;
+  background-color: transparent;
 }
 }
 
-@media screen and (min-width: 321px){
+@media screen and (min-width: 768px){
 .search__form{
   min-height: 56px;
   border-radius: 28px;
+  background-color: white;
 }
 }
 
-@media screen and (min-width: 769px){
+@media screen and (min-width: 1440px){
 .search__form{
   min-height: 64px;
   border-radius: 32px;

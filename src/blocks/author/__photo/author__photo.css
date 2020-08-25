@@ -1,7 +1,25 @@
 .author__photo{
     display: flex;
     position: relative;
-     max-width: 464px;
      height: 100%;
        border-radius: 50%;
    }
+
+@media screen and (max-width: 767px){
+.author__photo{
+max-width: 272px;
+margin: 0 auto 0 auto;
+}
+}
+
+@media screen and (min-width: 768px){
+.author__photo{
+max-width: 232px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.author__photo{
+max-width: 464px;
+}
+}

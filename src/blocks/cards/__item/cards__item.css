@@ -1,8 +1,29 @@
 .cards__item{
 display: flex;
+position: relative;
 flex-direction: column;
-   max-width: 400px;
-   min-height: 576px;
      border-radius: 16px;
      box-shadow: 0 17px 58px -16px rgba(8, 29, 45, 0.1);
+     background-color: white;
      }
+
+@media screen and (max-width: 767px){
+.cards__item{
+height: 440px;
+width: 228px;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__item{
+height: 420px;
+width: 224px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__item{
+height: 576px;
+width: 400px;
+}
+}

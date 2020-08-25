@@ -1,13 +1,39 @@
 .cards__button{
     display: flex;
-       min-height: 64px;
-       min-width: 288px;
+    justify-content: center;
+    align-items: center;
        border: none;
-       margin: 64px 0 0 0;
-       padding: 20px 84px 20px 84px;
-       background-color: white;
-       border-radius: 42px;
-           font-size: 18px;
-           line-height: 24px;;
-           font-family: Roboto, Arial, sans-serif;
-    }
+       background-color: #ffffff;
+          font-family: Roboto, Arial, sans-serif;
+          font-style: normal;
+          font-weight: 500;
+          font-size: 18px;
+          line-height: 24px;
+}
+
+@media screen and (max-width: 767px){
+.cards__button{
+margin: 15px 0 0 0;
+  min-height: 56px;
+  border-radius: 28px;
+  min-width: calc(100vw - 32px);
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__button{
+margin: 22px 0 0 0;
+  min-width: 240px;
+  min-height: 56px;
+  border-radius: 28px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__button{
+margin: 64px 0 0 0;
+  min-width: 288px;
+  min-height: 64px;
+  border-radius: 32px;
+}
+}

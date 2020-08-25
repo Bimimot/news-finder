@@ -1,7 +1,31 @@
 .cards__grid{
     display: grid;
+    position: relative;
     width: 100%;
-    grid-template-columns: repeat(auto-fill, 400px);
-    grid-template-rows: repeat(auto-fill, 576px);
-    grid-gap: 15px;
+    justify-content: center;
   }
+
+@media screen and (max-width: 767px){
+.cards__grid{
+grid-template-columns: repeat(auto-fit, 228px);
+grid-template-rows: repeat(auto-fit, 440px);
+grid-gap: 10px;
+
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__grid{
+grid-template-columns: repeat(auto-fit, 224px);
+grid-template-rows: repeat(auto-fit, 420px);
+grid-gap: 8px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__grid{
+grid-template-columns: repeat(auto-fit, 400px);
+grid-template-rows: repeat(auto-fit, 576px);
+grid-gap: 15px;
+}
+}

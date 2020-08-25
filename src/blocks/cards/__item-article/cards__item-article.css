@@ -1,8 +1,24 @@
 .cards__item-article{
-    margin: 0;
-      display: flex;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
+  margin: 0;
       font-size: 16px;
       line-height: 22px;
       color: black;
         font-family: Roboto, Arial, sans-serif;
+
       }
+
+@media screen and (max-width: 1439px){
+.cards__item-article{
+  -webkit-line-clamp: 4;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__item-article{
+  -webkit-line-clamp: 5;
+}
+}

@@ -2,10 +2,21 @@
     position: relative;
     display: flex;
     flex-grow: 1;
-      margin: 0 0 0 32px;
+      margin: 0 32px 0 32px;
         font-size: 16px;
         line-height: 22px;
         outline: none;
         border: none;
-        font-family: Roboto, Arila, sans-serif;
+        font-family: Roboto, Arial, sans-serif;
   }
+
+@media screen and (max-width: 767px){
+.search__input{
+  margin: 0 0 16px 0;
+  min-height: 56px;
+  border-radius: 28px;
+  padding: 0 16px 0 16px;
+
+}
+}
+

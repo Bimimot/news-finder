@@ -7,9 +7,27 @@
 display: flex;
 position: relative;
     box-sizing: border-box;
-    padding: 80px 104px 80px 104px;
     height: min-content;
     width: 100%;
       background-color: white;
-      color: black;    
+      color: black;
   }
+
+@media screen and (max-width: 767px){
+.author{
+flex-flow: column;
+padding: 32px 24px 80px 24px;
+}
+}
+
+@media screen and (min-width: 768px){
+.author{
+padding: 40px 40px 60px 40px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.author{
+padding: 80px 104px;
+}
+}

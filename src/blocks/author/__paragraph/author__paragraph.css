@@ -1,9 +1,10 @@
 .author__paragraph{
-    font-size: 18px;
-    line-height: 24px;
-    margin: 0 0 24px 0;
+font-size: 18px;
+line-height: 24px;
     font-family: Roboto, Arial, sans-serif;
-  }
+    font-style: normal;
+    font-weight: normal;
+}
 
   .author__paragraph:last-child{
     margin: 0;
