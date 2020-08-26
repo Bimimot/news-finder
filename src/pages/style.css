@@ -11,6 +11,8 @@
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/error-message/error-message.css);
 @import url(../blocks/button/button.css);
+@import url(../blocks/circle-preloader/circle-preloader.css);
+@import url(../blocks/links/links.css);
 
 @font-face {
     font-family: 'Roboto';

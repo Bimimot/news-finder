@@ -1,7 +1,14 @@
 .footer__menu{
-display: flex;
-position: relative;
-    margin: 0;
-    width: min-content;
+  display: flex;
+  position: relative;
+      margin: 0;
+      width: min-content;
+  }
 
-}
+  @media screen and (max-width: 767px){
+  .footer__menu{
+  order: 1;
+  width: 100%;
+  justify-content: space-between;
+  }
+  }

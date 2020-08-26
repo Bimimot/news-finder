@@ -1,0 +1,12 @@
+.search__comment {
+  position: relative;
+    max-width: 300px;
+    text-align: center;
+    color: #B6BCBF;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 24px;
+    margin: 0;
+  }

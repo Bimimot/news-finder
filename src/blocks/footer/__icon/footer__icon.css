@@ -1,8 +1,11 @@
 .footer__icon{
-display: flex;
-position: relative;
-    min-width: 20px;
-    height: 100%;
-    margin-left: 28px;
-      padding: 0;
-}
+  display: flex;
+  position: relative;
+      max-width: 20px;
+      max-height: 20px;
+      list-style-type: none;
+      margin: 0;
+  }
+
+
+

@@ -1,4 +1,6 @@
 .footer__copyright{
+  display: flex;
+position: relative;
 font-size: 16px;
 line-height: 22px;
     color: #b6bcbf;
@@ -6,3 +8,9 @@ line-height: 22px;
     font-family: Roboto, Arial, sans-serif;
 
   }
+
+@media screen and (max-width: 767px){
+.footer__copyright{
+order: 9;
+}
+}

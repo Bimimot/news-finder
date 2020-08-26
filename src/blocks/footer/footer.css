@@ -2,18 +2,60 @@
 @import url(./__icon/footer__icon.css);
 @import url(./__link/footer__link.css);
 @import url(./__menu/footer__menu.css);
+@import url(./__icons/footer__icons.css);
+@import url(./__links/footer__links.css);
+
 
 .footer{
-display: flex;
-position: relative;
-    box-sizing: border-box;
-    padding: 0 104px 0 104px;
-    width: 100%;
-    min-height: 80px;
-      align-items: center;
-      justify-content: space-between;
-  background-color: white;
+  display: flex;
+  position: relative;
+      box-sizing: border-box;
+
+      width: 100%;
+        align-items: center;
+        justify-content: space-between;
+    background-color: white;
+    }
+
+  @media screen and (max-width: 767px){
+  .footer{
+    padding: 20px 16px;
+    min-height: 175px;
+    flex-direction: column;
+    }
   }
+
+  @media screen and (min-width: 768px){
+  .footer{
+    padding: 0 40px;
+    min-height: 64px;
+    }
+  }
+
+  @media screen and (min-width: 1440px){
+  .footer{
+    padding: 0 104px;
+    min-height: 80px;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
