@@ -11,7 +11,7 @@
 
 <body class="page">
   <div class="intro-container">
-    <header class="header header_type_image">
+    <!-- <header class="header header_type_image">
       <img class="header__logo" alt="header-logo" src="<%=require('./images/news-logo.svg').default%>">
       <div class="header__menu header__menu_type_image">
         <a class="header__link header__link_type_selected" href="index.html">Главная</a>
@@ -27,7 +27,24 @@
         <input type="submit" class="search__button" value="Искать">
       </div>
     </section>
-  </div>
+  </div> -->
+
+  <header class="header header_type_dark">
+    <img class="header__logo" alt="header-logo" src="<%=require('./images/news-logo.svg').default%>">
+    <ul class="header__menu header__menu_type_dark">
+      <li class="header__link header__link_type_selected header__link_type_text">
+        <a class="links" href="index.html">Главная</a>
+       </li>
+
+      <li class="header__link">
+        <a class="links" href="articles.html">Сохранённые</a>
+      </li>
+      <li class="header__link header__link_type_button"> Авторизоваться
+      </li>
+    </ul>
+  </header>
+
+
 
   <section class="cards">
     <h2 class="cards__title title-section">Результаты поиска</h2>
@@ -173,6 +190,25 @@
             </form>
           </div>
         </div> -->
+
+        <!-- <div class="popup">
+          <div class="popup__container_type_menu">
+            <header class="header header_type_dark">
+                <img class="header__logo" alt="header-logo" src="https://img1.freepng.ru/20180810/xbv/kisspng-letter-clip-art-alphabet-initial-2-1-5b6d6d3249cf69.6744829315338980343023.jpg">
+              </header>
+                <ul class="header__menu header__menu_type_dark">
+                  <li class="header__link">
+                    <a class="links" href="index.html">Главная</a>
+                   </li>
+
+                  <li class="header__link">
+                    <a class="links" href="articles.html">Сохранённые</a>
+                  </li>
+                  <li class="header__link header__link_type_button"> Авторизоваться
+                  </li>
+                </ul>
+          </div> -->
+
 
   <script src="<%= htmlWebpackPlugin.files.js %>"></script>
 

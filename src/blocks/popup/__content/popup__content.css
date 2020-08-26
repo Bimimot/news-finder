@@ -14,3 +14,12 @@
     width: calc(100% - 60px);
   }
 }
+
+.popup__container_type_menu{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: min-content;
+  background-color: #1A1B22;
+}
