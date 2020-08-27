@@ -7,3 +7,21 @@ line-height: 24px;
 
 color: rgba(26, 27, 34, 0.5);
 }
+
+@media screen and (max-width: 767px){
+.intro__about{
+font-size: 12px;
+}
+}
+
+@media screen and (min-width: 768px){
+.intro__about{
+font-size: 14px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.intro__about{
+font-size: 18px;
+}
+}

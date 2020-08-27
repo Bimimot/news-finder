@@ -52,7 +52,9 @@ export default class Popup {
   }
 
   _closeByClick(event) {
-    if (!this.formElement) { this.close() };                                                  //не форма - закрытие по любому клику
+    if (!this.formElement && !event.target.className.includes('links')) { // если не форма и не ссылка в меню - закрытие по любому клику
+      this.close()
+    };
     if (
       (this.formElement && this.formElement != '') &&                                     //для формы -закрытие по клику мимо попапа либо клика по крестику
       (event.target.className.includes('popup_type') || event.target.className.includes('popup__close'))
@@ -64,8 +66,8 @@ export default class Popup {
     this.removeEventListeners();
     this.container.classList.remove('popup_is-opened');
 
-    if (this.formElement && this.formElement != '')
-    { this._hideErrors();
+    if (this.formElement && this.formElement != '') {
+      this._hideErrors();
       this._resetForm()
     }
   }

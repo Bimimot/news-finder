@@ -1,7 +1,5 @@
 .cards__label{
   position: absolute;
-      top: 24px;
-      left: 24px;
       box-sizing: content-box;
       padding: 9px 18px 9px 18px;
       max-height: 40px;
@@ -14,3 +12,24 @@
           line-height: 24px;
               z-index: 5;
    }
+
+@media screen and (max-width: 767px){
+.cards__label{
+top: 16px;
+left: 16px;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__label{
+top: 8px;
+left: 8px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__label{
+top: 24px;
+left: 24px;
+}
+}

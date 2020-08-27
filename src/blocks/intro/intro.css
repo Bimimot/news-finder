@@ -6,10 +6,29 @@
   display: flex;
   flex-direction: column;
   display: relative;
-    
+
 
   box-sizing: border-box;
-  padding: 50px 104px 56px 104px;
+
   width: 100%;
     background-color:white;
+}
+
+
+@media screen and (max-width: 767px){
+.intro{
+  padding: 8px 16px 32px 16px;
+}
+}
+
+@media screen and (min-width: 768px){
+.intro{
+  padding: 24px 40px 42px 40px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.intro{
+  padding: 40px 104px 56px 104px;
+}
 }
