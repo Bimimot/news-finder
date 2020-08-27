@@ -1,0 +1,13 @@
+.popup__menu{
+  position: relative;
+  display: flex;
+    flex-direction: column;
+    min-height: 56px;
+    padding: 16px;
+    margin:0;
+      font-size: 18px;
+      color: white;
+
+
+}
+

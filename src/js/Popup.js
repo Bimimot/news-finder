@@ -23,13 +23,15 @@ export default class Popup {
   _popupListeners() {
     const elements = document.querySelectorAll(this.buttonSelector);
     for (let element of elements) {
-      element.addEventListener('click', (event) => { this.open();}) //слушаем нажатия на вызов попапа
+      element.addEventListener('click', (event) => { this.open(); }) //слушаем нажатия на вызов попапа
     }
   }
 
 
-  open() {                                                                                   // открытие попапа
-    this.validator.setEventListeners(this.formElement);                                     //вызываем валидацию полей;
+  open() {
+    if (this.formElement && this.formElement != '') {
+      this.validator.setEventListeners(this.formElement);                                     //вызываем валидацию полей;
+    }
     this.container.classList.add('popup_is-opened');
     this._setEventListeners();                                                              //вызываем слушатели для закрытия
 
@@ -49,9 +51,12 @@ export default class Popup {
     if (event.key === 'Escape') { this.close() }                                            //закрытие по Escape
   }
 
-  _closeByClick(event) {                                                                    //закрытие по клику мимо попапа либо клика по крестику
-    if (event.target.className.includes('popup_type') ||
-      event.target.className.includes('popup__close')) { this.close() }
+  _closeByClick(event) {
+    if (!this.formElement) { this.close() };                                                  //не форма - закрытие по любому клику
+    if (
+      (this.formElement && this.formElement != '') &&                                     //для формы -закрытие по клику мимо попапа либо клика по крестику
+      (event.target.className.includes('popup_type') || event.target.className.includes('popup__close'))
+    ) { this.close() }
   }
 
   close() {                                                                                  //метод закрытия попапа
@@ -59,9 +64,10 @@ export default class Popup {
     this.removeEventListeners();
     this.container.classList.remove('popup_is-opened');
 
-
-    this._hideErrors();
-    this._resetForm()
+    if (this.formElement && this.formElement != '')
+    { this._hideErrors();
+      this._resetForm()
+    }
   }
 
   _resetForm() {                                                                            //очистка формы

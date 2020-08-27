@@ -1,34 +1,13 @@
+@import url(./_type/popup__content_type_form.css);
+@import url(./_type/popup__content_type_menu.css);
+
 .popup__content {
   position: relative;
-  background-color: #fff;
-  box-sizing: border-box;
     height: min-content;
-    border-radius: 16px;
-    padding: 34px 36px 28px 36px;
     z-index: 5;
-    
+
 }
 
-@media screen and (max-width: 767px) {
-.popup__content {
-    width: 100%;
-    max-width: 430px;
-    margin-top: 56px;
-  }
-}
 
-@media screen and (min-width: 768px) {
-.popup__content {
-    min-width: 430px;
-    margin-top: 207px;
-  }
-}
 
-.popup__container_type_menu{
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: min-content;
-  background-color: #1A1B22;
-}
+

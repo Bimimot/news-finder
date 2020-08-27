@@ -5,6 +5,7 @@
 @import url(./__input/popup__input.css);
 @import url(./__submit/popup__submit.css);
 @import url(./__button/popup__button.css);
+@import url(./__menu/popup__menu.css);
 @import url(./__text/popup__text.css);
 @import url(./__input-container/popup__input-container.css);
 @import url(./__input-title/popup__input-title.css);
@@ -24,8 +25,15 @@
 }
 
 
-.popup_type_login {
+.popup_type_login{
 
 }
 
+.popup_type_signup{
+
+}
+
+.popup_type_menu{
+
+}
 

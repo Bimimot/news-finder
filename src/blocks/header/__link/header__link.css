@@ -9,14 +9,14 @@
     }
 
   .header__link:last-child{
-  margin: 0;
+  margin-right: 0;
   }
 
   @media screen and (max-width: 767px){
   .header__link{
   min-height: 56px;
-  border: 1px solid red;
   font-size: 18px;
+
   }
   }
 
