@@ -12,8 +12,8 @@
 
 @media screen and (max-width: 767px){
 .header__menu{
-/* display: flex; */
-display: none;
+display: flex;
+/* display: none; */
 
 flex-direction: column;
 position: relative;
