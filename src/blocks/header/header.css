@@ -3,7 +3,6 @@
 @import url(./__link/header__link.css);
 @import url(./_type/header_type_light.css);
 @import url(./_type/header_type_dark.css);
-@import url(./__button/header__button.css);
 
 .header{
     position: relative;
@@ -30,14 +29,3 @@
   min-height: 80px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-

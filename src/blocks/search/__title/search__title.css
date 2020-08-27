@@ -17,13 +17,14 @@ max-width: 285px;
 @media screen and (min-width: 768px){
 .search__title{
 max-width: 385px;
+font-size: 60px;
+line-height: 64px;
 }
 }
 
 @media screen and (min-width: 1440px){
 .search__title{
 max-width: 608px;
-  font-size: 60px;
-  line-height: 64px;
+
 }
 }
