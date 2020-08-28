@@ -1,7 +1,7 @@
-import "./pages/style.css";
+import "../css/articles.css";
 
-import FormValidator from './js/FormValidator.js';
-import Popup from './js/Popup.js';
+import FormValidator from './FormValidator.js';
+import Popup from './Popup.js';
 
     //dom-элементы, для работы с методами классов
 
@@ -22,12 +22,4 @@ import Popup from './js/Popup.js';
     const menuPopup = new Popup(popupMenuContainer, '.button_type_menu'); //создаем попап для выпадающего меню
 
 
-// хардкод для активации иконок
-document.querySelectorAll('.cards__bookmark').forEach(item => {
-  item.addEventListener('click', event => {
-    event.target.classList.toggle('cards__bookmark_clicked_on');
-    event.target.classList.toggle('cards__bookmark_clicked_off');
-
-  })
-})
 

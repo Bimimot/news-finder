@@ -8,7 +8,10 @@ const webpack = require('webpack');
 const isDev = process.env.NODE_ENV === 'development'; // флаг для режима разработки
 
 module.exports = {
-  entry: { main: './src/index.js' },  // источник для js
+  entry: {
+    main: './src/js/index.js',
+    articles: './src/js/articles.js',
+    },  // источники для js
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[chunkhash].js' // точка выхода для js
@@ -62,13 +65,15 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/index.html',  // источник для сборки html
-      filename: 'index.html'        // точка выхода для html
+      template: './src/pages/index.html',  // источник для сборки html
+      filename: 'index.html',        // точка выхода для html
+      chunks: ['main']            // связка с js
     }),
     new HtmlWebpackPlugin({
       inject: false,
-      template: './src/articles.html',  // источник для сборки доп страницы html
-      filename: 'articles.html'        // точка выхода для html
+      template: './src/pages/articles.html',  // источник для сборки html
+      filename: 'articles.html',        // точка выхода для html
+      chunks: ['articles']            // связка с js
     }),
     new WebpackMd5Hash()
   ]
