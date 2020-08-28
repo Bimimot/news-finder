@@ -14,7 +14,7 @@ module.exports = {
     },  // источники для js
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[chunkhash].js' // точка выхода для js
+    filename: './js/[name].[chunkhash].js' // точка выхода для js
   },
   module: {
     rules: [

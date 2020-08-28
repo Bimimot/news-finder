@@ -1,19 +1,14 @@
 @import url(../vendor/normalize.css);
 @import url(../blocks/intro-container/intro-container.css);
 @import url(../blocks/header/header.css);
-@import url(../blocks/search/search.css);
-@import url(../blocks/author/author.css);
 @import url(../blocks/cards/cards.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/icons/icons.css);
 @import url(../blocks/title-section/title-section.css);
-@import url(../blocks/intro/intro.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/error-message/error-message.css);
 @import url(../blocks/button/button.css);
-@import url(../blocks/circle-preloader/circle-preloader.css);
 @import url(../blocks/links/links.css);
-@import url(../blocks/smile/smile.css);
 
 @font-face {
     font-family: 'Roboto';
