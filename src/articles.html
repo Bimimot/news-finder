@@ -20,8 +20,9 @@
       <li class="header__link header__link_type_selected">
         <a class="links" href="articles.html">Сохранённые</a>
       </li>
-      <li class="header__link header__link_type_button button_type_login">
-        Грета&#8194<img class="" alt="icon-exit" src="<%=require('./images/icon-exit.png').default%>">
+      <li class="header__link header__link_type_button button_type_exit">
+        <a class="links" href="index.html">Грета&#8194</a>
+        <img class="" alt="icon-exit" src="<%=require('./images/icon-exit.png').default%>">
       </li>
     </ul>
     <button class="header__sandwich header__sanwich_type_light button_type_menu">
@@ -43,7 +44,7 @@
     <div class="cards__grid">
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+          <button class="cards__bookmark cards__bookmark_icon_delete"> </button>
           <p class="cards__label">Природа</p>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-1.jpg').default%>">
         </div>
@@ -59,7 +60,7 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+          <button class="cards__bookmark cards__bookmark_icon_delete"> </button>
           <p class="cards__label">Парки</p>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-2.jpg').default%>">
         </div>
@@ -74,7 +75,7 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+          <button class="cards__bookmark cards__bookmark_icon_delete"> </button>
           <p class="cards__label">Фотография</p>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
         </div>
@@ -89,7 +90,7 @@
       </div>
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+          <button class="cards__bookmark cards__bookmark_icon_delete"> </button>
           <p class="cards__label">Парки</p>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-2.jpg').default%>">
         </div>
@@ -104,7 +105,7 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="del-button" src="<%=require('./images/icon-bin.png').default%>">
+          <button class="cards__bookmark cards__bookmark_icon_delete"> </button>
           <p class="cards__label">Фотография</p>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
         </div>
@@ -117,9 +118,7 @@
           <p class="cards__sign">РИА</p>
         </div>
       </div>
-
     </div>
-
   </section>
 
 

@@ -9,8 +9,10 @@
 @import url(./__sign/cards__sign.css);
 @import url(./__text/cards__text.css);
 @import url(./__title/cards__title.css);
-@import url(./__mark/cards__mark.css);
+@import url(./__bookmark/cards__bookmark.css);
 @import url(./__label/cards__label.css);
+@import url(./__comment/cards__comment.css);
+@import url(./__message/cards__message.css);
 
 
 .cards{

@@ -1,0 +1,9 @@
+
+.cards__bookmark_clicked_on{
+  background: url(../../../../images/bookmark-blue.svg) center no-repeat;
+}
+
+.cards__bookmark_clicked_on:hover{
+  background: url(../../../../images/bookmark-blue.svg) center no-repeat;
+  cursor: pointer;
+}

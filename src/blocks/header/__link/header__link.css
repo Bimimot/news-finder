@@ -8,6 +8,10 @@
     list-syle: none;
     }
 
+.header__link:hover{
+  cursor: pointer;
+}
+
   .header__link:last-child{
   margin-right: 0;
   }

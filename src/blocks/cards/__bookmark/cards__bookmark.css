@@ -1,0 +1,35 @@
+@import url(./_clicked/cards__bookmark_clicked_off.css);
+@import url(./_clicked/cards__bookmark_clicked_on.css);
+@import url(./_icon/cards__bookmark_icon_delete.css);
+
+.cards__bookmark{
+  position: absolute;
+  border-radius: 8px;
+  min-height: 40px;
+  min-width: 40px;
+  border: none;
+  outline: none;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 767px){
+.cards__bookmark{
+top: 16px;
+right: 16px;
+}
+}
+
+@media screen and (min-width: 768px){
+.cards__bookmark{
+top: 8px;
+right: 8px;
+}
+}
+
+@media screen and (min-width: 1440px){
+.cards__bookmark{
+top: 24px;
+right: 24px;
+}
+}

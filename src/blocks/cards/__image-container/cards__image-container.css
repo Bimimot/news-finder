@@ -2,8 +2,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    height: calc(width*68%);
     margin: 0;
       border-radius: 15px 15px 0 0;
-
   }
+

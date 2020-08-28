@@ -3,9 +3,7 @@
 @import url(./__input/search__input.css);
 @import url(./__subtitle/search__subtitle.css);
 @import url(./__title/search__title.css);
-@import url(./__message/search__message.css);
-@import url(./__comment/search__comment.css);
-@import url(./__smile/search__smile.css);
+
 
 .search{
     display: flex;

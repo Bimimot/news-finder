@@ -15,7 +15,7 @@
 
 @media screen and (min-width: 768px) {
 .popup__content_type_form {
-    min-width: 430px;
+    width: 430px;
     margin-top: 207px;
   }
 }

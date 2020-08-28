@@ -20,3 +20,14 @@ import Popup from './js/Popup.js';
     const loginPopup = new Popup(popupLoginContainer, '.button_type_login', validator); //создаем попап для авторизации
     const signupPopup = new Popup(popupSignupContainer, '.button_type_signup', validator); //создаем попап для регистрации
     const menuPopup = new Popup(popupMenuContainer, '.button_type_menu'); //создаем попап для выпадающего меню
+
+
+// хардкод для активации иконок
+document.querySelectorAll('.cards__bookmark').forEach(item => {
+  item.addEventListener('click', event => {
+    event.target.classList.toggle('cards__bookmark_clicked_on');
+    event.target.classList.toggle('cards__bookmark_clicked_off');
+
+  })
+})
+

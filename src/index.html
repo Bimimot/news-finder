@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="<%=require('./images/favicon.png').default%>" type="image/x-icon">
   <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
   <title>News Week</title>
 </head>
@@ -45,7 +46,7 @@
     <div class="cards__grid">
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
+          <button class="cards__bookmark cards__bookmark_clicked_off"> </button>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-1.jpg').default%>">
         </div>
         <div class="cards__text">
@@ -60,7 +61,7 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="bookmark-button" src="<%=require('./images/bookmark-blue.svg').default%>">
+          <button class="cards__bookmark cards__bookmark_clicked_off"> </button>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-2.jpg').default%>"> </div>
         <div class="cards__text">
           <p class="cards__item-date">2 августа, 2019</p>
@@ -74,7 +75,7 @@
 
       <div class="cards__item">
         <div class="cards__image-container">
-          <img class="cards__mark" alt="bookmark-button" src="<%=require('./images/bookmark-white.svg').default%>">
+          <button class="cards__bookmark cards__bookmark_clicked_off"> </button>
           <img class="cards__photo" alt="photo" src="<%=require('./images/card-3.jpg').default%>">
         </div>
         <div class="cards__text">
@@ -92,13 +93,13 @@
 
   <section class="cards">
     <i class="circle-preloader"></i>
-    <p class="search__comment">Идёт поиск новостей</p>
+    <p class="cards__comment">Идёт поиск новостей</p>
   </section>
   <section class="cards" style="border-top: 1px solid white;">
-    <img src="<%=require('./images/smile-sad.png').default%>" alt="sad-smile" class="search__smile">
-    <p class="search__message">Ничего не найдено</p>
-    <p class="search__comment">К сожалению по вашему запросу ничего не найдено</p>
-  </section> -->
+    <img src="<%=require('./images/smile-sad.png').default%>" alt="sad-smile" class="smile">
+    <p class="cards__message">Ничего не найдено</p>
+    <p class="cards__comment">К сожалению по вашему запросу ничего не найдено</p>
+  </section>
 
   <section class="author">
     <img class="author__photo" alt="author-photo" src="<%=require('./images/author-photo.jpg').default%>">

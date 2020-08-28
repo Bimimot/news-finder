@@ -1,0 +1,8 @@
+.cards__bookmark_clicked_off{
+  background: url(../../../../images/bookmark-black.svg) center no-repeat;
+}
+
+.cards__bookmark_clicked_off:hover{
+  background: url(../../../../images/bookmark-grey.svg) center no-repeat;
+  cursor: pointer;
+}

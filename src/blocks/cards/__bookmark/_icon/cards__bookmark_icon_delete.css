@@ -1,0 +1,8 @@
+.cards__bookmark_icon_delete{
+  background: url(../../../../images/trash-grey.svg) center no-repeat;
+}
+
+.cards__bookmark_icon_delete:hover{
+  background: url(../../../../images/trash-black.svg) center no-repeat;
+cursor: pointer;
+}

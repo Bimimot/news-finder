@@ -6,7 +6,14 @@
         font-size: 18px;
         line-height: 24px;
         font-family: Roboto, Arial, sans-serif;
+        transition: 0.5s;
   }
+.search__button:hover{
+  cursor: pointer;
+  color:  #2F71E5;
+  border:  #2F71E5 1px solid;
+  background-color: white;
+}
 
 @media screen and (max-width: 767px){
 .search__button{
