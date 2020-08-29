@@ -3,3 +3,7 @@ dist
 .DS_Store
 .idea
 .vscode
+.git
+postcss.config.js
+webpack.config.js
+babel.config.js
