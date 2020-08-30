@@ -14,7 +14,7 @@ justify-items: space-between;
 
 @media screen and (min-width: 768px){
 .search__form{
-  min-height: 56px;
+  height: 56px;
   border-radius: 28px;
   background-color: white;
 }
@@ -22,7 +22,8 @@ justify-items: space-between;
 
 @media screen and (min-width: 1440px){
 .search__form{
-  min-height: 64px;
+  height: 64px;
   border-radius: 32px;
 }
 }
+

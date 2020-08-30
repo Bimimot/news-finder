@@ -6,15 +6,12 @@
     text-decoration: none;
     background-color: transparent;
     justify-content: center;
+    box-sizing: border-box;
       transition: .5;
   }
 
-.header__link_type_button:hover{
-  cursor: pointer;
-  background-color:  #2F71E5;
-  border:  #2F71E5 1px solid;
 
-}
+
 
   @media screen and (max-width: 767px){
   .header__link_type_button{

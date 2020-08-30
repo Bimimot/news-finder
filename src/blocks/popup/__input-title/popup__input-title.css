@@ -3,9 +3,7 @@ font-family: Inter;
 font-style: normal;
 font-weight: normal;
 font-size: 12px;
-height: 14px;
+min-height: 14px;
   margin: 0;
   padding: 0;
-
-  color: #2F71E5;
 }

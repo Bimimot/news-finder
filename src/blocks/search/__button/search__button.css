@@ -15,18 +15,10 @@
   background-color: white;
 }
 
-@media screen and (max-width: 767px){
-.search__button{
-  margin: 0;
-  min-height: 56px;
-  border-radius: 28px;
-}
-}
-
-@media screen and (min-width: 768px){
+@media screen and (max-width: 1439px){
 .search__button{
   min-width: 160px;
-  min-height: 56px;
+  height: 56px;
   border-radius: 28px;
   }
   }
@@ -34,7 +26,7 @@
 @media screen and (min-width: 1440px){
 .search__button{
   min-width: 168px;
-  min-height: 64px;
+  height: 64px;
   border-radius: 32px;
 }
 }

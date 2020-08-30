@@ -1,6 +1,7 @@
 .cards__item{
-display: flex;
 position: relative;
+display: flex;
+
 flex-direction: column;
      border-radius: 16px;
      box-shadow: 0 17px 58px -16px rgba(8, 29, 45, 0.1);
@@ -9,21 +10,25 @@ flex-direction: column;
 
 @media screen and (max-width: 767px){
 .cards__item{
-height: 440px;
-width: 228px;
+  width: auto;
+  max-width: 224px;
+  height: auto;
 }
 }
 
 @media screen and (min-width: 768px){
 .cards__item{
-height: 420px;
-width: 224px;
+width: auto;
+max-width: 400px;
+height: auto;
 }
 }
 
 @media screen and (min-width: 1440px){
 .cards__item{
 height: 576px;
-width: 400px;
+padding-bottom: 0;
+width: auto;
 }
 }
+

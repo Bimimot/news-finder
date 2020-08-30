@@ -8,7 +8,7 @@
 @media screen and (max-width: 767px){
 .cards__grid{
 grid-template-columns: repeat(auto-fit, 228px);
-grid-template-rows: repeat(auto-fit, 440px);
+grid-template-rows: repeat(auto-fit, 1fr);
 grid-gap: 10px;
 
 }
@@ -16,8 +16,8 @@ grid-gap: 10px;
 
 @media screen and (min-width: 768px){
 .cards__grid{
-grid-template-columns: repeat(auto-fit, 224px);
-grid-template-rows: repeat(auto-fit, 420px);
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(auto-fit, 1fr);
 grid-gap: 8px;
 }
 }
@@ -25,7 +25,7 @@ grid-gap: 8px;
 @media screen and (min-width: 1440px){
 .cards__grid{
 grid-template-columns: repeat(auto-fit, 400px);
-grid-template-rows: repeat(auto-fit, 576px);
+grid-template-rows: repeat(auto-fit, 1fr);
 grid-gap: 15px;
 }
 }

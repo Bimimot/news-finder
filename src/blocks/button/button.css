@@ -1,11 +1,19 @@
-.button_type_login{
-
+.button_type_login:hover{
+  cursor: pointer;
+  border:  #2F71E5 1px solid;
+  background: #2F71E5;
 }
 
 .button_type_signup{
-
+  cursor: pointer;
 }
 
 .button_type_menu{
-  
+  cursor: pointer;
 }
+
+.button_type_exit:hover{
+    cursor: pointer;
+    box-shadow: 0 0 5px #2F71E5;
+    border:  #2F71E5 1px solid;
+  }

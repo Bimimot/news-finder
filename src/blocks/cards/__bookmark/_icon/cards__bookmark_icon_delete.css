@@ -7,6 +7,7 @@
 cursor: pointer;
 }
 
+@media screen and (min-width: 1024px) {
 .cards__bookmark_icon_delete:hover::after
 {
   position: absolute;
@@ -28,4 +29,5 @@ cursor: pointer;
               right: 49px;
               content: 'Убрать из сохранённых';
 
+}
 }

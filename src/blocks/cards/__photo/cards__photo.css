@@ -1,4 +1,4 @@
-.cards__photo{
+/* .cards__photo{
 display: flex;
 position: relative;
      margin: 0;
@@ -8,4 +8,19 @@ position: relative;
      align-self: center;
        border-radius: 16px 16px 0 0;
          overflow: hidden;
-}
+} */
+
+.cards__photo{
+  position: absolute;
+  display: flex;
+  flex-shrink: 0;
+  justify-self: center;
+  align-self: center;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+    width: 100%;
+         border-radius: 16px 16px 0 0;
+
+  }

@@ -9,6 +9,7 @@
 @import url(../blocks/error-message/error-message.css);
 @import url(../blocks/button/button.css);
 @import url(../blocks/links/links.css);
+@import url(../blocks/intro/intro.css);
 
 @font-face {
     font-family: 'Roboto';
