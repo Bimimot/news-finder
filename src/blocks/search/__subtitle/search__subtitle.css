@@ -8,8 +8,7 @@
 @media screen and (max-width: 767px){
 .search__subtitle{
 margin: 16px 0 122px 0;
-max-width: calc(100vw - 32px);
-
+max-width: 406px;
 }
 }
 

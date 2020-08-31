@@ -1,13 +1,11 @@
 .author__photo{
     display: flex;
     position: relative;
-     /* padding-bottom: 100%; */
-       /* border-radius: 50%; */
    }
 
 @media screen and (max-width: 767px){
 .author__photo{
-width: calc(100vw - 48px);
+width: calc(100% - 48px);
 max-width: 272px;
 align-self: center;
 }

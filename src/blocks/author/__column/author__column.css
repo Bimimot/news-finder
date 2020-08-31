@@ -1,8 +1,8 @@
 .author__column{
     flex-flow: column;
     align-items: start;
-
       height: min-content;
+
   }
 
 @media screen and (max-width: 767px){
