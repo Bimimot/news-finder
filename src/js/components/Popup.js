@@ -22,6 +22,7 @@ export default class Popup {
     // if (this.formElement && this.formElement != '') {
 
     // }
+
     this.popupContainer.classList.add('popup_is-opened');
     this.validator.setEventListeners(this.popupContainer); // вызываем валидацию полей;
     this._setEventListeners(); // вызываем слушатели для закрытия

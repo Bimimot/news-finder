@@ -1,12 +1,15 @@
 import '../css/style.css';
 
+import { get } from 'http';
 import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
 import Header from './components/Header';
 
 import { popupContainer, menuContainer, loginButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
-import { loginMarkup, loggedMenuMarkup, unloggedMenuMarkup, buttonMarkup } from './constants/markups'; // импорт разметки для попапов
+import {
+  loginMarkup, loggedMenuMarkup, unloggedMenuMarkup, buttonMarkup,
+} from './constants/markups'; // импорт разметки для попапов
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
 const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
@@ -20,15 +23,14 @@ document.addEventListener('click', (event) => {
     popup.open();
 
     popupContainer.querySelector('.popup__form')
-      .addEventListener('submit', (event) =>
-      { event.preventDefault();
+      .addEventListener('submit', (event) => {
+        event.preventDefault();
         mainApi.login(popup.getMail(), popup.getPass())
           .then((res) => {
             if (res.ok) {
+              res.json().then((data) => { console.log(data.token); localStorage.setItem('token', data.token); });
               popup.close();
-            // показываем новый хедер
-            header.setMenu(loggedMenuMarkup, 'Васька');
-            // сохраняем токен
+              mainApi.getMe().then((data) => { header.setMenu(loggedMenuMarkup, data.name); });
             } else {
               res.json()
                 .then((result) => {

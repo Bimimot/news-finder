@@ -2,30 +2,37 @@ export default class MainApi {
   constructor() {
     // this.url = 'http://newsfinder.tk/api';
     this.url = 'http://localhost:3000/api';
-    this.headers = { 'Content-Type': 'application/json' };
   }
 
   login(mail, pass) {
     return (
-      fetch((this.url + '/signin'), {
+      fetch((`${this.url}/signin`), {
         method: 'POST',
-        headers: this.headers,
+        headers: { 'Content-Type': 'application/json' },
         // credentials: 'include',
         body: JSON.stringify({
           email: mail,
           password: pass,
         }),
       })
-      // .then((res) => {
-      //   return res.json();
-      // })
+    );
+  }
 
-
-          // if (res.ok) { return res.json()}; // если ответ успешный - возвращаем ответ от АП
-          // return Promise.reject(res.json());
+  getMe() {
+    return (
+      fetch((`${this.url}/users/me`), {
+        method: 'GET',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        // credentials: 'include',
+      })
+        .then((res) => res.json())
+        .then((result) => {return (result.data)})
 
     );
-    }
+  }
 }
 
 // signup(){
