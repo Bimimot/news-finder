@@ -12,27 +12,26 @@ const validator = new FormValidator(errorsMessages); // создаем вали�
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const mainApi = new MainApi();
 
-
-
 document.addEventListener('click', (event) => {
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
 
     popupContainer.querySelector('.popup__form')
-      .addEventListener('submit', (event) => {
-        event.preventDefault();
+      .addEventListener('submit', (event) =>
+      // if (popup.submitForm())
+      { event.preventDefault();
         mainApi.login(popup.getMail(), popup.getPass())
           .then((res) => {
             if (res.ok) {
               popup.close();
-              // показываем новый хедер
-              // сохраняем токен
+            // показываем новый хедер
+            // сохраняем токен
             } else {
               res.json()
                 .then((result) => {
                   popup.setServerError(result.message); // показываем ошибку в попапе
-                  })
+                })
                 .catch((error) => console.log(error));
             }
           })

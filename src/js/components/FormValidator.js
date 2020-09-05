@@ -1,3 +1,5 @@
+import Popup from './Popup';
+
 export default class FormValidator {
   constructor(errorsMessages) {
     this.errorsMessages = errorsMessages;

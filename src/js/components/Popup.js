@@ -1,5 +1,3 @@
-import { popupContainer } from '../constants/elements';
-
 export default class Popup {
   constructor(popupContainer, validator) {
     this.popupContainer = popupContainer;
@@ -29,34 +27,9 @@ export default class Popup {
     this._setEventListeners(); // вызываем слушатели для закрытия
   }
 
-  _setEventListeners() { // обработчик событий для закрытия попапа
-    this.popupContainer.parentNode.parentNode.addEventListener('keydown', this._closeByKey);
-    this.popupContainer.addEventListener('click', this._closeByClick);
-  }
-
-  removeEventListeners() { // удаление обработчиков
-    this.popupContainer.parentNode.parentNode.removeEventListener('keydown', this._closeByKey);
-    this.popupContainer.removeEventListener('click', this._closeByClick);
-  }
-
-  _closeByKey(event) {
-    if (event.key === 'Escape') { this.close(); } // закрытие по Escape
-  }
-
-  _closeByClick(event) {
-    // if (!this.formElement && !event.target.className.includes('links')) { // если не форма и не ссылка в меню - закрытие по любому клику
-    //   this.close();
-    // }
-    if (
-      // (this.formElement && this.formElement != '') // для формы -закрытие по клику мимо попапа либо клика по крестику
-      // &&
-      (event.target.className.includes('popup_is-opened') || event.target.className.includes('popup__close'))
-    ) { this.close(); }
-  }
-
   close() { // метод закрытия попапа
     // event.preventDefault();
-    this.removeEventListeners();
+    this._removeEventListeners();
     this.clearContent();
 
     this.popupContainer.classList.remove('popup_is-opened');
@@ -65,15 +38,6 @@ export default class Popup {
       this._hideErrors();
       this._resetForm();
     }
-  }
-
-  _resetForm() { // очистка формы
-    this.formElement.reset();
-  }
-
-  _hideErrors() { // стираниe ошибок после валидации
-    const errors = this.popupContainer.querySelectorAll('.error-message');
-    errors.forEach((value) => (value.textContent = ''));
   }
 
   setContent(popupMarkup) {
@@ -101,4 +65,40 @@ export default class Popup {
   getPass() {
     return this.popupContainer.querySelector('.popup__input_type_password').value;
   }
+
+  _setEventListeners() { // обработчик событий для закрытия попапа
+    this.popupContainer.parentNode.parentNode.addEventListener('keydown', this._closeByKey);
+    this.popupContainer.addEventListener('click', this._closeByClick);
+  }
+
+  _removeEventListeners() { // удаление обработчиков
+    this.popupContainer.parentNode.parentNode.removeEventListener('keydown', this._closeByKey);
+    this.popupContainer.removeEventListener('click', this._closeByClick);
+  }
+
+  _closeByKey(event) {
+    if (event.key === 'Escape') { this.close(); } // закрытие по Escape
+  }
+
+  _closeByClick(event) {
+    // if (!this.formElement && !event.target.className.includes('links')) { // если не форма и не ссылка в меню - закрытие по любому клику
+    //   this.close();
+    // }
+    if (
+      // (this.formElement && this.formElement != '') // для формы -закрытие по клику мимо попапа либо клика по крестику
+      // &&
+      (event.target.className.includes('popup_is-opened') || event.target.className.includes('popup__close'))
+    ) { this.close(); }
+  }
+
+  _resetForm() { // очистка формы
+    this.formElement.reset();
+  }
+
+  _hideErrors() { // стираниe ошибок после валидации
+    const errors = this.popupContainer.querySelectorAll('.error-message');
+    errors.forEach((value) => (value.textContent = ''));
+  }
+
+
 }
