@@ -33,6 +33,22 @@ export default class MainApi {
 
     );
   }
+
+  signup(mail, pass, name) {
+    return (
+      fetch((`${this.url}/signup`), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        // credentials: 'include',
+        body: JSON.stringify({
+          email: mail,
+          password: pass,
+          name: name
+        }),
+      })
+    );
+  }
+
 }
 
 // signup(){

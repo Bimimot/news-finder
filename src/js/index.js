@@ -6,9 +6,9 @@ import Popup from './components/Popup'; // импортируем класс с 
 import MainApi from './api/MainApi';
 import Header from './components/Header';
 
-import { popupContainer, menuContainer, loginButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
+import { popupContainer, menuContainer, loginButtonClass, signupButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 import {
-  loginMarkup, loggedMenuMarkup, unloggedMenuMarkup, buttonMarkup,
+  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup
 } from './constants/markups'; // импорт разметки для попапов
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -28,14 +28,31 @@ document.addEventListener('click', (event) => {
         mainApi.login(popup.getMail(), popup.getPass())
           .then((res) => {
             if (res.ok) {
-              res.json().then((data) => { console.log(data.token); localStorage.setItem('token', data.token); });
+              res.json().then((data) => localStorage.setItem('token', data.token));
+              mainApi.getMe().then((data) => header.setMenu(loggedMenuMarkup, data.name));
               popup.close();
-              mainApi.getMe().then((data) => { header.setMenu(loggedMenuMarkup, data.name); });
             } else {
-              res.json()
-                .then((result) => {
-                  popup.setServerError(result.message); // показываем ошибку в попапе
-                })
+              res.json().then((result) => popup.setServerError(result.message)) // показываем ошибку в попапе
+                .catch((error) => console.log(error));
+            }
+          })
+          .catch((error) => console.log(error));
+      });
+  }
+
+  if (event.target.className.includes(signupButtonClass)) {
+    popup.setContent(signupMarkup);
+    popup.open();
+
+    popupContainer.querySelector('.popup__form')
+      .addEventListener('submit', (event) => {
+        event.preventDefault();
+        mainApi.signup(popup.getMail(), popup.getPass(), popup.getName())
+          .then((res) => {
+            if (res.ok) {
+              popup.setContent(successMarkup); //выводим новый попап
+            } else {
+              res.json().then((result) => popup.setServerError(result.message)) // показываем ошибку в попапе
                 .catch((error) => console.log(error));
             }
           })
@@ -44,7 +61,7 @@ document.addEventListener('click', (event) => {
   }
 });
 
-// хардкод для активации иконок-закладок
+// активация иконок-закладок
 document.querySelectorAll('.cards__bookmark').forEach((item) => {
   item.addEventListener('click', (event) => {
     event.target.classList.toggle('cards__bookmark_clicked_on');

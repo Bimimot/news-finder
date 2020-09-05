@@ -24,7 +24,8 @@ export default class Popup {
     // }
 
     this.popupContainer.classList.add('popup_is-opened');
-    this.validator.setEventListeners(this.popupContainer); // вызываем валидацию полей;
+    this._setSubmitButtonState(false); // отключаем кнопку submit
+    this._setInputsValidation(); // включаем валидацию полей
     this._setEventListeners(); // вызываем слушатели для закрытия
   }
 
@@ -42,6 +43,7 @@ export default class Popup {
   }
 
   setContent(popupMarkup) {
+    this.clearContent();
     this.popupContainer.insertAdjacentHTML('beforeend', popupMarkup);
   }
 
@@ -50,7 +52,7 @@ export default class Popup {
       this.popupContainer.removeChild(this.popupContainer.firstChild);
     }
   }
-
+  
   setServerError(text) {
     this.popupContainer.querySelector('.server-error').textContent = text;
   }
@@ -102,4 +104,43 @@ export default class Popup {
   }
 
 
+
+
+  _setSubmitButtonState(statement) { // включение/выключение кнопки submit, принмает true либо false
+    const curButton = this.popupContainer.querySelector('.popup__submit');
+    if (!statement && curButton) {
+      curButton.setAttribute('disabled', '');
+      curButton.classList.add('popup__submit_state_disable');
+    } else {
+      curButton.removeAttribute('disabled', '');
+      curButton.classList.remove('popup__submit_state_disable');
+    }
+  }
+
+  _setInputsValidation() {
+    const inputs = this.popupContainer.querySelectorAll('.popup__input'); // получаем поля ввода
+
+    inputs.forEach((value) => value.addEventListener('input', () => // на каждое поле вешааем обработчик изменений
+      {this.setServerError('');
+        this._setSubmitButtonState(this.validator.validateAll(inputs))
+
+      } // при изменении поля вызываем функцию вкл/выкл кнопки submit
+    ), // на входе ей передаем результат проверки всех полей формы
+    );
+  }
+
+  validateAll(inputs) {
+    let allCheck = true; // флаг проверки всех полей, изначально - true
+    inputs.forEach((value) => {
+      const curError = value.parentNode.querySelector('.error-message');
+      if (!this.checkInputValidaty(value, curError)) // если хоть одно из полей не пройдет проверку - флаг становится false
+      { allCheck = false; }
+    });
+    return allCheck;
+  }
+
+
+
 }
+
+

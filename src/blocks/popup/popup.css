@@ -7,6 +7,7 @@
 @import url(./__button/popup__button.css);
 @import url(./__menu/popup__menu.css);
 @import url(./__text/popup__text.css);
+@import url(./__subtext/popup__subtext.css);
 @import url(./__input-container/popup__input-container.css);
 @import url(./__input-title/popup__input-title.css);
 @import url(./_is-opened/popup_is-opened.css);

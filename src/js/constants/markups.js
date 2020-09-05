@@ -19,6 +19,12 @@ const loggedMenuMarkup = `<li class="header__link header__link_type_selected">
 </li>
 `;
 
+const successMarkup = `
+<div class="popup__content popup__content_type_form">
+<img src="../images/close.png" alt="" class="popup__close">
+<h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
+<span class="popup__subtext popup__button button_type_signin" >Выполнить вход</span>
+</div>`;
 
 const loginMarkup = `
 <div class="popup__content popup__content_type_form">
@@ -46,7 +52,7 @@ const loginMarkup = `
 
 const signupMarkup = `
 <div class="popup__content popup__content_type_form">
-      <img src="<%=require('../images/close.png').default%>" alt="" class="popup__close">
+<img src="../images/close.png" alt="" class="popup__close">
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form popup__form_type_signup" name="signup" novalidate>
         <div class="popup__input-container">
@@ -68,9 +74,10 @@ const signupMarkup = `
             placeholder="Введите свое имя" required>
           <span class="error-message"> </span>
         </div>
+        <span class="error-message server-error"></span>
         <button type="submit" class="popup__submit">Зарегистрироваться</button>
         <span class="popup__text">или<button class="popup__button button_type_login">Войти</button></span>
       </form>
     </div>`;
 
-export { loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, unloggedMenuMarkup };
+export { loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, unloggedMenuMarkup, successMarkup };

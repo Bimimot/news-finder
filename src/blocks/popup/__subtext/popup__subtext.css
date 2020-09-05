@@ -1,0 +1,10 @@
+.popup__subtext{
+  display: flex;
+  width: 100%;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+    margin: 14px 0 22px 0;
+  }
