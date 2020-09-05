@@ -3,14 +3,16 @@ import '../css/style.css';
 import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
+import Header from './components/Header';
 
-import { popupContainer, loginButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
-import { loginMarkup, signupMarkup } from './constants/markups'; // импорт разметки для попапов
+import { popupContainer, menuContainer, loginButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
+import { loginMarkup, loggedMenuMarkup, unloggedMenuMarkup, buttonMarkup } from './constants/markups'; // импорт разметки для попапов
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
 const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const mainApi = new MainApi();
+const header = new Header(menuContainer);
 
 document.addEventListener('click', (event) => {
   if (event.target.className.includes(loginButtonClass)) {
@@ -19,13 +21,13 @@ document.addEventListener('click', (event) => {
 
     popupContainer.querySelector('.popup__form')
       .addEventListener('submit', (event) =>
-      // if (popup.submitForm())
       { event.preventDefault();
         mainApi.login(popup.getMail(), popup.getPass())
           .then((res) => {
             if (res.ok) {
               popup.close();
             // показываем новый хедер
+            header.setMenu(loggedMenuMarkup, 'Васька');
             // сохраняем токен
             } else {
               res.json()
