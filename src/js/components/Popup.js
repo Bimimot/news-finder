@@ -17,6 +17,41 @@ export default class Popup {
   //     this.formElement.addEventListener('submit', this.close); // слушатель нажатия кнопки отправки если это форма
   //   }
   // }
+  setSubmitLogin(api, header, loggedMenuMarkup) {
+    this.popupContainer.querySelector('.popup__form')
+      .addEventListener('submit', (event) => {
+        event.preventDefault();
+        api.login(this.getMail(), this.getPass())
+          .then((res) => {
+            if (res.ok) {
+              res.json().then((data) => localStorage.setItem('token', data.token));
+              api.getMe().then((data) => header.setMenu(loggedMenuMarkup, data.name));
+              this.close();
+            } else {
+              res.json().then((result) => { this.setServerError(result.message); }) // показываем ошибку в попапе
+                .catch((error) => console.log(error));
+            }
+          })
+          .catch((error) => console.log(error));
+      });
+  }
+
+  setSubmitSignup(api, successMarkup) {
+    this.popupContainer.querySelector('.popup__form')
+      .addEventListener('submit', (event) => {
+        event.preventDefault();
+        api.signup(this.getMail(), this.getPass(), this.getName())
+          .then((res) => {
+            if (res.ok) {
+              this.setContent(successMarkup); // выводим новый попап
+            } else {
+              res.json().then((result) => this.setServerError(result.message)) // показываем ошибку в попапе
+                .catch((error) => console.log(error));
+            }
+          })
+          .catch((error) => console.log(error));
+      });
+  }
 
   open() {
     // if (this.formElement && this.formElement != '') {
@@ -52,7 +87,7 @@ export default class Popup {
       this.popupContainer.removeChild(this.popupContainer.firstChild);
     }
   }
-  
+
   setServerError(text) {
     this.popupContainer.querySelector('.server-error').textContent = text;
   }
@@ -103,9 +138,6 @@ export default class Popup {
     errors.forEach((value) => (value.textContent = ''));
   }
 
-
-
-
   _setSubmitButtonState(statement) { // включение/выключение кнопки submit, принмает true либо false
     const curButton = this.popupContainer.querySelector('.popup__submit');
     if (!statement && curButton) {
@@ -121,10 +153,10 @@ export default class Popup {
     const inputs = this.popupContainer.querySelectorAll('.popup__input'); // получаем поля ввода
 
     inputs.forEach((value) => value.addEventListener('input', () => // на каждое поле вешааем обработчик изменений
-      {this.setServerError('');
-        this._setSubmitButtonState(this.validator.validateAll(inputs))
-
-      } // при изменении поля вызываем функцию вкл/выкл кнопки submit
+    {
+      this.setServerError('');
+      this._setSubmitButtonState(this.validator.validateAll(inputs));
+    }, // при изменении поля вызываем функцию вкл/выкл кнопки submit
     ), // на входе ей передаем результат проверки всех полей формы
     );
   }
@@ -138,9 +170,4 @@ export default class Popup {
     });
     return allCheck;
   }
-
-
-
 }
-
-

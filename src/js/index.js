@@ -1,6 +1,6 @@
 import '../css/style.css';
 
-import { get } from 'http';
+// import { get } from 'http';
 import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
@@ -9,55 +9,25 @@ import Header from './components/Header';
 import { popupContainer, menuContainer, loginButtonClass, signupButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 import {
   loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup
-} from './constants/markups'; // импорт разметки для попапов
+} from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
 const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
-const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const mainApi = new MainApi();
+const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
 
 document.addEventListener('click', (event) => {
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
-
-    popupContainer.querySelector('.popup__form')
-      .addEventListener('submit', (event) => {
-        event.preventDefault();
-        mainApi.login(popup.getMail(), popup.getPass())
-          .then((res) => {
-            if (res.ok) {
-              res.json().then((data) => localStorage.setItem('token', data.token));
-              mainApi.getMe().then((data) => header.setMenu(loggedMenuMarkup, data.name));
-              popup.close();
-            } else {
-              res.json().then((result) => popup.setServerError(result.message)) // показываем ошибку в попапе
-                .catch((error) => console.log(error));
-            }
-          })
-          .catch((error) => console.log(error));
-      });
+    popup.setSubmitLogin(mainApi, header, loggedMenuMarkup);
   }
 
   if (event.target.className.includes(signupButtonClass)) {
     popup.setContent(signupMarkup);
     popup.open();
-
-    popupContainer.querySelector('.popup__form')
-      .addEventListener('submit', (event) => {
-        event.preventDefault();
-        mainApi.signup(popup.getMail(), popup.getPass(), popup.getName())
-          .then((res) => {
-            if (res.ok) {
-              popup.setContent(successMarkup); //выводим новый попап
-            } else {
-              res.json().then((result) => popup.setServerError(result.message)) // показываем ошибку в попапе
-                .catch((error) => console.log(error));
-            }
-          })
-          .catch((error) => console.log(error));
-      });
+    popup.setSubmitSignup(mainApi, successMarkup);
   }
 });
 
