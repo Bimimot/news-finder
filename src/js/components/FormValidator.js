@@ -5,7 +5,6 @@ export default class FormValidator {
     this.errorsMessages = errorsMessages;
     this.checkInputValidaty = this.checkInputValidaty.bind(this);
     this.validateAll = this.validateAll.bind(this);
-    // this.setSubmitButtonState = this.setSubmitButtonState.bind(this);
   }
 
   checkInputValidaty(curInput, curError) { // валидация одного поля, принимает на входе текущее значени в поле и элемент ошибки
