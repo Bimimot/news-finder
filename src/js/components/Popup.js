@@ -24,8 +24,14 @@ export default class Popup {
         api.login(this.getMail(), this.getPass())
           .then((res) => {
             if (res.ok) {
-              res.json().then((data) => localStorage.setItem('token', data.token));
-              api.getMe().then((data) => header.setMenu(loggedMenuMarkup, data.name));
+              res.json().then((data) => {
+                localStorage.setItem('token', data.token);
+                api.getMe()
+                .then((me) => header.setMenu(loggedMenuMarkup, me.name))
+                .catch((err) => console.log(err));
+                });
+
+
               this.close();
             } else {
               res.json().then((result) => { this.setServerError(result.message); }) // показываем ошибку в попапе

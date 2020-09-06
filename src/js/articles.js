@@ -1,5 +1,20 @@
 import '../css/articles.css';
 
+import MainApi from './api/MainApi';
+import Header from './components/Header';
+
+import { menuContainer } from './constants/elements'; // импорт контейнера попапа и классов кнопок
+
+import { loggedMenuArticlesMarkup } from './constants/markups'; // импорт разметки
+
+const mainApi = new MainApi();
+const header = new Header(menuContainer);
+
+mainApi.getMe()
+  .then((data) => { if (data) {header.setMenu(loggedMenuArticlesMarkup, data.name)} })
+  .catch((err) => console.log(err)); // ставим хедер если есть токен и может получить имя
+
+
 // import FormValidator from './FormValidator.js';
 // import Popup from './Popup.js';
 

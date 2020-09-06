@@ -19,6 +19,18 @@ const loggedMenuMarkup = `<li class="header__link header__link_type_selected">
 </li>
 `;
 
+const loggedMenuArticlesMarkup = `<li class="header__link">
+<a class="links" href="index.html">Главная</a>
+</li>
+<li class="header__link header__link_type_selected">
+<a class="links" href="articles.html">Сохранённые</a>
+</li>
+<li class="header__link header__link_type_button button_type_exit">
+<a class="links" href="index.html"></a>
+<img class="icon-exit" alt="icon-exit" src="../images/icon-exit-black.png">
+</li>
+`;
+
 const successMarkup = `
 <div class="popup__content popup__content_type_form">
 <img src="../images/close.png" alt="" class="popup__close">
@@ -80,4 +92,4 @@ const signupMarkup = `
       </form>
     </div>`;
 
-export { loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, unloggedMenuMarkup, successMarkup };
+export { loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup, successMarkup };

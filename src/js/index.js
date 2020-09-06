@@ -6,9 +6,11 @@ import Popup from './components/Popup'; // импортируем класс с 
 import MainApi from './api/MainApi';
 import Header from './components/Header';
 
-import { popupContainer, menuContainer, loginButtonClass, signupButtonClass } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 import {
-  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup
+  popupContainer, menuContainer, loginButtonClass, signupButtonClass,
+} from './constants/elements'; // импорт контейнера попапа и классов кнопок
+import {
+  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -16,6 +18,10 @@ const validator = new FormValidator(errorsMessages); // создаем вали�
 const mainApi = new MainApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
+
+mainApi.getMe()
+  .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
+  .catch((err) => console.log(err)); // ставим хедер если есть токен и может получить имя
 
 document.addEventListener('click', (event) => {
   if (event.target.className.includes(loginButtonClass)) {
