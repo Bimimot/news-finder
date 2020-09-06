@@ -8,7 +8,6 @@ export default class MainApi {
   login(mail, pass) {
     return (
       fetch((`${this.url}/signin`), {
-        mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // credentials: 'include',
@@ -23,7 +22,6 @@ export default class MainApi {
   getMe() {
     return (
       fetch((`${this.url}/users/me`), {
-        mode: 'no-cors',
         method: 'GET',
         headers: {
           authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -40,7 +38,6 @@ export default class MainApi {
   signup(mail, pass, name) {
     return (
       fetch((`${this.url}/signup`), {
-        mode: 'no-cors',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         // credentials: 'include',
