@@ -8,15 +8,8 @@ export default class Popup {
     this.close = this.close.bind(this);
     this.open = this.open.bind(this);
     this.clearContent = this.clearContent.bind(this);
-
-    // this._setSubmitListener();
   }
 
-  // _setSubmitListener() {
-  //   if (this.formElement && this.formElement != '') {
-  //     this.formElement.addEventListener('submit', this.close); // слушатель нажатия кнопки отправки если это форма
-  //   }
-  // }
   setSubmitLogin(api, header, loggedMenuMarkup) {
     this.popupContainer.querySelector('.popup__form')
       .addEventListener('submit', (event) => {
@@ -27,10 +20,9 @@ export default class Popup {
               res.json().then((data) => {
                 localStorage.setItem('token', data.token);
                 api.getMe()
-                .then((me) => header.setMenu(loggedMenuMarkup, me.name))
-                .catch((err) => console.log(err));
-                });
-
+                  .then((me) => header.setMenu(loggedMenuMarkup, me.name))
+                  .catch((err) => console.log(err));
+              });
 
               this.close();
             } else {
@@ -60,10 +52,6 @@ export default class Popup {
   }
 
   open() {
-    // if (this.formElement && this.formElement != '') {
-
-    // }
-
     this.popupContainer.classList.add('popup_is-opened');
     this._setSubmitButtonState(false); // отключаем кнопку submit
     this._setInputsValidation(); // включаем валидацию полей
@@ -71,16 +59,9 @@ export default class Popup {
   }
 
   close() { // метод закрытия попапа
-    // event.preventDefault();
     this._removeEventListeners();
     this.clearContent();
-
     this.popupContainer.classList.remove('popup_is-opened');
-
-    if (this.formElement && this.formElement != '') {
-      this._hideErrors();
-      this._resetForm();
-    }
   }
 
   setContent(popupMarkup) {
@@ -125,23 +106,7 @@ export default class Popup {
   }
 
   _closeByClick(event) {
-    // if (!this.formElement && !event.target.className.includes('links')) { // если не форма и не ссылка в меню - закрытие по любому клику
-    //   this.close();
-    // }
-    if (
-      // (this.formElement && this.formElement != '') // для формы -закрытие по клику мимо попапа либо клика по крестику
-      // &&
-      (event.target.className.includes('popup_is-opened') || event.target.className.includes('popup__close'))
-    ) { this.close(); }
-  }
-
-  _resetForm() { // очистка формы
-    this.formElement.reset();
-  }
-
-  _hideErrors() { // стираниe ошибок после валидации
-    const errors = this.popupContainer.querySelectorAll('.error-message');
-    errors.forEach((value) => (value.textContent = ''));
+    if (event.target.className.includes('popup_is-opened') || event.target.className.includes('popup__close')) { this.close(); }
   }
 
   _setSubmitButtonState(statement) { // включение/выключение кнопки submit, принмает true либо false
