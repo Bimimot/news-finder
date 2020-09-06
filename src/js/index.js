@@ -4,8 +4,11 @@ import '../css/style.css';
 import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
+import OutApi from './api/OutApi';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
+
+import getDateFrom from './utils/getDateFrom';
 
 import {
   popupContainer, menuContainer, loginButtonClass, signupButtonClass,
@@ -17,9 +20,10 @@ import { errorsMessages } from './constants/errors'; // импортируем �
 
 const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
 const mainApi = new MainApi();
+const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
-const searchForm = new SearchForm();
+const searchForm = new SearchForm(outApi, getDateFrom);
 
 mainApi.getMe()
   .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })

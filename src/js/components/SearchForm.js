@@ -1,5 +1,7 @@
 export default class SearchForm {
-  constructor() {
+  constructor(outApi, dateCountFrom) {
+    this.outApi = outApi;
+    this.dateCountFrom = dateCountFrom;
     this.formContainer = document.querySelector('.search__form'),
     this.input = this.formContainer.querySelector('.search__input');
     this.error = 'Нужно ввести ключевое слово';
@@ -11,6 +13,8 @@ export default class SearchForm {
       event.preventDefault();
       if (this._validateInput(this._getInputValue())) {
         console.log('нажали поиск');
+
+        this.outApi.getArticles(this._getInputValue(), this.dateCountFrom(7));
       } else {
         this._setInputError(this.error);
       }
