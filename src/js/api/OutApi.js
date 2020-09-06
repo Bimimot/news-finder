@@ -14,7 +14,7 @@ export default class OutApi {
     return (
       fetch((newUrl), {
       })
-        .then((res) => {console.log (res.json())})
+        .then((res) => { console.log(res.json()); })
         .catch((err) => console.log(err))
 
     );

@@ -92,4 +92,6 @@ const signupMarkup = `
       </form>
     </div>`;
 
-export { loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup, successMarkup };
+export {
+  loginMarkup, signupMarkup, linkMarkup, buttonMarkup, loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup, successMarkup,
+};

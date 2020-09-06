@@ -42,7 +42,6 @@ document.addEventListener('click', (event) => {
   }
 });
 
-
 searchForm.submitSearch();
 
 // активация иконок-закладок

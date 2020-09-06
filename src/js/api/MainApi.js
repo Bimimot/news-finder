@@ -2,7 +2,6 @@ export default class MainApi {
   constructor() {
     this.url = 'https://newsfinder.tk/api';
     // this.url = 'http://localhost:3000/api';
-
   }
 
   login(mail, pass) {
@@ -30,7 +29,7 @@ export default class MainApi {
         // credentials: 'include',
       })
         .then((res) => res.json())
-        .then((result) => {return (result.data)})
+        .then((result) => (result.data))
 
     );
   }
@@ -44,12 +43,11 @@ export default class MainApi {
         body: JSON.stringify({
           email: mail,
           password: pass,
-          name: name
+          name,
         }),
       })
     );
   }
-
 }
 
 // getArticles(){
@@ -63,4 +61,3 @@ export default class MainApi {
 // removeArticle(){
 
 // }
-
