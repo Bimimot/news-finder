@@ -52,14 +52,6 @@ export default class MainApi {
 
 }
 
-// signup(){
-
-// }
-
-// getUserData(){
-
-// }
-
 // getArticles(){
 
 // }
@@ -72,43 +64,3 @@ export default class MainApi {
 
 // }
 
-// setProfile(newName, newAbout) {                                                                       //передаем новые данные профиля
-//   return (
-//     fetch((this.baseUrl + '/users/me'), {
-//       method: 'PATCH',
-//       headers: this.headers,
-//       body: JSON.stringify({
-//         name: newName,
-//         about: newAbout
-//       })
-//     })
-//     .then(res => {
-//       if (res.ok) {
-//         return res.json();
-//       }
-//       return Promise.reject(`Ошибка: ${res.status}`);
-//     })
-//   )
-// }
-
-// const api = new Api({
-//   baseUrl: 'https://praktikum.tk/cohort10',
-//   headers: {
-//     authorization: 'caf701ff-6f39-4585-92c8-ebdddadba86b',
-//     'Content-Type': 'application/json'
-//   }
-// });
-
-// getUser() {                                                                                             //получаем данные пользователя
-//   return(
-//   fetch((this.baseUrl + '/users/me'), {
-//     headers: this.headers
-//   })
-//   .then(res => {
-//     if (res.ok) {
-//       return res.json();
-//     }
-//     return Promise.reject(`Ошибка: ${res.status}`);
-//   })
-// )
-// }

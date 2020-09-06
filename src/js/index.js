@@ -1,6 +1,5 @@
 import '../css/style.css';
 
-// import { get } from 'http';
 import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
@@ -53,10 +52,3 @@ document.querySelectorAll('.cards__bookmark').forEach((item) => {
     event.target.classList.toggle('cards__bookmark_clicked_off');
   });
 });
-
-// const loginPopup = new Popup(popupLoginContainer, '.button_type_login', validator); // создаем попап для авторизации
-// const signupPopup = new Popup(popupSignupContainer, '.button_type_signup', validator); // создаем попап для регистрации
-// const menuPopup = new Popup(popupMenuContainer, '.button_type_menu'); // создаем попап для выпадающего меню
-
-
-// API key! 4117714a4686484785d1de46224edb53
