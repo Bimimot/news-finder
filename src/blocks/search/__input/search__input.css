@@ -31,20 +31,19 @@
   }
   }
 
-.search__input:focus::-webkit-input-placeholder {
-  color: #2F71E5;
+.search__input_state_error::-webkit-input-placeholder {
+  color: red;
   opacity: 1;
 }
-.search__input:focus:-moz-placeholder {
-  color: #2F71E5;
+.search__input_state_error:-moz-placeholder {
+  color: red;
   opacity: 1;
 }
-.search__input:focus::-moz-placeholder {
-  color: #2F71E5;
+.search__input_state_error::-moz-placeholder {
+  color: red;
   opacity: 1;
 }
-.search__input:focus:-ms-input-placeholder {
-  color: #2F71E5;
+.search__input_state_error:-ms-input-placeholder {
+  color: red;
   opacity: 1;
 }
-

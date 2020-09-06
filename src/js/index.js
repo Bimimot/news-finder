@@ -5,6 +5,7 @@ import FormValidator from './components/FormValidator'; // импортируе�
 import Popup from './components/Popup'; // импортируем класс с методами для попапов
 import MainApi from './api/MainApi';
 import Header from './components/Header';
+import SearchForm from './components/SearchForm';
 
 import {
   popupContainer, menuContainer, loginButtonClass, signupButtonClass,
@@ -18,6 +19,7 @@ const validator = new FormValidator(errorsMessages); // создаем вали�
 const mainApi = new MainApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
+const searchForm = new SearchForm();
 
 mainApi.getMe()
   .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
@@ -37,6 +39,9 @@ document.addEventListener('click', (event) => {
   }
 });
 
+
+searchForm.submitSearch();
+
 // активация иконок-закладок
 document.querySelectorAll('.cards__bookmark').forEach((item) => {
   item.addEventListener('click', (event) => {
@@ -48,3 +53,6 @@ document.querySelectorAll('.cards__bookmark').forEach((item) => {
 // const loginPopup = new Popup(popupLoginContainer, '.button_type_login', validator); // создаем попап для авторизации
 // const signupPopup = new Popup(popupSignupContainer, '.button_type_signup', validator); // создаем попап для регистрации
 // const menuPopup = new Popup(popupMenuContainer, '.button_type_menu'); // создаем попап для выпадающего меню
+
+
+// API key! 4117714a4686484785d1de46224edb53

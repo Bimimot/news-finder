@@ -15,7 +15,7 @@ const loggedMenuMarkup = `<li class="header__link header__link_type_selected">
 </li>
 <li class="header__link header__link_type_button button_type_exit">
 <a class="links" href="index.html"></a>
-<img class="icon-exit" alt="icon-exit" src="../images/icon-exit.png">
+<img class="icon-exit" alt="icon-exit" src="../images/exit-white.png">
 </li>
 `;
 
@@ -27,7 +27,7 @@ const loggedMenuArticlesMarkup = `<li class="header__link">
 </li>
 <li class="header__link header__link_type_button button_type_exit">
 <a class="links" href="index.html"></a>
-<img class="icon-exit" alt="icon-exit" src="../images/icon-exit-black.png">
+<img class="icon-exit" alt="icon-exit" src="../images/exit-black.png">
 </li>
 `;
 
