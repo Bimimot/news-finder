@@ -1,8 +1,8 @@
 export default class OutApi {
   constructor() {
     this.APIkey = '4117714a4686484785d1de46224edb53',
-    this.url = 'https://newsapi.org/v2/everything?';
-    // this.url = 'https://newsapi.org/v2/everything?' // через прокси
+    // this.url = 'https://newsapi.org/v2/everything?';
+    this.url = 'https://nomoreparties.co/news/v2/everything?' // через прокси
   }
 
   getArticles(theme, dateFrom) {
@@ -14,8 +14,9 @@ export default class OutApi {
     return (
       fetch((newUrl), {
       })
-        .then((res) => { console.log(res.json()); })
-        .catch((err) => console.log(err))
+      .then((res) => {return res.json()})
+      .then((result) => {return (result.articles)})
+      .catch((err) => console.log(err))
 
     );
   }

@@ -7,7 +7,7 @@ import OutApi from './api/OutApi';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 
-import getDateFrom from './utils/getDateFrom';
+import { getDateFrom, setArray } from './utils/helpers';
 
 import {
   popupContainer, menuContainer, loginButtonClass, signupButtonClass,
@@ -22,7 +22,9 @@ const mainApi = new MainApi();
 const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
-const searchForm = new SearchForm(outApi, getDateFrom);
+const searchForm = new SearchForm();
+
+let cardsArr = [];
 
 mainApi.getMe()
   .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
@@ -42,7 +44,18 @@ document.addEventListener('click', (event) => {
   }
 });
 
-searchForm.submitSearch();
+document.querySelector('.search__form').addEventListener('submit', (event) => {
+  event.preventDefault();
+  const searchText = searchForm._getInputValue();
+  if (searchForm._validateInput(searchText)) {
+    outApi.getArticles(searchText, getDateFrom(7))
+      .then((res) => { cardsArr = setArray(res); });
+  } else {
+    this._setInputError(this.error);
+  }
+});
+
+
 
 // активация иконок-закладок
 document.querySelectorAll('.cards__bookmark').forEach((item) => {
