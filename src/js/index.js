@@ -6,6 +6,7 @@ import MainApi from './api/MainApi';
 import OutApi from './api/OutApi';
 import Header from './components/Header';
 import SearchForm from './components/SearchForm';
+import Card from './components/Card.js';
 
 import { getDateFrom, setArray } from './utils/helpers';
 
@@ -13,7 +14,7 @@ import {
   popupContainer, menuContainer, loginButtonClass, signupButtonClass,
 } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 import {
-  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
+  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup, cardMarkup
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -23,6 +24,7 @@ const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
 const searchForm = new SearchForm();
+const card = new Card(cardMarkup);
 
 let cardsArr = [];
 
@@ -49,11 +51,16 @@ document.querySelector('.search__form').addEventListener('submit', (event) => {
   const searchText = searchForm._getInputValue();
   if (searchForm._validateInput(searchText)) {
     outApi.getArticles(searchText, getDateFrom(7))
-      .then((res) => { cardsArr = setArray(res); });
+    .then((res) => {setArray(res).forEach((value) => card.addCard(value))})
+
   } else {
     this._setInputError(this.error);
   }
 });
+
+// cardsArr.forEach((value) => card.addCard(value))
+// setArray(res).forEach((value) => card.addCard(value))
+
 
 
 

@@ -1,19 +1,10 @@
-/* .cards__photo{
-display: flex;
-position: relative;
-     margin: 0;
-     flex-shrink: 0;
-     width: 100%;
-     justify-self: center;
-     align-self: center;
-       border-radius: 16px 16px 0 0;
-         overflow: hidden;
-} */
 
 .cards__photo{
   position: absolute;
   display: flex;
   flex-shrink: 0;
+  min-width: 100%;
+  min-height: 100%;
   justify-self: center;
   align-self: center;
   left: 0;

@@ -40,7 +40,7 @@ function setArray(articlesArr){
        cardsArr.push(newCard);}
 
   });
-  console.log(cardsArr);
+  return cardsArr;
 };
 
 export { getDateFrom, getCardDate, setArray, isReal }
