@@ -11,6 +11,11 @@
           line-height: 24px;
           transition: .5s;
 }
+
+.cards__button_visible_no{
+  display: none;
+}
+
 .cards__button:hover{
   cursor: pointer;
   opacity: .9;

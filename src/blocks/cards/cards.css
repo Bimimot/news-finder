@@ -13,6 +13,7 @@
 @import url(./__label/cards__label.css);
 @import url(./__comment/cards__comment.css);
 @import url(./__message/cards__message.css);
+@import url(./__id/cards__id.css);
 
 
 .cards{
