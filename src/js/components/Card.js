@@ -1,8 +1,9 @@
 export default class Card {
-  constructor(cardMarkup, gridContainer, moreButton) {
+  constructor(cardMarkup, gridContainer, moreButton, api) {
     this.cardMarkup = cardMarkup,
     this.gridContainer = gridContainer,
-    this.moreButton = moreButton;
+    this.moreButton = moreButton,
+    this.api = api;
   }
 
   addCardsLine(hiddenCards, cardsArray) {
@@ -43,7 +44,7 @@ export default class Card {
     cardContainer.querySelector('.cards__item-title').textContent = cardData.cardTitle;
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
-    cardContainer.querySelector('.cards__bookmark').addEventListener('click', () => this._clickedCard(cardContainer));
+    cardContainer.querySelector('.cards__bookmark').addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
     return cardContainer;
   }
 
@@ -52,9 +53,17 @@ export default class Card {
     this.gridContainer.appendChild(newCard);
   }
 
-  _clickedCard(cardContainer) {
+  _clickedCard(cardContainer, cardData, bookmark) {
     cardContainer.querySelector('.cards__bookmark').classList.toggle('cards__bookmark_clicked_on');
     cardContainer.querySelector('.cards__bookmark').classList.toggle('cards__bookmark_clicked_off');
+    if (bookmark.className.includes('cards__bookmark_clicked_on')) {
+      this.api.createArticle(cardData)
+      .then((res) => (cardData.id = res.data._id))
+      .catch((err) => console.log(err))
+    } else {
+      this.api.removeArticle(cardData.id)
+      .catch((err) => (console.log(err)))
+    }
   }
 
   clearCardsGrid() {

@@ -1,7 +1,7 @@
 export default class MainApi {
   constructor() {
     this.url = 'https://newsfinder.tk/api';
-    // this.url = 'http://localhost:3000/api';
+//    this.url = 'http://localhost:3000/api';
   }
 
   login(mail, pass) {
@@ -48,16 +48,57 @@ export default class MainApi {
       })
     );
   }
+
+  createArticle(cardData) {
+    return (
+      fetch((`${this.url}/articles`), {
+        method: 'POST',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          keyword: cardData.cardKey,
+          title: cardData.cardTitle,
+          text: cardData.cardText,
+          date: cardData.cardDateIso,
+          source: cardData.cardSign,
+          link: cardData.cardUrl,
+          image: cardData.cardImageUrl,
+        }),
+        // credentials: 'include',
+      })
+        .then((res) => res.json())
+    );
+  }
+
+  removeArticle(id) {
+    return (
+      fetch((`${this.url}/articles/${id}`), {
+        method: 'DELETE',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        // credentials: 'include',
+      })
+        .then((res) => res.json())
+
+    );
+  }
+
+  // cardDate: getCardDate(item.publishedAt),
+  // cardImageUrl: item.urlToImage,
+  // cardUrl: item.url,
+  // cardText: item.description,
+  // cardTitle: item.title,
+  // cardSign: item.source.name,
+  // cardKey
+
+  // POST 	/articles 	{keyword, title, text, date, source, link и image} 	создаёт статью с переданными в теле аттрибутами
+  // DELETE 	/articles/id 	{} 	удаляет сохранённую статью по _id
 }
 
 // getArticles(){
-
-// }
-
-// createArticle(){
-
-// }
-
-// removeArticle(){
 
 // }

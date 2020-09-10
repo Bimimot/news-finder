@@ -26,10 +26,11 @@ const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
 const search = new SearchForm();
-const card = new Card(cardMarkup, gridContainer, moreButton);
+const card = new Card(cardMarkup, gridContainer, moreButton, mainApi);
 
 let cardsArr = []; // массив найденных карточек
 let hiddenCards = 0; // количество скрытых карточек
+let keyword = '';
 
 mainApi.getMe()
   .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
@@ -42,7 +43,7 @@ searchForm.addEventListener('submit', (event) => {
     card.clearCardsGrid();
     outApi.getArticles(searchText, getDateFrom(7))
       .then((res) => {
-        cardsArr = setArray(res);
+        cardsArr = setArray(res, searchText);
         hiddenCards = cardsArr.length; // все карточки сразу после поиска скрыты
         hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
       });
@@ -68,22 +69,15 @@ document.addEventListener('click', (event) => {
     hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
   };
 
-  if (event.target.className.includes('cards__bookmark_clicked_on'))
-  {  let cardId = Math.floor(Math.random() * 100); // вызов API
-   card.setCardId(cardId, event.target); //сохраняем номер в атрибут карточки
-   console.log('добавили карточку №', cardId);
-    };
+  // if (event.target.className.includes('cards__bookmark_clicked_on'))
+  // {  let cardId = Math.floor(Math.random() * 100); // вызов API
+  //  card.setCardId(cardId, event.target); //сохраняем номер в атрибут карточки
 
-   if (event.target.className.includes('cards__bookmark_clicked_off'))
-  {console.log('удалили карточку №', card.getCardId(event.target))
-   card.setCardId('', event.target);
-  }; // удаляем карточку через API по номеру
+  //   };
+
+  //  if (event.target.className.includes('cards__bookmark_clicked_off'))
+  // {card.getCardId(event.target);
+  //  card.setCardId('', event.target);
+  // }; // удаляем карточку через API по номеру
 });
 
-// активация иконок-закладок
-// document.querySelectorAll('.cards__bookmark').forEach((item) => {
-//   item.addEventListener('click', (event) => {
-//     event.target.classList.toggle('cards__bookmark_clicked_on');
-//     event.target.classList.toggle('cards__bookmark_clicked_off');
-//   });
-// });

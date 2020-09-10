@@ -1,6 +1,7 @@
 .cards__item{
 position: relative;
 display: flex;
+flex-shrink: 0;
 
 flex-direction: column;
      border-radius: 16px;

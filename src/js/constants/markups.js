@@ -11,8 +11,8 @@ const cardMarkup = `
           <h3 class="cards__item-title"></h3>
           <p class="cards__item-article"></p>
           <p class="cards__sign">РИА</p>
-          <div class="cards__id"></div>
         </div>
+        <div class="cards__id"></div>
       `;
 
 const unloggedMenuMarkup = `<li class="header__link header__link_type_selected">
