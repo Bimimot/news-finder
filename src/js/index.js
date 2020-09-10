@@ -8,7 +8,7 @@ import Header from './components/Header';
 import SearchForm from './components/SearchForm';
 import Card from './components/Card.js';
 
-import { getDateFrom, setArray } from './utils/helpers';
+import { getDateFrom, setArray, isAuth } from './utils/helpers';
 
 import {
   popupContainer, menuContainer, gridContainer, moreButton,
@@ -26,15 +26,17 @@ const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
 const search = new SearchForm();
-const card = new Card(cardMarkup, gridContainer, moreButton, mainApi);
+const card = new Card(cardMarkup, gridContainer, moreButton, mainApi, isAuth);
 
 let cardsArr = []; // массив найденных карточек
 let hiddenCards = 0; // количество скрытых карточек
-let keyword = '';
+const keyword = '';
 
-mainApi.getMe()
-  .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
-  .catch((err) => console.log(err)); // ставим хедер если есть токен и может получить имя
+if (isAuth()) {  // если у нас есть токен
+  mainApi.getMe()
+    .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
+    .catch((err) => console.log(err)); // ставим хедер с именем
+}
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -57,17 +59,17 @@ document.addEventListener('click', (event) => {
     popup.setContent(loginMarkup);
     popup.open();
     popup.setSubmitLogin(mainApi, header, loggedMenuMarkup);
-  };
+  }
 
   if (event.target.className.includes(signupButtonClass)) {
     popup.setContent(signupMarkup);
     popup.open();
     popup.setSubmitSignup(mainApi, successMarkup);
-  };
+  }
 
   if (event.target.className.includes(moreButtonClass)) {
     hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
-  };
+  }
 
   // if (event.target.className.includes('cards__bookmark_clicked_on'))
   // {  let cardId = Math.floor(Math.random() * 100); // вызов API
@@ -80,4 +82,3 @@ document.addEventListener('click', (event) => {
   //  card.setCardId('', event.target);
   // }; // удаляем карточку через API по номеру
 });
-

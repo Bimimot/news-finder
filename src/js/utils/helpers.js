@@ -43,6 +43,11 @@ function setArray(articlesArr, keyword) { // очистка массива от 
   return cardsArr;
 }
 
+function isAuth() {
+  if (localStorage.getItem('token') === null) { return false; }
+  return true;
+}
+
 export {
-  getDateFrom, getCardDate, setArray, isReal,
+  getDateFrom, getCardDate, setArray, isReal, isAuth,
 };

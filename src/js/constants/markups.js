@@ -47,14 +47,14 @@ const loggedMenuArticlesMarkup = `<li class="header__link">
 
 const successMarkup = `
 <div class="popup__content popup__content_type_form">
-<img src="../images/close.png" alt="" class="popup__close">
+<div class="popup__close"> </div>
 <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
 <span class="popup__subtext popup__button button_type_signin" >Выполнить вход</span>
 </div>`;
 
 const loginMarkup = `
 <div class="popup__content popup__content_type_form">
-<img src="../images/close.png" alt="" class="popup__close">
+<div class="popup__close"> </div>
 <h3 class="popup__title">Вход</h3>
 <form class="popup__form popup__form_type_login" name="login" novalidate>
   <div class="popup__input-container">
@@ -78,7 +78,7 @@ const loginMarkup = `
 
 const signupMarkup = `
 <div class="popup__content popup__content_type_form">
-<img src="../images/close.png" alt="" class="popup__close">
+<div class="popup__close"> </div>
       <h3 class="popup__title">Регистрация</h3>
       <form class="popup__form popup__form_type_signup" name="signup" novalidate>
         <div class="popup__input-container">

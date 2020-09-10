@@ -16,7 +16,7 @@ cursor: pointer;
       align-items: center;
       min-height: 40px;
       width: 160px;
-
+          padding: 0 5px;
           border-radius: 8px;
           background-color: white;
           font-family: Roboto, Times, serif;

@@ -1,5 +1,7 @@
+import { isAuth } from "../utils/helpers";
+
 export default class Card {
-  constructor(cardMarkup, gridContainer, moreButton, api) {
+  constructor(cardMarkup, gridContainer, moreButton, api, isAuth) {
     this.cardMarkup = cardMarkup,
     this.gridContainer = gridContainer,
     this.moreButton = moreButton,
@@ -44,8 +46,14 @@ export default class Card {
     cardContainer.querySelector('.cards__item-title').textContent = cardData.cardTitle;
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
+    // if (!isAuth()) {
+    //   console.log('Нет авторизации');
+    //   cardContainer.querySelector('.cards__bookmark').classList.add('cards__bookmark_active_no')
+    // } else {
+
     cardContainer.querySelector('.cards__bookmark').addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
     return cardContainer;
+    // }
   }
 
   _addCard(cardData) {
