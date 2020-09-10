@@ -6,7 +6,9 @@ export default class Header {
   setMenu(menuMarkup, name) { // устанавливаем новый список заголовков в хэдео
     this.clearMenu();
     this.menuContainer.insertAdjacentHTML('beforeend', menuMarkup);
-    if (name && name !== '') { this.setNameOnButton(name); }
+    if (name && name !== '') {
+      this.setNameOnButton(name);
+    }
   }
 
   clearMenu() { // убираем список заголовков из хэдера
@@ -18,6 +20,6 @@ export default class Header {
   setNameOnButton(name) {
     this.menuContainer.querySelector('.header__link_type_button')
       .querySelector('.links')
-      .textContent = name;
+      .textContent = `${name}\xa0`;
   }
 }

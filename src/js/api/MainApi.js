@@ -83,22 +83,9 @@ export default class MainApi {
         // credentials: 'include',
       })
         .then((res) => res.json())
-
     );
   }
-
-  // cardDate: getCardDate(item.publishedAt),
-  // cardImageUrl: item.urlToImage,
-  // cardUrl: item.url,
-  // cardText: item.description,
-  // cardTitle: item.title,
-  // cardSign: item.source.name,
-  // cardKey
-
-  // POST 	/articles 	{keyword, title, text, date, source, link и image} 	создаёт статью с переданными в теле аттрибутами
-  // DELETE 	/articles/id 	{} 	удаляет сохранённую статью по _id
 }
 
 // getArticles(){
 
-// }

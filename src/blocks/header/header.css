@@ -4,6 +4,7 @@
 @import url(./__sandwich/header__sandwich.css);
 @import url(./_type/header_type_light.css);
 @import url(./_type/header_type_dark.css);
+@import url(./__exit/header__exit.css);
 
 
 .header{

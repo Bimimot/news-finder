@@ -1,0 +1,15 @@
+.header__exit{
+  height: 24px;
+  width: 24px;
+  background-position: no-repeat center;
+
+}
+
+.header__exit_color_black{
+  background-image: url(../../../images/exit-black.png);
+}
+
+.header__exit_color_white{
+  background-image: url(../../../images/exit-white.png);
+
+}

@@ -12,7 +12,7 @@ const header = new Header(menuContainer);
 
 mainApi.getMe()
   .then((data) => { if (data) { header.setMenu(loggedMenuArticlesMarkup, data.name); } })
-  .catch((err) => console.log(err)); // ставим хедер если есть токен и может получить имя
+  .catch((err) => console.log(err)); // ставим редирект и хедер с именем
 
 // import FormValidator from './FormValidator.js';
 // import Popup from './Popup.js';
