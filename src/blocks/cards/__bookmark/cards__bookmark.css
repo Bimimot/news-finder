@@ -1,7 +1,7 @@
 @import url(./_clicked/cards__bookmark_clicked_off.css);
 @import url(./_clicked/cards__bookmark_clicked_on.css);
 @import url(./_icon/cards__bookmark_icon_delete.css);
-@import url(./_active/card__bookmark_active_no.css);
+@import url(./_active/cards__bookmark_active_no.css);
 
 .cards__bookmark{
   position: absolute;

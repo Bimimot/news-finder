@@ -3,7 +3,7 @@ const buttonMarkup = '<li class="header__link header__link_type_button button_ty
 
 const cardMarkup = `
         <div class="cards__image-container">
-          <button class="cards__bookmark cards__bookmark_clicked_off"> </button>
+          <button class="cards__bookmark"> </button>
           <img class="cards__photo" alt="photo" src="">
         </div>
         <div class="cards__text">
