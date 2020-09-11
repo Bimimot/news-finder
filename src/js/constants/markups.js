@@ -1,11 +1,17 @@
 const linkMarkup = '<li class="header__link"> <a class="links" href=""></a> </li>';
 const buttonMarkup = '<li class="header__link header__link_type_button button_type_login"> </li>';
 
+const noCardsMarkup = `<section class="cards">
+<div class="sad-smile"></div>
+<p class="cards__message">Ничего не найдено</p>
+<p class="cards__comment">К сожалению по вашему запросу ничего не найдено</p>
+</section>`;
+
 const cardsMarkup = `<section class="cards">
 <h2 class="cards__title title-section">Результаты поиска</h2>
 <div class="cards__grid"> </div>
 <button class="cards__button">Показать ещё</button>
-</section>`
+</section>`;
 
 const cardMarkup = `
         <div class="cards__image-container">
@@ -115,5 +121,5 @@ const signupMarkup = `
 export {
   loginMarkup, signupMarkup, linkMarkup, buttonMarkup,
   loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup,
-  successMarkup, cardMarkup, cardsMarkup
+  successMarkup, cardMarkup, cardsMarkup, noCardsMarkup,
 };

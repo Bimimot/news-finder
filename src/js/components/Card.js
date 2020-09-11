@@ -1,13 +1,12 @@
 import { isAuth } from '../utils/helpers';
 
 export default class Card {
-  constructor(cardMarkup, cardsSection, api, isAuth) {
+  constructor(cardMarkup, api, isAuth) {
     this.cardMarkup = cardMarkup,
-    this.cardsSection = cardsSection,
     this.api = api;
   }
 
-  setContent(markup) {
+  setSection(markup) {
     document.querySelector('.intro-container').insertAdjacentHTML('afterEnd', markup);
     this.cardsSection = document.querySelector('.cards');
     this.gridContainer = this.cardsSection.querySelector('.cards__grid');
@@ -32,7 +31,8 @@ export default class Card {
 
   setButtonMore(statement) {
     const moreBtn = this.cardsSection.querySelector('.cards__button');
-    if (statement) {moreBtn.classList.remove('cards__button_visible_no');
+    if (statement) {
+      moreBtn.classList.remove('cards__button_visible_no');
     } else { moreBtn.classList.add('cards__button_visible_no'); }
   }
 
@@ -81,9 +81,9 @@ export default class Card {
     }
   }
 
-  clearCardsGrid() {
-    while (this.cardsSection.firstChild) {
-      this.cardsSection.removeChild(this.cardsSection.firstChild);
+  removeSection() {
+    if (this.cardsSection) {
+      this.cardsSection.remove();
     }
   }
 }
