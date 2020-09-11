@@ -17,7 +17,7 @@ import {
 
 import {
   loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
-  cardMarkup, cardsMarkup, noCardsMarkup
+  cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -45,9 +45,11 @@ searchForm.addEventListener('submit', (event) => {
   const searchText = search._getInputValue();
   if (search._validateInput(searchText)) {
     card.removeSection();
+    card.setSection(loaderMarkup);
     outApi.getArticles(searchText, getDateFrom(7))
       .then((res) => {
         cardsArr = setArray(res, searchText);
+        card.removeSection();
         if (cardsArr.length !== 0) {
           card.setSection(cardsMarkup);
           hiddenCards = cardsArr.length; // все карточки сразу после поиска скрыты

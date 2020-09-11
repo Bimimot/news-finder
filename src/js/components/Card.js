@@ -12,16 +12,22 @@ export default class Card {
     this.gridContainer = this.cardsSection.querySelector('.cards__grid');
   }
 
+  removeSection() {
+    if (this.cardsSection) {
+      this.cardsSection.remove();
+    }
+  }
+
   addCardsLine(hiddenCards, cardsArray) {
     const startIndex = cardsArray.length - hiddenCards;
     let endIndex;
 
     if (hiddenCards < 4) {
-      this.setButtonMore(false); // отключаем кнопку
+      this._setButtonMore(false); // отключаем кнопку
       endIndex = startIndex + hiddenCards;
       hiddenCards = 0;
     } else {
-      this.setButtonMore(true);
+      this._setButtonMore(true);
       endIndex = startIndex + 3;
       hiddenCards -= 3;
     }
@@ -29,19 +35,11 @@ export default class Card {
     return hiddenCards;
   }
 
-  setButtonMore(statement) {
+  _setButtonMore(statement) {
     const moreBtn = this.cardsSection.querySelector('.cards__button');
     if (statement) {
       moreBtn.classList.remove('cards__button_visible_no');
     } else { moreBtn.classList.add('cards__button_visible_no'); }
-  }
-
-  getCardId(bookmark) {
-    return bookmark.parentNode.parentNode.querySelector('.cards__id').textcontent;
-  }
-
-  setCardId(value, bookmark) {
-    bookmark.parentNode.parentNode.querySelector('.cards__id').textcontent = value;
   }
 
   _renderCard(cardData) {
@@ -81,9 +79,4 @@ export default class Card {
     }
   }
 
-  removeSection() {
-    if (this.cardsSection) {
-      this.cardsSection.remove();
-    }
-  }
 }
