@@ -18,7 +18,8 @@ export default class Card {
     }
   }
 
-  addCardsLine(hiddenCards, cardsArray) {
+  addCardsLine(hiddenCards, cardsArray, activeIcon) {
+    this.activeIcon = activeIcon; // флаг активности иконки сохранения статьи
     const startIndex = cardsArray.length - hiddenCards;
     let endIndex;
 
@@ -52,11 +53,11 @@ export default class Card {
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
     const icon = cardContainer.querySelector('.cards__bookmark');
-    if (!isAuth()) {
-      icon.classList.add('cards__bookmark_active_no');
-    } else {
+    if (isAuth() || this.activeIcon) { // если есть токен или флаг активности иконок
       icon.classList.add('cards__bookmark_clicked_off');
       icon.addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
+    } else {
+      icon.classList.add('cards__bookmark_active_no');
     }
     return cardContainer;
   }
@@ -78,5 +79,4 @@ export default class Card {
         .catch((err) => (console.log(err)));
     }
   }
-
 }

@@ -69,6 +69,13 @@ document.addEventListener('click', (event) => {
     popup.setContent(loginMarkup);
     popup.open();
     popup.setSubmitLogin(mainApi, header, loggedMenuMarkup);
+
+    if (document.querySelector('.cards__grid')) { // карточки выводим заново, уже с обработчиками
+      card.removeSection();
+      card.setSection(cardsMarkup);
+      hiddenCards = cardsArr.length;
+      hiddenCards = card.addCardsLine(hiddenCards, cardsArr, true);
+    }
   }
 
   if (event.target.className.includes(signupButtonClass)) {
@@ -82,7 +89,7 @@ document.addEventListener('click', (event) => {
   }
 
   if (event.target.className.includes(exitButtonClass)) {
-    localStorage.removeItem('token');
-    location.reload();
+    localStorage.removeItem('token'); // удаление токена
+    header.setMenu(unloggedMenuMarkup); // замена хедера
   }
 });
