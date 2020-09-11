@@ -19,7 +19,7 @@ export default class Header {
 
   setNameOnButton(name) {
     this.menuContainer.querySelector('.header__link_type_button')
-      .querySelector('.links')
+      .querySelector('.header__name')
       .textContent = `${name}\xa0`;
   }
 }

@@ -37,17 +37,19 @@ const unloggedMenuMarkup = `<li class="header__link header__link_type_selected">
 <li class="header__link header__link_type_button button_type_login">Авторизоваться
 </li>
 `;
+
 const loggedMenuMarkup = `<li class="header__link header__link_type_selected">
 <a class="links" href="index.html">Главная</a>
 </li>
 <li class="header__link ">
 <a class="links" href="articles.html">Сохранённые</a>
 </li>
-<li class="header__link header__link_type_button button_type_exit">
-<a class="links" href="index.html"></a>
-<div class="header__exit header__exit_color_white"> </div>
+<li class="header__link header__link_type_button button_type_exit exit" >
+<p class="header__name exit"></p>
+<div class="header__exit header__exit_color_white exit"> </div>
 </li>
 `;
+
 
 const loggedMenuArticlesMarkup = `<li class="header__link">
 <a class="links" href="index.html">Главная</a>

@@ -12,12 +12,12 @@ import { getDateFrom, setArray, isAuth } from './utils/helpers';
 
 import {
   popupContainer, menuContainer,
-  loginButtonClass, signupButtonClass, moreButtonClass, searchForm,
+  loginButtonClass, signupButtonClass, moreButtonClass, searchForm, exitButtonClass,
 } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 
 import {
   loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
-  cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup
+  cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -64,6 +64,7 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('click', (event) => {
+  console.log(event.target.className);
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
@@ -78,5 +79,10 @@ document.addEventListener('click', (event) => {
 
   if (event.target.className.includes(moreButtonClass)) {
     hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
+  }
+
+  if (event.target.className.includes(exitButtonClass)) {
+    localStorage.removeItem('token');
+    location.reload();
   }
 });
