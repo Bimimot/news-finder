@@ -1,6 +1,12 @@
 const linkMarkup = '<li class="header__link"> <a class="links" href=""></a> </li>';
 const buttonMarkup = '<li class="header__link header__link_type_button button_type_login"> </li>';
 
+const cardsMarkup = `<section class="cards">
+<h2 class="cards__title title-section">Результаты поиска</h2>
+<div class="cards__grid"> </div>
+<button class="cards__button">Показать ещё</button>
+</section>`
+
 const cardMarkup = `
         <div class="cards__image-container">
           <button class="cards__bookmark"> </button>
@@ -108,5 +114,6 @@ const signupMarkup = `
 
 export {
   loginMarkup, signupMarkup, linkMarkup, buttonMarkup,
-  loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup, successMarkup, cardMarkup
+  loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup,
+  successMarkup, cardMarkup, cardsMarkup
 };

@@ -1,11 +1,16 @@
-import { isAuth } from "../utils/helpers";
+import { isAuth } from '../utils/helpers';
 
 export default class Card {
-  constructor(cardMarkup, gridContainer, moreButton, api, isAuth) {
+  constructor(cardMarkup, cardsSection, api, isAuth) {
     this.cardMarkup = cardMarkup,
-    this.gridContainer = gridContainer,
-    this.moreButton = moreButton,
+    this.cardsSection = cardsSection,
     this.api = api;
+  }
+
+  setContent(markup) {
+    document.querySelector('.intro-container').insertAdjacentHTML('afterEnd', markup);
+    this.cardsSection = document.querySelector('.cards');
+    this.gridContainer = this.cardsSection.querySelector('.cards__grid');
   }
 
   addCardsLine(hiddenCards, cardsArray) {
@@ -16,7 +21,7 @@ export default class Card {
       this.setButtonMore(false); // отключаем кнопку
       endIndex = startIndex + hiddenCards;
       hiddenCards = 0;
-    } else { // скрытых карточек больше нет
+    } else {
       this.setButtonMore(true);
       endIndex = startIndex + 3;
       hiddenCards -= 3;
@@ -26,7 +31,9 @@ export default class Card {
   }
 
   setButtonMore(statement) {
-    if (statement) { this.moreButton.classList.remove('cards__button_visible_no'); } else { this.moreButton.classList.add('cards__button_visible_no'); }
+    const moreBtn = this.cardsSection.querySelector('.cards__button');
+    if (statement) {moreBtn.classList.remove('cards__button_visible_no');
+    } else { moreBtn.classList.add('cards__button_visible_no'); }
   }
 
   getCardId(bookmark) {
@@ -46,15 +53,14 @@ export default class Card {
     cardContainer.querySelector('.cards__item-title').textContent = cardData.cardTitle;
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
-    let icon = cardContainer.querySelector('.cards__bookmark');
+    const icon = cardContainer.querySelector('.cards__bookmark');
     if (!isAuth()) {
       icon.classList.add('cards__bookmark_active_no');
     } else {
       icon.classList.add('cards__bookmark_clicked_off');
       icon.addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
-  }
+    }
     return cardContainer;
-
   }
 
   _addCard(cardData) {
@@ -67,17 +73,17 @@ export default class Card {
     cardContainer.querySelector('.cards__bookmark').classList.toggle('cards__bookmark_clicked_off');
     if (bookmark.className.includes('cards__bookmark_clicked_on')) {
       this.api.createArticle(cardData)
-      .then((res) => (cardData.id = res.data._id))
-      .catch((err) => console.log(err))
+        .then((res) => (cardData.id = res.data._id))
+        .catch((err) => console.log(err));
     } else {
       this.api.removeArticle(cardData.id)
-      .catch((err) => (console.log(err)))
+        .catch((err) => (console.log(err)));
     }
   }
 
   clearCardsGrid() {
-    while (this.gridContainer.firstChild) {
-      this.gridContainer.removeChild(this.gridContainer.firstChild);
+    while (this.cardsSection.firstChild) {
+      this.cardsSection.removeChild(this.cardsSection.firstChild);
     }
   }
 }

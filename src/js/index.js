@@ -11,12 +11,13 @@ import Card from './components/Card.js';
 import { getDateFrom, setArray, isAuth } from './utils/helpers';
 
 import {
-  popupContainer, menuContainer, gridContainer, moreButton,
+  popupContainer, menuContainer, sectionCards,
   loginButtonClass, signupButtonClass, moreButtonClass, searchForm,
 } from './constants/elements'; // импорт контейнера попапа и классов кнопок
 
 import {
-  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup, cardMarkup,
+  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
+  cardMarkup, cardsMarkup
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
 
@@ -26,17 +27,18 @@ const outApi = new OutApi();
 const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
 const header = new Header(menuContainer);
 const search = new SearchForm();
-const card = new Card(cardMarkup, gridContainer, moreButton, mainApi, isAuth);
+const card = new Card(cardMarkup, sectionCards, mainApi, isAuth);
 
 let cardsArr = []; // массив найденных карточек
 let hiddenCards = 0; // количество скрытых карточек
-const keyword = '';
 
 if (isAuth()) {  // если у нас есть токен
   mainApi.getMe()
     .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
     .catch((err) => console.log(err)); // ставим хедер с именем
 }
+
+search.setInputValue('');
 
 searchForm.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -45,6 +47,7 @@ searchForm.addEventListener('submit', (event) => {
     card.clearCardsGrid();
     outApi.getArticles(searchText, getDateFrom(7))
       .then((res) => {
+        card.setContent(cardsMarkup);
         cardsArr = setArray(res, searchText);
         hiddenCards = cardsArr.length; // все карточки сразу после поиска скрыты
         hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
@@ -71,14 +74,7 @@ document.addEventListener('click', (event) => {
     hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
   }
 
-  // if (event.target.className.includes('cards__bookmark_clicked_on'))
-  // {  let cardId = Math.floor(Math.random() * 100); // вызов API
-  //  card.setCardId(cardId, event.target); //сохраняем номер в атрибут карточки
 
-  //   };
-
-  //  if (event.target.className.includes('cards__bookmark_clicked_off'))
-  // {card.getCardId(event.target);
-  //  card.setCardId('', event.target);
-  // }; // удаляем карточку через API по номеру
 });
+
+

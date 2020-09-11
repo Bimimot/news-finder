@@ -29,7 +29,7 @@
       <h1 class="search__title">Что в мире творится?</h1>
       <p class="search__subtitle">Находите самые свежие статьи на любую тему и сохраняйте в своём личном кабинете.</p>
       <form class="search__form" novalidate>
-        <input type="text" class="search__input" placeholder="Введите тему новости" required></input>
+        <input type="text" class="search__input" placeholder="Введите тему новости" required> </input>
         <button type="submit" class="search__button">Искать</button>
       </form>
 
@@ -37,20 +37,14 @@
     </section>
 
   </div>
-  <section class="cards">
-    <h2 class="cards__title title-section">Результаты поиска</h2>
-    <div class="cards__grid">
-
-    </div>
-    <button class="cards__button">Показать ещё</button>
-  </section>
 
   <section class="cards">
     <i class="circle-preloader"></i>
     <p class="cards__comment">Идёт поиск новостей</p>
   </section>
+
   <section class="cards" style="border-top: 1px solid white;">
-    <img src="<%=require('../images/smile-sad.png').default%>" alt="sad-smile" class="smile">
+    <div class="sad-smile"></div>
     <p class="cards__message">Ничего не найдено</p>
     <p class="cards__comment">К сожалению по вашему запросу ничего не найдено</p>
   </section>

@@ -12,7 +12,7 @@
 @import url(../blocks/button/button.css);
 @import url(../blocks/circle-preloader/circle-preloader.css);
 @import url(../blocks/links/links.css);
-@import url(../blocks/smile/smile.css);
+@import url(../blocks/sad-smile/sad-smile.css);
 
 @font-face {
     font-family: 'Roboto';

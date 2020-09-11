@@ -7,6 +7,9 @@ export default class SearchForm {
     this.placeholder = this.input.placeholder;
   }
 
+  setInputValue(value) {
+    this.input.value = value;
+  }
 
   _getInputValue() {
     return this.input.value;
