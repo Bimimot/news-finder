@@ -24,10 +24,10 @@ import { errorsMessages } from './constants/errors'; // импортируем �
 const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
 const mainApi = new MainApi();
 const outApi = new OutApi();
-const popup = new Popup(popupContainer, validator); // создаем методы обработки попапа
+const card = new Card(cardMarkup, cardsMarkup, mainApi, isAuth);
+const popup = new Popup(popupContainer, validator, card);
 const header = new Header(menuContainer);
 const search = new SearchForm();
-const card = new Card(cardMarkup, mainApi, isAuth);
 
 let cardsArr = []; // массив найденных карточек
 let hiddenCards = 0; // количество скрытых карточек
@@ -64,18 +64,10 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-  console.log(event.target.className);
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
-    popup.setSubmitLogin(mainApi, header, loggedMenuMarkup);
-
-    if (document.querySelector('.cards__grid')) { // карточки выводим заново, уже с обработчиками
-      card.removeSection();
-      card.setSection(cardsMarkup);
-      hiddenCards = cardsArr.length;
-      hiddenCards = card.addCardsLine(hiddenCards, cardsArr, true);
-    }
+    popup.setSubmitLogin(mainApi, header, loggedMenuMarkup, cardsArr, hiddenCards);
   }
 
   if (event.target.className.includes(signupButtonClass)) {
@@ -91,5 +83,8 @@ document.addEventListener('click', (event) => {
   if (event.target.className.includes(exitButtonClass)) {
     localStorage.removeItem('token'); // удаление токена
     header.setMenu(unloggedMenuMarkup); // замена хедера
+    if (document.querySelector('.cards__grid')) {
+      card.updateShowedCards(cardsArr, hiddenCards, false); // уже найденные карточки делаем неактивными
+    }
   }
 });

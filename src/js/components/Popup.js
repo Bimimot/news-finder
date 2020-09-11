@@ -1,7 +1,10 @@
+import { cardMarkup } from "../constants/markups";
+
 export default class Popup {
-  constructor(popupContainer, validator) {
+  constructor(popupContainer, validator, card) {
     this.popupContainer = popupContainer;
     this.validator = validator;
+    this.card = card;
 
     this._closeByKey = this._closeByKey.bind(this);
     this._closeByClick = this._closeByClick.bind(this);
@@ -10,7 +13,7 @@ export default class Popup {
     this.clearContent = this.clearContent.bind(this);
   }
 
-  setSubmitLogin(api, header, loggedMenuMarkup) {
+  setSubmitLogin(api, header, loggedMenuMarkup, cardsArr, hiddenCards) {
     this.popupContainer.querySelector('.popup__form')
       .addEventListener('submit', (event) => {
         event.preventDefault();
@@ -20,7 +23,9 @@ export default class Popup {
               res.json().then((data) => {
                 localStorage.setItem('token', data.token);
                 api.getMe()
-                  .then((me) => header.setMenu(loggedMenuMarkup, me.name))
+                  .then((me) => {
+                    header.setMenu(loggedMenuMarkup, me.name);
+                    this.card.updateShowedCards(cardsArr, hiddenCards, true)}) // включаем иконки на уже отрисованных карточках
                   .catch((err) => console.log(err));
               });
 

@@ -1,9 +1,9 @@
-import { isAuth } from '../utils/helpers';
-
 export default class Card {
-  constructor(cardMarkup, api, isAuth) {
+  constructor(cardMarkup, cardsMarkup, api, isAuth) {
     this.cardMarkup = cardMarkup,
-    this.api = api;
+    this.cardsMarkup = cardsMarkup,
+    this.api = api,
+    this.isAuth = isAuth;
   }
 
   setSection(markup) {
@@ -36,6 +36,21 @@ export default class Card {
     return hiddenCards;
   }
 
+  updateShowedCards(cardsArr, hiddenCards, active) {
+    if (document.querySelector('.cards__grid')) { // меняем карточки на активные
+      this.removeSection();
+      this.setSection(this.cardsMarkup);
+
+      const showedCards = cardsArr.length - hiddenCards;
+      console.log('showed:', showedCards);
+      const lines = showedCards / 3;
+      for (let i = 0; i < lines; i++) {
+        const hCards = cardsArr.length - i * 3;
+        this.addCardsLine(hCards, cardsArr, active);
+      }
+    }
+  }
+
   _setButtonMore(statement) {
     const moreBtn = this.cardsSection.querySelector('.cards__button');
     if (statement) {
@@ -53,7 +68,7 @@ export default class Card {
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
     const icon = cardContainer.querySelector('.cards__bookmark');
-    if (isAuth() || this.activeIcon) { // если есть токен или флаг активности иконок
+    if (this.isAuth() || this.activeIcon) { // если есть токен или флаг активности иконок
       icon.classList.add('cards__bookmark_clicked_off');
       icon.addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
     } else {
