@@ -2,6 +2,7 @@ import '../css/articles.css';
 
 import MainApi from './api/MainApi';
 import Header from './components/Header';
+import MyArticles from './components/MyArticles';
 
 import { getDateFrom, setArray, isAuth } from './utils/helpers';
 import { menuContainer } from './constants/elements';
@@ -10,14 +11,30 @@ import { loggedMenuArticlesMarkup } from './constants/markups'; // импорт 
 
 const mainApi = new MainApi();
 const header = new Header(menuContainer);
+const myArticles = new MyArticles();
+let myCards = [];
+const keys = [];
 
 if (isAuth()) {
   mainApi.getMe() // ставим  хедер с именем либо редирект
-    .then((data) => { if (data) { header.setMenu(loggedMenuArticlesMarkup, data.name); } })
+    .then((data) => {
+      if (data) {
+        header.setMenu(loggedMenuArticlesMarkup, data.name);
+        myArticles.setName(data.name);
+      }
+    })
     .catch((err) => {
       console.log(err);
     });
 } else { location = 'index.html'; }
+
+mainApi.getArticles()
+  .then((res) => { myCards = res.data; })
+  .then((arr) => {
+    myArticles.setNumber(myCards.length);
+    myArticles.setKeys(myArticles.getStringOfKeys(myCards));
+
+  });
 
 // import FormValidator from './FormValidator.js';
 // import Popup from './Popup.js';

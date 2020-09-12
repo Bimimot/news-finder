@@ -85,7 +85,19 @@ export default class MainApi {
         .then((res) => res.json())
     );
   }
-}
 
-// getArticles(){
+  getArticles() {
+    return (
+      fetch((`${this.url}/articles/`), {
+        method: 'GET',
+        headers: {
+          authorization: `Bearer ${localStorage.getItem('token')}`,
+          'Content-Type': 'application/json',
+        },
+        // credentials: 'include',
+      })
+        .then((res) => res.json())
+    );
+  }
+}
 
