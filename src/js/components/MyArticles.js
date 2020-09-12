@@ -1,8 +1,8 @@
-import { SSL_OP_SSLEAY_080_CLIENT_DH_BUG } from 'constants';
+import {fewKeysMarkup, moreKeysMarkup} from '../constants/markups';
 
 export default class MyArticles {
   constructor() {
-
+    this.artSection = document.querySelector('.intro');
   }
 
   setName(owner) {
@@ -13,7 +13,7 @@ export default class MyArticles {
     document.querySelector('.number').textContent = number;
   }
 
-  getStringOfKeys(myCards) {
+  setStringOfKeys(myCards) {
     const keys = myCards.map((item) => item.keyword); // сохраняем массив ключей
     keys.sort(); // упорядочиваем по алфавиту
     const keysFr = []; // массив объектов ключи-частота в массиве
@@ -35,13 +35,9 @@ export default class MyArticles {
       const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1); // функция для сортировки ключей по количеству
       keysFr.sort(sortByTotal);
       const sortedKeys = keysFr.map((item) => item.key); // оставляем только ключи без количества
-      stringOfKeys = this._stringKeys(sortedKeys);
+      this._stringKeys(sortedKeys);
     }
-    return stringOfKeys;
-  }
-
-  setKeys(value){
-    document.querySelector('.intro__keys_accent_span').textContent = value;
+    // return stringOfKeys;
   }
 
   _stringUp(str) {
@@ -53,11 +49,25 @@ export default class MyArticles {
   _stringKeys(arrKeys) {
     let strKeys;
     if (arrKeys.length < 4) {
-      strKeys[1] = arrKeys.reduce((sum, current) => `${sum}, ${current}`);
+      strKeys = arrKeys.reduce((sum, current) => `${sum}, ${current}`);
+      console.log(strKeys);
+      this._setFewKeys(strKeys);
     } else {
-      strKeys = `${arrKeys[0]}, ${arrKeys[1]} и ${arrKeys.length - 2} другим`;
+      strKeys = `${arrKeys[0]}, ${arrKeys[1]}`;
+      this._setMoreKeys(strKeys, (arrKeys.length - 2));
     }
     return strKeys;
   }
 
+  _setFewKeys(strKeys){
+    this.artSection.insertAdjacentHTML('beforeend', fewKeysMarkup);
+    this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
+  }
+
+  _setMoreKeys(strKeys, addKeys){
+    this.artSection.insertAdjacentHTML('beforeend', moreKeysMarkup);
+    this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
+    this.artSection.querySelector('.intro__keys_type_add').textContent = addKeys + ' другим';
+
+  }
 }

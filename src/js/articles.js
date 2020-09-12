@@ -4,6 +4,7 @@ import MainApi from './api/MainApi';
 import Header from './components/Header';
 import MyArticles from './components/MyArticles';
 
+
 import { getDateFrom, setArray, isAuth } from './utils/helpers';
 import { menuContainer } from './constants/elements';
 
@@ -32,7 +33,7 @@ mainApi.getArticles()
   .then((res) => { myCards = res.data; })
   .then((arr) => {
     myArticles.setNumber(myCards.length);
-    myArticles.setKeys(myArticles.getStringOfKeys(myCards));
+    myArticles.setStringOfKeys((myCards));
 
   });
 

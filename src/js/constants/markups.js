@@ -6,6 +6,15 @@ const loaderMarkup = `<section class="cards">
 <p class="cards__comment">Идёт поиск новостей</p>
 </section>`
 
+const fewKeysMarkup = `<p class="intro__keys">По ключевым словам:
+<span class="intro__keys intro__keys_accent_span"></span>
+</p>`
+
+const moreKeysMarkup = `<p class="intro__keys">По ключевым словам:
+<span class="intro__keys intro__keys_accent_span"></span>\xa0и\xa0
+<span class="intro__keys intro__keys_accent_span intro__keys_type_add"></span>
+</p>`
+
 const noCardsMarkup = `<section class="cards">
 <div class="sad-smile"></div>
 <p class="cards__message">Ничего не найдено</p>
@@ -126,5 +135,6 @@ const signupMarkup = `
 export {
   loginMarkup, signupMarkup, linkMarkup, buttonMarkup,
   loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup,
-  successMarkup, cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup
+  successMarkup, cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
+  fewKeysMarkup, moreKeysMarkup
 };
