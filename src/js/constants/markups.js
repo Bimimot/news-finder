@@ -27,6 +27,10 @@ const cardsMarkup = `<section class="cards">
 <button class="cards__button">Показать ещё</button>
 </section>`;
 
+const myCardsMarkup = `<section class="cards">
+<div class="cards__grid"> </div>
+</section>`;
+
 const cardMarkup = `
         <div class="cards__image-container">
           <button class="cards__bookmark"> </button>
@@ -39,6 +43,19 @@ const cardMarkup = `
           <p class="cards__sign">РИА</p>
         </div>
       `;
+
+const myCardMarkup = ` <div class="cards__image-container">
+<button class="cards__bookmark cards__bookmark_icon_delete"> </button>
+<p class="cards__label"></p>
+<img class="cards__photo" alt="photo" src="">
+</div>
+<div class="cards__text">
+<p class="cards__item-date">31 июня 2020</p>
+<h3 class="cards__item-title"></h3>
+<p class="cards__item-article"></p>
+<p class="cards__sign"></p>
+</div>
+`;
 
 const unloggedMenuMarkup = `<li class="header__link header__link_type_selected">
 <a class="links" href="index.html">Главная</a>
@@ -136,5 +153,5 @@ export {
   loginMarkup, signupMarkup, linkMarkup, buttonMarkup,
   loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup,
   successMarkup, cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
-  fewKeysMarkup, moreKeysMarkup
+  fewKeysMarkup, moreKeysMarkup, myCardMarkup, myCardsMarkup
 };
