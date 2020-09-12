@@ -1,7 +1,7 @@
 .popup__close {
 cursor: pointer;
 background-image: url(../../../images/close.png);
-background-position: center no-repeat;
+background-size: 100% auto;
 }
 
 @media screen and (max-width: 767px) {

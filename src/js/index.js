@@ -1,7 +1,7 @@
 import '../css/style.css';
 
-import FormValidator from './components/FormValidator'; // импортируем класс с валидаторами форм
-import Popup from './components/Popup'; // импортируем класс с методами для попапов
+import FormValidator from './components/FormValidator';
+import Popup from './components/Popup';
 import MainApi from './api/MainApi';
 import OutApi from './api/OutApi';
 import Header from './components/Header';
@@ -12,11 +12,13 @@ import { getDateFrom, setArray, isAuth } from './utils/helpers';
 
 import {
   popupContainer, menuContainer,
-  loginButtonClass, signupButtonClass, moreButtonClass, searchForm, exitButtonClass,
-} from './constants/elements'; // импорт контейнера попапа и классов кнопок
+  loginButtonClass, signupButtonClass, sandwichButtonClass,
+  moreButtonClass, searchForm, exitButtonClass,
+} from './constants/elements';
 
 import {
-  loginMarkup, signupMarkup, successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
+  loginMarkup, signupMarkup, popupLogMenuMarkup, popupUnlogMenuMarkup,
+  successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
   cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
 } from './constants/markups'; // импорт разметки
 import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
@@ -64,6 +66,7 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('click', (event) => {
+  console.log(event.target.className);
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
@@ -86,5 +89,20 @@ document.addEventListener('click', (event) => {
     if (document.querySelector('.cards__grid')) {
       card.updateShowedCards(cardsArr, hiddenCards, false); // уже найденные карточки делаем неактивными
     }
+    popup.close();
+  }
+
+  if (event.target.className.includes(sandwichButtonClass)) {
+    if (isAuth()) { // если у нас есть токен
+      mainApi.getMe()
+        .then((data) => {
+          if (data) { popup.setContent(popupLogMenuMarkup);
+            popup.setNameOnButton(data.name);}
+        } )
+        .catch((err) => console.log(err)); // ставим хедер с именем
+    }
+    else {
+    popup.setContent(popupUnlogMenuMarkup)}
+    popup.open();
   }
 });

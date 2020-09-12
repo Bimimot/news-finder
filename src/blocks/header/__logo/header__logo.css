@@ -1,9 +1,17 @@
 @import url('./_type/header__logo_type_light.css');
 
+.header__logo_type_popup{
+  margin: 0 0 0 16px;
+  height: 20px;
+  width: 134px;
+  background-size: 100% auto;
+  background-image: url('../../../images/news-logo.svg');
+
+}
+
 @media screen and (max-width: 767px){
 .header__logo{
   margin: 0 0 0 16px;
-  height: 16px;
   }
 }
 

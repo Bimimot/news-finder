@@ -1,5 +1,5 @@
-const linkMarkup = '<li class="header__link"> <a class="links" href=""></a> </li>';
-const buttonMarkup = '<li class="header__link header__link_type_button button_type_login"> </li>';
+// const linkMarkup = '<li class="header__link"> <a class="links" href=""></a> </li>';
+// const buttonMarkup = '<li class="header__link header__link_type_button button_type_login"> </li>';
 
 const loaderMarkup = `<section class="cards">
 <i class="circle-preloader"></i>
@@ -76,7 +76,7 @@ const loggedMenuMarkup = `<li class="header__link header__link_type_selected">
 </li>
 `;
 
-const loggedMenuArticlesMarkup = `<li class="header__link">
+const menuArticlesMarkup = `<li class="header__link">
 <a class="links" href="index.html">Главная</a>
 </li>
 <li class="header__link header__link_type_selected">
@@ -87,6 +87,53 @@ const loggedMenuArticlesMarkup = `<li class="header__link">
 <div class="header__exit header__exit_color_black exit"> </div>
 </li>
 `;
+
+const popupUnlogMenuMarkup =`    <div class="popup__content_type_menu">
+<header class="header header_type_dark">
+<div class="header__logo header__logo_type_popup"><>
+</header>
+<div class="popup__close"> </div>
+<ul class="popup__menu">
+  <li class="header__link">
+    <a class="links" href="index.html">Главная</a>
+  </li>
+  <li class="header__link header__link_type_button button_type_login"> Авторизоваться
+  </li>
+</ul>
+</div>`;
+
+const popupLogMenuMarkup =`    <div class="popup__content_type_menu">
+<header class="header header_type_dark">
+<div class="header__logo header__logo_type_popup"><>
+</header>
+<div class="popup__close"> </div>
+<ul class="popup__menu">
+<li class="header__link">
+<a class="links" href="index.html">Главная</a>
+</li>
+<li class="header__link header__link_type_selected">
+<a class="links" href="articles.html">Сохранённые</a>
+</li>
+<li class="header__link header__link_type_button button_type_exit exit">
+<p class="header__name exit"></p>
+<div class="header__exit header__exit_color_white exit"> </div>
+</li></ul>
+</div>`;
+
+const popupArtMenuMarkup =`    <div class="popup__content_type_menu">
+<header class="header header_type_dark">
+<div class="header__logo header__logo_type_popup"><>
+</header>
+<div class="popup__close"> </div>
+<ul class="popup__menu">
+<li class="header__link header__link_type_selected">
+<a class="links" href="articles.html">Сохранённые</a>
+</li>
+<li class="header__link header__link_type_button button_type_exit exit">
+<p class="header__name exit"></p>
+<div class="header__exit header__exit_color_white exit"> </div>
+</li></ul>
+</div>`;
 
 const successMarkup = `
 <div class="popup__content popup__content_type_form">
@@ -150,8 +197,8 @@ const signupMarkup = `
     </div>`;
 
 export {
-  loginMarkup, signupMarkup, linkMarkup, buttonMarkup,
-  loggedMenuMarkup, loggedMenuArticlesMarkup, unloggedMenuMarkup,
+  loginMarkup, signupMarkup, popupLogMenuMarkup, popupUnlogMenuMarkup,
+  loggedMenuMarkup, menuArticlesMarkup, popupArtMenuMarkup, unloggedMenuMarkup,
   successMarkup, cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
   fewKeysMarkup, moreKeysMarkup, myCardMarkup, myCardsMarkup
 };

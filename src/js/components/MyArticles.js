@@ -9,27 +9,28 @@ export default class MyArticles {
     this.api = api;
   }
 
-  setSection(markup) {
+  setSection(markup) { // установка секции с карточками
     this.artSection.insertAdjacentHTML('afterEnd', markup);
     this.myCardsSection = document.querySelector('.cards');
     this.myGridContainer = this.myCardsSection.querySelector('.cards__grid');
   }
 
-  removeSection() {
+  removeSection() { // удаление секции с карточками
     if (this.myCardsSection) {
       this.myCardsSection.remove();
     }
   }
 
-  setName(owner) {
+  setName(owner) { // установка имени в титул
     document.querySelector('.owner').textContent = owner;
   }
 
-  setNumber(number) {
+  setNumber(number) { // установка числа карточек в титул
+    if (number === 0) { number = ' нет '; }
     document.querySelector('.number').textContent = number;
   }
 
-  setStringOfKeys(myCards) {
+  setStringOfKeys(myCards) { // получаем строку из слов-ключей
     const keys = myCards.map((item) => item.keyword); // сохраняем массив ключей
     keys.sort(); // упорядочиваем по алфавиту
     const keysFr = []; // массив объектов ключи-частота в массиве
@@ -54,13 +55,13 @@ export default class MyArticles {
     }
   }
 
-  _stringUp(str) {
+  _stringUp(str) { // написание слов с ззаглавной
     let newStr = str.toLowerCase();
     newStr = newStr[0].toUpperCase() + newStr.slice(1);
     return newStr;
   }
 
-  _stringKeys(arrKeys) {
+  _stringKeys(arrKeys) { // составление ключей-слов вместе
     let strKeys;
     if (arrKeys.length < 4) {
       strKeys = arrKeys.reduce((sum, current) => `${sum}, ${current}`);
@@ -73,23 +74,22 @@ export default class MyArticles {
     return strKeys;
   }
 
-  _setFewKeys(strKeys) {
+  _setFewKeys(strKeys) { // вывод нескольких слов ключей
     this.artSection.insertAdjacentHTML('beforeend', fewKeysMarkup);
     this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
   }
 
-  _setMoreKeys(strKeys, addKeys) {
+  _setMoreKeys(strKeys, addKeys) { // вывод слов ключей в 2 блока
     this.artSection.insertAdjacentHTML('beforeend', moreKeysMarkup);
     this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
     this.artSection.querySelector('.intro__keys_type_add').textContent = `${addKeys} другим`;
   }
 
-  addMycards(arrayCards) {
+  addMycards(arrayCards) { // вывод своих карточек
     arrayCards.forEach((card) => (this._addMyCard(card)));
   }
 
-  _renderMyCard(cardData) {
-    console.log(cardData);
+  _renderMyCard(cardData) { // создание своих карточек
     const cardContainer = document.createElement('div'); // создали DOM контейнер для карточки
     cardContainer.classList.add('cards__item');
     cardContainer.insertAdjacentHTML('beforeend', myCardMarkup); // поставили в контейнер разметку
@@ -106,12 +106,12 @@ export default class MyArticles {
     return cardContainer;
   }
 
-  _addMyCard(cardData) {
+  _addMyCard(cardData) { // вывод 1 карточки
     const newMyCard = this._renderMyCard(cardData, this.cardMarkup);
     this.myGridContainer.appendChild(newMyCard);
   }
 
-  _removeMyCard(cardData, cardContainer) {
+  _removeMyCard(cardData, cardContainer) { // удаление 1 карточки
     this.api.removeArticle(cardData._id)
       .then((res) => {
         cardContainer.remove();

@@ -3,11 +3,11 @@
   color: #2F71E5;
 }
 
-.button_type_signup{
+.button_type_signup:hover{
   cursor: pointer;
 }
 
-.button_type_menu{
+.button_type_menu:hover{
   cursor: pointer;
 }
 

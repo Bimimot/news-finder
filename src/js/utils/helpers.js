@@ -6,11 +6,12 @@ function getDateFrom(days) {
   return dateFrom;
 }
 
-function getCardDate(dateStr) {
+function getCardDate(dateStr) { // преобразование даты в формат карточки
   let cardDate = Date.parse(dateStr);
   cardDate = new Date(cardDate);
   cardDate = `${cardDate.toLocaleString('ru', { day: 'numeric', month: 'long' })}, ${cardDate.getFullYear()}`;
   return (cardDate);
+
 }
 function isReal(value) { // проверка действительности значения
   if (value && value !== 'null') { return true; }
@@ -43,7 +44,7 @@ function setArray(articlesArr, keyword) { // очистка массива от 
   return cardsArr;
 }
 
-function isAuth() {
+function isAuth() { // проверка авторизации
   if (localStorage.getItem('token') === null) { return false; }
   return true;
 }
