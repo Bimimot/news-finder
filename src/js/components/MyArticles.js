@@ -26,8 +26,18 @@ export default class MyArticles {
   }
 
   setNumber(number) { // установка числа карточек в титул
-    if (number === 0) { number = ' нет '; }
-    document.querySelector('.number').textContent = number;
+    let  numberText = number + ' сохранённых статей'
+    if (number === 0) { numberText = ' нет сохранённых статей'; }
+    if (number === 1){
+      numberText = number + ' сохранённая статья';
+    }
+    if (number > 1 && number < 4) {
+      numberText = number + ' сохранённых статьи'
+    }
+
+    document.querySelector('.number').textContent = numberText;
+
+
   }
 
   setStringOfKeys(myCards) { // получаем строку из слов-ключей
@@ -35,10 +45,10 @@ export default class MyArticles {
     keys.sort(); // упорядочиваем по алфавиту
     const keysFr = []; // массив объектов ключи-частота в массиве
 
-    if (keys.length > 2) {
+    if (keys.length > 1) {
       let fr = 1; // частота употребления
       let j = 0; // индекс нового массива объектов
-      for (let i = 0; i < keys.length - 2; i++) {
+      for (let i = 0; i < keys.length; i++) {
         if (keys[i] === keys[i + 1]) { // считаем количество повторений
           fr += 1;
           keysFr[j] = { key: this._stringUp(keys[i]), total: fr }; // слово помним, частоту переписываем
@@ -48,11 +58,14 @@ export default class MyArticles {
           keysFr[j] = { key: this._stringUp(keys[i]), total: 1 }; // запомнили новое слово
         }
       }
-      const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1); // функция для сортировки ключей по количеству
-      keysFr.sort(sortByTotal);
-      const sortedKeys = keysFr.map((item) => item.key); // оставляем только ключи без количества
-      this._stringKeys(sortedKeys);
     }
+    else {
+      keysFr[0] = { key: this._stringUp(keys[0]), total: 1 };
+    }
+    const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1); // функция для сортировки ключей по количеству
+    keysFr.sort(sortByTotal);
+    const sortedKeys = keysFr.map((item) => item.key); // оставляем только ключи без количества
+    this._stringKeys(sortedKeys);
   }
 
   _stringUp(str) { // написание слов с ззаглавной
@@ -65,12 +78,12 @@ export default class MyArticles {
     let strKeys;
     if (arrKeys.length < 4) {
       strKeys = arrKeys.reduce((sum, current) => `${sum}, ${current}`);
-      console.log(strKeys);
       this._setFewKeys(strKeys);
     } else {
       strKeys = `${arrKeys[0]}, ${arrKeys[1]}`;
       this._setMoreKeys(strKeys, (arrKeys.length - 2));
     }
+
     return strKeys;
   }
 

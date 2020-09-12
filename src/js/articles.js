@@ -37,6 +37,7 @@ if (isAuth()) {
 mainApi.getArticles()
   .then((res) => { myCards = res.data; })
   .then((arr) => {
+    
     myArticles.setNumber(myCards.length);
     myArticles.setStringOfKeys((myCards));
     myArticles.removeSection();
