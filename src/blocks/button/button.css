@@ -1,7 +1,6 @@
 .button_type_login:hover  {
   cursor: pointer;
-  border:  #2F71E5 1px solid;
-  background: #2F71E5;
+  color: #2F71E5;
 }
 
 .button_type_signup{

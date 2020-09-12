@@ -92,7 +92,7 @@ const successMarkup = `
 <div class="popup__content popup__content_type_form">
 <div class="popup__close"> </div>
 <h3 class="popup__title">Пользователь успешно зарегистрирован!</h3>
-<span class="popup__subtext popup__button button_type_signin" >Выполнить вход</span>
+<span class="popup__subtext popup__button button_type_login" >Выполнить вход</span>
 </div>`;
 
 const loginMarkup = `

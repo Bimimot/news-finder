@@ -27,17 +27,26 @@
   <footer class="footer">
     <a class="footer__copyright" href="">&#169; 2020 SuperSite, powered by News API </a>
     <div class="footer__menu">
-      <a class="footer__link" href="index.html">Главная</a>
-      <a class="footer__link" href="https://praktikum.yandex.ru" target="_blank">Яндекс.Практикум</a>
-      <a class="footer__icon" href="https://github.com/" target="_blank">
-        <img class="icons" alt="github-icon" src="<%=require('../images/icon-github.svg').default%>">
-      </a>
-      <a class="footer__icon" href="https://www.facebook.com/" target="_blank">
-        <img class="icons" alt="facebook-icon" src="<%=require('../images/icon-facebook.svg').default%>">
-      </a>
+      <ul class="footer__links">
+        <li class="footer__link"><a class="links" href="index.html">Главная</a></li>
+        <li class="footer__link"><a class="links" href="praktikum.yandex.ru">Яндекс.Практикум</a></li>
+      </ul>
+
+      <ul class="footer__icons">
+        <li class="footer__icon">
+          <a class="links" href="https://github.com/" target="_blank">
+            <img class="icons" alt="github-icon" src="<%=require('../images/icon-github.svg').default%>">
+          </a>
+        </li>
+
+        <li class="footer__icon">
+          <a class="links" href="https://www.facebook.com/" target="_blank">
+            <img class="icons" alt="facebook-icon" src="<%=require('../images/icon-facebook.svg').default%>">
+          </a>
+        </li>
+      </ul>
     </div>
   </footer>
-
 
   <div class="popup popup_type_menu">
     <div class="popup__content_type_menu">

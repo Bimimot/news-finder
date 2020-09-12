@@ -5,8 +5,8 @@ import Header from './components/Header';
 import MyArticles from './components/MyArticles';
 
 
-import { getDateFrom, setArray, isAuth } from './utils/helpers';
-import { menuContainer, myCardsContainer } from './constants/elements';
+import { isAuth } from './utils/helpers';
+import { menuContainer, exitButtonClass } from './constants/elements';
 
 import { loggedMenuArticlesMarkup, myCardsMarkup } from './constants/markups'; // импорт разметки
 
@@ -43,6 +43,12 @@ mainApi.getArticles()
 
 
 
-// myCards
+document.addEventListener(('click'), (event) =>{
+  if(event.target.className.includes(exitButtonClass))
+  {
+    localStorage.removeItem('token'); // удаление токена
+    location = 'index.html';
+  }
+})
 
 
