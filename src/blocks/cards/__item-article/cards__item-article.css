@@ -19,6 +19,6 @@
 
 @media screen and (min-width: 1440px){
 .cards__item-article{
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 4;
 }
 }

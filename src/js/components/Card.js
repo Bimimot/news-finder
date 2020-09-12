@@ -66,6 +66,7 @@ export default class Card {
     cardContainer.querySelector('.cards__item-date').textContent = cardData.cardDate;
     cardContainer.querySelector('.cards__item-title').textContent = cardData.cardTitle;
     cardContainer.querySelector('.cards__item-article').textContent = cardData.cardText;
+    cardContainer.querySelector('.cards__text').href = cardData.cardUrl;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
     const icon = cardContainer.querySelector('.cards__bookmark');
     if (this.isAuth() || this.activeIcon) { // если есть токен или флаг активности иконок

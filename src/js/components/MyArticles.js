@@ -89,6 +89,7 @@ export default class MyArticles {
   }
 
   _renderMyCard(cardData) {
+    console.log(cardData);
     const cardContainer = document.createElement('div'); // создали DOM контейнер для карточки
     cardContainer.classList.add('cards__item');
     cardContainer.insertAdjacentHTML('beforeend', myCardMarkup); // поставили в контейнер разметку
@@ -96,6 +97,7 @@ export default class MyArticles {
     cardContainer.querySelector('.cards__item-date').textContent = getCardDate(cardData.date);
     cardContainer.querySelector('.cards__item-title').textContent = cardData.title;
     cardContainer.querySelector('.cards__item-article').textContent = cardData.text;
+    cardContainer.querySelector('.cards__text').href = cardData.link;
     cardContainer.querySelector('.cards__sign').textContent = cardData.source;
     cardContainer.querySelector('.cards__label').textContent = this._stringUp(cardData.keyword);
     const icon = cardContainer.querySelector('.cards__bookmark');

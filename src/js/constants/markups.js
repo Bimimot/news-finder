@@ -36,12 +36,12 @@ const cardMarkup = `
           <button class="cards__bookmark"> </button>
           <img class="cards__photo" alt="photo" src="">
         </div>
-        <div class="cards__text">
+        <a class="cards__text links" href="" target="_blank">
           <p class="cards__item-date"></p>
           <h3 class="cards__item-title"></h3>
           <p class="cards__item-article"></p>
           <p class="cards__sign">РИА</p>
-        </div>
+        </a>
       `;
 
 const myCardMarkup = ` <div class="cards__image-container">
@@ -49,12 +49,12 @@ const myCardMarkup = ` <div class="cards__image-container">
 <p class="cards__label"></p>
 <img class="cards__photo" alt="photo" src="">
 </div>
-<div class="cards__text">
+<a class="cards__text links" href="" target="_blank">
 <p class="cards__item-date">31 июня 2020</p>
 <h3 class="cards__item-title"></h3>
 <p class="cards__item-article"></p>
 <p class="cards__sign"></p>
-</div>
+</a>
 `;
 
 const unloggedMenuMarkup = `<li class="header__link header__link_type_selected">
