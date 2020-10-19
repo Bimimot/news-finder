@@ -43,28 +43,34 @@ export default class MyArticles {
   setStringOfKeys(myCards) { // получаем строку из слов-ключей
     const keys = myCards.map((item) => item.keyword); // сохраняем массив ключей
     keys.sort(); // упорядочиваем по алфавиту
+                                                                              console.log('Ключи по алфавиту:', keys);
     const keysFr = []; // массив объектов ключи-частота в массиве
+    let j = 0; // индекс нового  объекта
+    keysFr[j] = { key: this._stringUp(keys[0]), total: 1 };
+                                                                              console.log('Первый ключ с частотой', keysFr[0]);
 
-    if (keys.length > 1) {
       let fr = 1; // частота употребления
-      let j = 0; // индекс нового массива объектов
-      for (let i = 0; i < keys.length; i++) {
-        if (keys[i] === keys[i + 1]) { // считаем количество повторений
+
+      for (let i = 1; i < keys.length; i++) {
+                                                                              console.log('Индекс ключа', i);
+        if (keys[i] === keys[i - 1]) { // считаем количество повторений
           fr += 1;
           keysFr[j] = { key: this._stringUp(keys[i]), total: fr }; // слово помним, частоту переписываем
+                                                                              console.log('Совпадения есть. ', 'Ключ:', keys[i], ' Частота:', fr);
         } else {
           fr = 1;
           j += 1;
           keysFr[j] = { key: this._stringUp(keys[i]), total: 1 }; // запомнили новое слово
+                                                                              console.log('Совпадения нет. ', 'Ключ:', keys[i], ' Частота:', fr);
         }
       }
-    }
-    else {
-      keysFr[0] = { key: this._stringUp(keys[0]), total: 1 };
-    }
+
+    console.log('Все ключи с частотами:', keysFr);
+
     const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1); // функция для сортировки ключей по количеству
     keysFr.sort(sortByTotal);
     const sortedKeys = keysFr.map((item) => item.key); // оставляем только ключи без количества
+    console.log(sortedKeys);
     this._stringKeys(sortedKeys);
   }
 

@@ -66,7 +66,7 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-  console.log(event.target.className);
+
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
