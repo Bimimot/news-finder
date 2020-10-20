@@ -31,7 +31,7 @@ export default class MyArticles {
     if (number === 1){
       numberText = number + ' сохранённая статья';
     }
-    if (number > 1 && number < 4) {
+    if (number > 1 && number < 5) {
       numberText = number + ' сохранённых статьи'
     }
 
