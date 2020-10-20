@@ -1,5 +1,5 @@
 {
-  "name": "news-frontend",
+  "name": "NewsFinder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,12 +10,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bimimot/News-frontend.git"
+    "url": "git+https://github.com/Bimimot/NewsFinder.git"
   },
   "author": "Stepan Popov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bimimot/News-frontend/issues"
+    "url": "https://github.com/Bimimot/NewsFinder/issues"
   },
   "devDependencies": {
     "@babel/cli": "7.10.5",
@@ -52,5 +52,5 @@
     "node": "14.8.0",
     "nodemon": "2.0.4"
   },
-  "homepage": "https://github.com/Bimimot/News-frontend/"
+  "homepage": "https://github.com/Bimimot/NewsFinder/"
 }

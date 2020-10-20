@@ -31,8 +31,8 @@ NewsFinder
 
 БЭКЕНД
 -----------
-REST API
-https://github.com/Bimimot/News-API
+- REST API
+- https://github.com/Bimimot/News-API
 
 
 РЕШЕННЫЕ ЗАДАЧИ
@@ -45,8 +45,7 @@ https://github.com/Bimimot/News-API
 - кастомная валидация полей в попапах
 - реализовано взаимодействие с внешнем API
 - реализовано взаимодействием с собственным REST API
-- для REST API изпользуется NoSQL база данных MongoDB
-- настроены сборки: build и dev
+- настроены сборки: build, dev, deploy 
 - для сборки dev настроено атоматическое обновление hot reload
 - настроены вебпак и бабель для минификации CSS и транспиляциия JS, настроен префиксер CSS
 - настроено хэширование CSS и JS файлов при build сборке
