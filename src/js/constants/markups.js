@@ -90,7 +90,7 @@ const menuArticlesMarkup = `<li class="header__link">
 
 const popupUnlogMenuMarkup =`    <div class="popup__content_type_menu">
 <header class="header header_type_dark">
-<div class="header__logo header__logo_type_popup"><>
+<div class="header__logo header__logo_type_popup">
 </header>
 <div class="popup__close"> </div>
 <ul class="popup__menu">
