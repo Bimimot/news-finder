@@ -1,6 +1,8 @@
 .author__photo{
     display: flex;
     position: relative;
+    border-radius: 50%;
+    background-color: lightgray;
    }
 
 @media screen and (max-width: 767px){
@@ -14,6 +16,8 @@ align-self: center;
 @media screen and (min-width: 768px){
 .author__photo{
 max-width: 232px;
+max-height: 232px;
+
 }
 }
 

@@ -35,19 +35,28 @@
   </div>
 
   <section class="author">
-    <img class="author__photo" alt="author-photo" src="<%=require('../images/author-photo.jpg').default%>">
+    <img class="author__photo" alt="author-photo" src="<%=require('../images/web-photo.png').default%>">
     <div class="author__column">
-      <h2 class="author__title title-section">Об авторе</h2>
-      <p class="author__paragraph">Это блок с описанием автора проекта. Здесь следует указать, как вас зовут, чем вы
-        занимаетесь, какими технологиями разработки владеете.</p>
-      <p class="author__paragraph">Также можно рассказать о процессе обучения в Практикуме, чему вы тут научились, и
-        чем
-        можете помочь потенциальным заказчикам.</p>
+      <h2 class="author__title title-section">О проекте</h2>
+      <p class="author__paragraph">Это дипломная работа по итогу обучения на факультете веб-разработки в Яндекс.Практикуме.</p>
+      <p class="author__paragraph">Интерфейс адаптирован под различные разрешения экрана, работа со стилями организована по методологии БЭМ.
+         Фронтенд собран вебпаком и бабелем: настроены минификация и префиксер CSS, транспиляция JS.
+      </p>
+      <p class="author__paragraph">
+       Для поиска статей используется внешнее API newsapi.org.
+       Собственный REST API для работы бэкенда написан на нативном JS, база данных - NoSQL MongoDB.
+     </p>
+       <p class="author__paragraph">
+          Для контроля версионности и прохождения ревью при разработке применялся Git.
+          Бэкенд и фронтенд подняты на одном домене, настроен nginx.
+        </p>
+
+      </p>
     </div>
   </section>
 
   <footer class="footer">
-    <a class="footer__copyright" href="">&#169; 2020 SuperSite, powered by News API </a>
+    <a class="footer__copyright" href="">&#169; 2020 NewsFinder, powered by News API </a>
     <div class="footer__menu">
       <ul class="footer__links">
         <li class="footer__link"><a class="links" href="index.html">Главная</a></li>
@@ -56,16 +65,16 @@
 
       <ul class="footer__icons">
         <li class="footer__icon">
-          <a class="links" href="https://github.com/" target="_blank">
+          <a class="links" href="https://github.com/Bimimot" target="_blank">
             <img class="icons" alt="github-icon" src="<%=require('../images/icon-github.svg').default%>">
           </a>
         </li>
 
-        <li class="footer__icon">
+        <!-- <li class="footer__icon">
           <a class="links" href="https://www.facebook.com/" target="_blank">
             <img class="icons" alt="facebook-icon" src="<%=require('../images/icon-facebook.svg').default%>">
           </a>
-        </li>
+        </li> -->
       </ul>
     </div>
   </footer>
