@@ -6,8 +6,7 @@ NewsFinder
 
 АДРЕС
 -----------
-- https://newsfinder.tk
-- https://bimimot.github.io/NewsFinder/
+- https://bimimot.github.io/news-finder/
 
 
 ОПИСАНИЕ

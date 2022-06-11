@@ -1,6 +1,6 @@
 export default class MainApi {
   constructor() {
-    this.url = 'https://stepan-popov.dev/news-api';
+    this.url = 'https://stepan-popov.dev/api-news';
 //    this.url = 'http://localhost:3000/api';
   }
 
