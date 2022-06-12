@@ -25,13 +25,14 @@ NewsFinder
 
 ТЕСТОВЫЙ ПОЛЬЗОВАТЕЛЬ
 -----------
-- Email: test@yandex.ru, Pass: qwertyqwerty
+- Email: test@test.com,
+  Pass: qwertyqwerty
 
 
 БЭКЕНД
 -----------
 - REST API
-- https://github.com/Bimimot/News-API
+- https://github.com/Bimimot/news-api
 
 
 РЕШЕННЫЕ ЗАДАЧИ
