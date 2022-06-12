@@ -1,30 +1,31 @@
+/* eslint-disable no-unused-expressions */
 export default class Card {
   constructor(cardMarkup, cardsMarkup, api, isAuth) {
     this.cardMarkup = cardMarkup,
-    this.cardsMarkup = cardsMarkup,
-    this.api = api,
-    this.isAuth = isAuth;
+      this.cardsMarkup = cardsMarkup,
+      this.api = api,
+      this.isAuth = isAuth;
   }
 
-  setSection(markup) { // подключение секции карточек
+  setSection(markup) { // add section of cards
     document.querySelector('.intro-container').insertAdjacentHTML('afterEnd', markup);
     this.cardsSection = document.querySelector('.cards');
     this.gridContainer = this.cardsSection.querySelector('.cards__grid');
   }
 
-  removeSection() { // удаление секции карточек
+  removeSection() { // del section of cards
     if (this.cardsSection) {
       this.cardsSection.remove();
     }
   }
 
-  addCardsLine(hiddenCards, cardsArray, activeIcon) { // вывод одной линии карточек
-    this.activeIcon = activeIcon; // флаг активности иконки сохранения статьи
+  addCardsLine(hiddenCards, cardsArray, activeIcon) { // show 1 line
+    this.activeIcon = activeIcon; // flag
     const startIndex = cardsArray.length - hiddenCards;
     let endIndex;
 
     if (hiddenCards < 4) {
-      this._setButtonMore(false); // отключаем кнопку
+      this._setButtonMore(false); // disable btn
       endIndex = startIndex + hiddenCards;
       hiddenCards = 0;
     } else {
@@ -32,11 +33,15 @@ export default class Card {
       endIndex = startIndex + 3;
       hiddenCards -= 3;
     }
-    for (let i = startIndex; i < endIndex; i++) { this._addCard(cardsArray[i], this.cardMarkup, this.gridContainer); } // отрисовываем три карточки
+    for (let i = startIndex; i < endIndex; i++) {
+      this._addCard(cardsArray[i], this.cardMarkup, this.gridContainer);
+    }
+    // render 3 cards
     return hiddenCards;
   }
 
-  updateShowedCards(cardsArr, hiddenCards, active) { // делаем карточки активными если авторизовались
+  updateShowedCards(cardsArr, hiddenCards, active) {
+    // activate after authorization
     if (document.querySelector('.cards__grid')) {
       this.removeSection();
       this.setSection(this.cardsMarkup);
@@ -51,17 +56,17 @@ export default class Card {
     }
   }
 
-  _setButtonMore(statement) { // вывод кнопки "еще"
+  _setButtonMore(statement) { // show 'more' btn
     const moreBtn = this.cardsSection.querySelector('.cards__button');
     if (statement) {
       moreBtn.classList.remove('cards__button_visible_no');
     } else { moreBtn.classList.add('cards__button_visible_no'); }
   }
 
-  _renderCard(cardData) { // создание карточки
-    const cardContainer = document.createElement('div'); // создали в DOM контейнер для карточки
+  _renderCard(cardData) { // create card
+    const cardContainer = document.createElement('div');
     cardContainer.classList.add('cards__item');
-    cardContainer.insertAdjacentHTML('beforeend', this.cardMarkup); // поставили в контейнер разметку
+    cardContainer.insertAdjacentHTML('beforeend', this.cardMarkup);
     cardContainer.querySelector('.cards__photo').src = cardData.cardImageUrl;
     cardContainer.querySelector('.cards__item-date').textContent = cardData.cardDate;
     cardContainer.querySelector('.cards__item-title').textContent = cardData.cardTitle;
@@ -69,7 +74,7 @@ export default class Card {
     cardContainer.querySelector('.cards__text').href = cardData.cardUrl;
     cardContainer.querySelector('.cards__sign').textContent = cardData.cardSign;
     const icon = cardContainer.querySelector('.cards__bookmark');
-    if (this.isAuth() || this.activeIcon) { // если есть токен или флаг активности иконок
+    if (this.isAuth() || this.activeIcon) {
       icon.classList.add('cards__bookmark_clicked_off');
       icon.addEventListener('click', (event) => this._clickedCard(cardContainer, cardData, event.target));
     } else {
@@ -78,12 +83,12 @@ export default class Card {
     return cardContainer;
   }
 
-  _addCard(cardData) { // вывод карточки в контейнер
+  _addCard(cardData) { // add card to container
     const newCard = this._renderCard(cardData, this.cardMarkup);
     this.gridContainer.appendChild(newCard);
   }
 
-  _clickedCard(cardContainer, cardData, bookmark) { // добавление обработчиков клика
+  _clickedCard(cardContainer, cardData, bookmark) {
     cardContainer.querySelector('.cards__bookmark').classList.toggle('cards__bookmark_clicked_on');
     cardContainer.querySelector('.cards__bookmark').classList.toggle('cards__bookmark_clicked_off');
     if (bookmark.className.includes('cards__bookmark_clicked_on')) {

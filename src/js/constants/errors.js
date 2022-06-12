@@ -1,7 +1,7 @@
 const errorsMessages = {
-  validateNameL: 'Имя должно быть от 2 до 30 символов',
-  validateEmail: 'Неправильный формат email',
-  validatePasswordL: 'Пароль должен быть не менее 8 символов',
+  validateNameL: 'Name must be from 2 to 30 letters',
+  validateEmail: 'Email is wrong',
+  validatePasswordL: 'Password must not less then 8 symbols',
 };
 
 export { errorsMessages };

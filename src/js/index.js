@@ -20,10 +20,10 @@ import {
   loginMarkup, signupMarkup, popupLogMenuMarkup, popupUnlogMenuMarkup,
   successMarkup, loggedMenuMarkup, unloggedMenuMarkup,
   cardMarkup, cardsMarkup, noCardsMarkup, loaderMarkup,
-} from './constants/markups'; // импорт разметки
-import { errorsMessages } from './constants/errors'; // импортируем стили для вебпака
+} from './constants/markups';
+import { errorsMessages } from './constants/errors';
 
-const validator = new FormValidator(errorsMessages); // создаем валидатор, передаем тексты ошибок
+const validator = new FormValidator(errorsMessages);
 const mainApi = new MainApi();
 const outApi = new OutApi();
 const card = new Card(cardMarkup, cardsMarkup, mainApi, isAuth);
@@ -31,13 +31,13 @@ const popup = new Popup(popupContainer, validator, card);
 const header = new Header(menuContainer);
 const search = new SearchForm();
 
-let cardsArr = []; // массив найденных карточек
-let hiddenCards = 0; // количество скрытых карточек
+let cardsArr = [];
+let hiddenCards = 0;
 
-if (isAuth()) { // если у нас есть токен
+if (isAuth()) { // if we have token
   mainApi.getMe()
     .then((data) => { if (data) { header.setMenu(loggedMenuMarkup, data.name); } })
-    .catch((err) => console.log(err)); // ставим хедер с именем
+    .catch((err) => console.log('Err with getUser', err));
 }
 
 search.setInputValue('');
@@ -54,8 +54,9 @@ searchForm.addEventListener('submit', (event) => {
         card.removeSection();
         if (cardsArr.length !== 0) {
           card.setSection(cardsMarkup);
-          hiddenCards = cardsArr.length; // все карточки сразу после поиска скрыты
-          hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
+          hiddenCards = cardsArr.length; // hide all cards
+          hiddenCards = card.addCardsLine(hiddenCards, cardsArr);
+          // render 1 line and count hidden cards
         } else {
           card.setSection(noCardsMarkup);
         }
@@ -66,7 +67,6 @@ searchForm.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('click', (event) => {
-
   if (event.target.className.includes(loginButtonClass)) {
     popup.setContent(loginMarkup);
     popup.open();
@@ -80,29 +80,32 @@ document.addEventListener('click', (event) => {
   }
 
   if (event.target.className.includes(moreButtonClass)) {
-    hiddenCards = card.addCardsLine(hiddenCards, cardsArr); // отрисовываем ряд карточек и пересчитываем скрытые карточки
+    hiddenCards = card.addCardsLine(hiddenCards, cardsArr);
+    // render 1 line and count hidden cards
   }
 
   if (event.target.className.includes(exitButtonClass)) {
-    localStorage.removeItem('token'); // удаление токена
-    header.setMenu(unloggedMenuMarkup); // замена хедера
+    localStorage.removeItem('token'); // del token
+    header.setMenu(unloggedMenuMarkup); // change header
     if (document.querySelector('.cards__grid')) {
-      card.updateShowedCards(cardsArr, hiddenCards, false); // уже найденные карточки делаем неактивными
+      card.updateShowedCards(cardsArr, hiddenCards, false); // inactive finded cards
     }
     popup.close();
   }
 
   if (event.target.className.includes(sandwichButtonClass)) {
-    if (isAuth()) { // если у нас есть токен
+    if (isAuth()) { // if we have token
       mainApi.getMe()
         .then((data) => {
-          if (data) { popup.setContent(popupLogMenuMarkup);
-            popup.setNameOnButton(data.name);}
-        } )
-        .catch((err) => console.log(err)); // ставим хедер с именем
+          if (data) {
+            popup.setContent(popupLogMenuMarkup);
+            popup.setNameOnButton(data.name);
+          }
+        })
+        .catch((err) => console.log(err)); // make header
+    } else {
+      popup.setContent(popupUnlogMenuMarkup);
     }
-    else {
-    popup.setContent(popupUnlogMenuMarkup)}
     popup.open();
   }
 });

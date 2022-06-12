@@ -10,18 +10,17 @@ import {
   popupContainer, menuContainer, exitButtonClass, sandwichButtonClass,
 } from './constants/elements';
 
-import { menuArticlesMarkup, myCardsMarkup, popupArtMenuMarkup } from './constants/markups'; // импорт разметки
+import { menuArticlesMarkup, myCardsMarkup, popupArtMenuMarkup } from './constants/markups';
 
 const mainApi = new MainApi();
 const header = new Header(menuContainer);
 const myArticles = new MyArticles(mainApi);
 const popup = new Popup(popupContainer, '', '');
 let myCards = [];
-const keys = [];
 let ownerName;
 
 if (isAuth()) {
-  mainApi.getMe() // ставим  хедер с именем либо редирект
+  mainApi.getMe() // make header or redirect
     .then((data) => {
       if (data) {
         ownerName = data.name;
@@ -37,7 +36,7 @@ if (isAuth()) {
 mainApi.getArticles()
   .then((res) => { myCards = res.data; })
   .then((arr) => {
-    
+
     myArticles.setNumber(myCards.length);
     myArticles.setStringOfKeys((myCards));
     myArticles.removeSection();
@@ -49,7 +48,7 @@ mainApi.getArticles()
 
 document.addEventListener(('click'), (event) => {
   if (event.target.className.includes(exitButtonClass)) {
-    localStorage.removeItem('token'); // удаление токена
+    localStorage.removeItem('token'); // del token
     location = 'index.html';
     popup.close();
   }
