@@ -1,7 +1,7 @@
 export default class MainApi {
   constructor() {
-    this.url = 'https://newsfinder.tk/api';
-//    this.url = 'http://localhost:3000/api';
+    this.url = 'https://stepan-popov.dev/api-news';
+//    this.url = 'http://localhost:3000/api-news';
   }
 
   login(mail, pass) {

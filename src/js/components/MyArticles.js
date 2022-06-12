@@ -9,78 +9,62 @@ export default class MyArticles {
     this.api = api;
   }
 
-  setSection(markup) { // установка секции с карточками
+  setSection(markup) {
     this.artSection.insertAdjacentHTML('afterEnd', markup);
     this.myCardsSection = document.querySelector('.cards');
     this.myGridContainer = this.myCardsSection.querySelector('.cards__grid');
   }
 
-  removeSection() { // удаление секции с карточками
+  removeSection() {
     if (this.myCardsSection) {
       this.myCardsSection.remove();
     }
   }
 
-  setName(owner) { // установка имени в титул
+  setName(owner) {
     document.querySelector('.owner').textContent = owner;
   }
 
-  setNumber(number) { // установка числа карточек в титул
-    let  numberText = number + ' сохранённых статей'
-    if (number === 0) { numberText = ' нет сохранённых статей'; }
-    if (number === 1){
-      numberText = number + ' сохранённая статья';
-    }
-    if (number > 1 && number < 5) {
-      numberText = number + ' сохранённых статьи'
-    }
+  setNumber(number) {
+    const numberText = (!!!number || number === 0) ? 'No saved articles'
+      : number === 1 ? `${number} saved  article` : `${number} saved  articles`;
 
     document.querySelector('.number').textContent = numberText;
-
-
   }
 
-  setStringOfKeys(myCards) { // получаем строку из слов-ключей
-    const keys = myCards.map((item) => item.keyword); // сохраняем массив ключей
-    keys.sort(); // упорядочиваем по алфавиту
-                                                                              console.log('Ключи по алфавиту:', keys);
-    const keysFr = []; // массив объектов ключи-частота в массиве
-    let j = 0; // индекс нового  объекта
+  setStringOfKeys(myCards) {
+    const keys = myCards.map((item) => item.keyword); // sort by frequency
+    keys.sort();
+    const keysFr = [];
+    let j = 0;
     keysFr[j] = { key: this._stringUp(keys[0]), total: 1 };
-                                                                              console.log('Первый ключ с частотой', keysFr[0]);
 
-      let fr = 1; // частота употребления
+    let fr = 1;
 
-      for (let i = 1; i < keys.length; i++) {
-                                                                              console.log('Индекс ключа', i);
-        if (keys[i] === keys[i - 1]) { // считаем количество повторений
-          fr += 1;
-          keysFr[j] = { key: this._stringUp(keys[i]), total: fr }; // слово помним, частоту переписываем
-                                                                              console.log('Совпадения есть. ', 'Ключ:', keys[i], ' Частота:', fr);
-        } else {
-          fr = 1;
-          j += 1;
-          keysFr[j] = { key: this._stringUp(keys[i]), total: 1 }; // запомнили новое слово
-                                                                              console.log('Совпадения нет. ', 'Ключ:', keys[i], ' Частота:', fr);
-        }
+    for (let i = 1; i < keys.length; i++) {
+      if (keys[i] === keys[i - 1]) {
+        fr += 1;
+        keysFr[j] = { key: this._stringUp(keys[i]), total: fr };
+      } else {
+        fr = 1;
+        j += 1;
+        keysFr[j] = { key: this._stringUp(keys[i]), total: 1 };
       }
+    }
 
-    console.log('Все ключи с частотами:', keysFr);
-
-    const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1); // функция для сортировки ключей по количеству
+    const sortByTotal = (a, b) => (a.total < b.total ? 1 : -1);
     keysFr.sort(sortByTotal);
-    const sortedKeys = keysFr.map((item) => item.key); // оставляем только ключи без количества
-    console.log(sortedKeys);
+    const sortedKeys = keysFr.map((item) => item.key);
     this._stringKeys(sortedKeys);
   }
 
-  _stringUp(str) { // написание слов с ззаглавной
+  _stringUp(str) { // spell keys with caps
     let newStr = str.toLowerCase();
     newStr = newStr[0].toUpperCase() + newStr.slice(1);
     return newStr;
   }
 
-  _stringKeys(arrKeys) { // составление ключей-слов вместе
+  _stringKeys(arrKeys) {
     let strKeys;
     if (arrKeys.length < 4) {
       strKeys = arrKeys.reduce((sum, current) => `${sum}, ${current}`);
@@ -93,25 +77,25 @@ export default class MyArticles {
     return strKeys;
   }
 
-  _setFewKeys(strKeys) { // вывод нескольких слов ключей
+  _setFewKeys(strKeys) { // render few keys
     this.artSection.insertAdjacentHTML('beforeend', fewKeysMarkup);
     this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
   }
 
-  _setMoreKeys(strKeys, addKeys) { // вывод слов ключей в 2 блока
+  _setMoreKeys(strKeys, addKeys) { // render 2 blocks of keys
     this.artSection.insertAdjacentHTML('beforeend', moreKeysMarkup);
     this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
     this.artSection.querySelector('.intro__keys_type_add').textContent = `${addKeys} другим`;
   }
 
-  addMycards(arrayCards) { // вывод своих карточек
+  addMycards(arrayCards) { // render user's cards
     arrayCards.forEach((card) => (this._addMyCard(card)));
   }
 
-  _renderMyCard(cardData) { // создание своих карточек
-    const cardContainer = document.createElement('div'); // создали DOM контейнер для карточки
+  _renderMyCard(cardData) {
+    const cardContainer = document.createElement('div');
     cardContainer.classList.add('cards__item');
-    cardContainer.insertAdjacentHTML('beforeend', myCardMarkup); // поставили в контейнер разметку
+    cardContainer.insertAdjacentHTML('beforeend', myCardMarkup);
     cardContainer.querySelector('.cards__photo').src = cardData.image;
     cardContainer.querySelector('.cards__item-date').textContent = getCardDate(cardData.date);
     cardContainer.querySelector('.cards__item-title').textContent = cardData.title;
@@ -125,12 +109,12 @@ export default class MyArticles {
     return cardContainer;
   }
 
-  _addMyCard(cardData) { // вывод 1 карточки
+  _addMyCard(cardData) {
     const newMyCard = this._renderMyCard(cardData, this.cardMarkup);
     this.myGridContainer.appendChild(newMyCard);
   }
 
-  _removeMyCard(cardData, cardContainer) { // удаление 1 карточки
+  _removeMyCard(cardData, cardContainer) {
     this.api.removeArticle(cardData._id)
       .then((res) => {
         cardContainer.remove();

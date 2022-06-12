@@ -1,5 +1,3 @@
-import { cardMarkup } from '../constants/markups';
-
 export default class Popup {
   constructor(popupContainer, validator, card) {
     this.popupContainer = popupContainer;
@@ -13,7 +11,7 @@ export default class Popup {
     this.clearContent = this.clearContent.bind(this);
   }
 
-  setSubmitLogin(api, header, loggedMenuMarkup, cardsArr, hiddenCards) { // обработка сабмита на логин-попапе
+  setSubmitLogin(api, header, loggedMenuMarkup, cardsArr, hiddenCards) {
     this.form.addEventListener('submit', (event) => {
       event.preventDefault();
       api.login(this.getMail(), this.getPass())
@@ -25,13 +23,13 @@ export default class Popup {
                 .then((me) => {
                   header.setMenu(loggedMenuMarkup, me.name);
                   this.card.updateShowedCards(cardsArr, hiddenCards, true);
-                }) // включаем иконки на уже отрисованных карточках
+                }) // show icons
                 .catch((err) => console.log(err));
             });
 
             this.close();
           } else {
-            res.json().then((result) => { this.setServerError(result.message); }) // показываем ошибку в попапе
+            res.json().then((result) => { this.setServerError(result.message); })
               .catch((error) => console.log(error));
           }
         })
@@ -39,15 +37,15 @@ export default class Popup {
     });
   }
 
-  setSubmitSignup(api, successMarkup) { // обработка сабмита на попапе регистрации
+  setSubmitSignup(api, successMarkup) {
     this.form.addEventListener('submit', (event) => {
       event.preventDefault();
       api.signup(this.getMail(), this.getPass(), this.getName())
         .then((res) => {
           if (res.ok) {
-            this.setContent(successMarkup); // выводим новый попап
+            this.setContent(successMarkup);
           } else {
-            res.json().then((result) => this.setServerError(result.message)) // показываем ошибку в попапе
+            res.json().then((result) => this.setServerError(result.message))
               .catch((error) => console.log(error));
           }
         })
@@ -55,34 +53,34 @@ export default class Popup {
     });
   }
 
-  open() { // открытие попапа
+  open() {
     this.popupContainer.classList.add('popup_is-opened');
     if (this.form) {
-      this._setSubmitButtonState(false); // отключаем кнопку submit
-      this._setInputsValidation(); // включаем валидацию полей
+      this._setSubmitButtonState(false);
+      this._setInputsValidation();
     }
-    this._setEventListeners(); // вызываем слушатели для закрытия
+    this._setEventListeners();
   }
 
-  close() { // закрытие попапа
+  close() {
     this._removeEventListeners();
     this.clearContent();
     this.popupContainer.classList.remove('popup_is-opened');
   }
 
-  setContent(popupMarkup) { // вставка попапа в контейнер
+  setContent(popupMarkup) {
     this.clearContent();
     this.popupContainer.insertAdjacentHTML('beforeend', popupMarkup);
     this.form = this.popupContainer.querySelector('.popup__form');
   }
 
-  clearContent() { // очистка контейнера
+  clearContent() {
     while (this.popupContainer.firstChild) {
       this.popupContainer.removeChild(this.popupContainer.firstChild);
     }
   }
 
-  setServerError(text) { // вывод серверной ошибки
+  setServerError(text) {
     this.popupContainer.querySelector('.server-error').textContent = text;
   }
 
@@ -98,30 +96,30 @@ export default class Popup {
     return this.popupContainer.querySelector('.popup__input_type_password').value;
   }
 
-  setNameOnButton(name) { // установка имени для попап-меню
+  setNameOnButton(name) { // popup-menu
     this.popupContainer.querySelector('.header__name')
       .textContent = `${name}\xa0`;
   }
 
-_setEventListeners() { // обработчик событий для закрытия попапа
+_setEventListeners() {
       this.popupContainer.parentNode.parentNode.addEventListener('keydown', this._closeByKey);
     this.popupContainer.addEventListener('click', this._closeByClick);
   }
 
-  _removeEventListeners() { // удаление обработчиков
+  _removeEventListeners() {
     this.popupContainer.parentNode.parentNode.removeEventListener('keydown', this._closeByKey);
     this.popupContainer.removeEventListener('click', this._closeByClick);
   }
 
-  _closeByKey(event) { // закрытие по Escape
+  _closeByKey(event) {
     if (event.key === 'Escape') { this.close(); }
   }
 
-  _closeByClick(event) { // закрытие по клику мимо или по крестику
+  _closeByClick(event) {
     if (event.target.className.includes('popup_is-opened') || event.target.className.includes('popup__close')) { this.close(); }
   }
 
-  _setSubmitButtonState(statement) { // включение/выключение кнопки submit, принмает true либо false
+  _setSubmitButtonState(statement) {
     const curButton = this.popupContainer.querySelector('.popup__submit');
     if (!statement && curButton) {
       curButton.setAttribute('disabled', '');
@@ -132,23 +130,22 @@ _setEventListeners() { // обработчик событий для закры�
     }
   }
 
-  _setInputsValidation() { // подключение обработчиков - валидация полей
-    const inputs = this.popupContainer.querySelectorAll('.popup__input'); // получаем поля ввода
+  _setInputsValidation() {
+    const inputs = this.popupContainer.querySelectorAll('.popup__input');
 
-    inputs.forEach((value) => value.addEventListener('input', () => // на каждое поле вешааем обработчик изменений
+    inputs.forEach((value) => value.addEventListener('input', () =>
     {
       this.setServerError('');
       this._setSubmitButtonState(this.validator.validateAll(inputs));
-    }, // при изменении поля вызываем функцию вкл/выкл кнопки submit
-    ), // на входе ей передаем результат проверки всех полей формы
+    }),
     );
   }
 
-  validateAll(inputs) { // валидация полей
-    let allCheck = true; // флаг проверки всех полей, изначально - true
+  validateAll(inputs) {
+    let allCheck = true;
     inputs.forEach((value) => {
       const curError = value.parentNode.querySelector('.error-message');
-      if (!this.checkInputValidaty(value, curError)) // если хоть одно из полей не пройдет проверку - флаг становится false
+      if (!this.checkInputValidaty(value, curError))
       { allCheck = false; }
     });
     return allCheck;

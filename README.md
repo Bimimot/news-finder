@@ -1,58 +1,44 @@
-NewsFinder
+News Finder
 =============================
-Это дипломный проект,
-выполненный в ходе обучения в Яндекс.Практикуме
-на факультете веб-разработки
+It was done during the training in the Yandex.Practicum.
 
-АДРЕС
+URL
 -----------
-- https://newsfinder.tk
-- https://bimimot.github.io/NewsFinder/
+https://bimimot.github.io/news-finder/
 
 
-ОПИСАНИЕ
+Description
 -----------
-Поиск новостей по заданнным словам и их вывод в виде карточек.
-Поиск происходит через внешнее API newsapi.org
+It's a frontend for the small search engine.
+For searching the project uses API newsapi.org
+Results are displayed as cards.
 
-В проекте две страницы: главная и странциа сохраненных статей,
-доступная только зарегистрованным пользователям.
-
-Авторизованные пользователи проекта могут:
-- сохранять понравившиеся статьи-карточки,
-- просматривать сохраненные статьи на странице "Сохраненные",
-- удалять статьи-карточки из сохраненных.
+Project has two pages: the main and the private page with saved articles.
+Authorized users can save cards and use the private page with saved articles.
 
 
-ТЕСТОВЫЙ ПОЛЬЗОВАТЕЛЬ
+Test user
 -----------
-- Email: test@yandex.ru, Pass: qwertyqwerty
+- Email: test@test.com,
+- Pass: qwertyqwerty
 
-
-БЭКЕНД
+Backend
 -----------
-- REST API
-- https://github.com/Bimimot/News-API
+This REST API was developed for authorization and work with news cards 
+- https://github.com/Bimimot/news-api
 
 
-РЕШЕННЫЕ ЗАДАЧИ
+Project's tasks
 -----------
-- адаптивная верстка для разных разрешений экрана
-- применена методология БЭМ для организации стилей
-- соблюдены принципы ООП - код разбит на отдельные модули (классы)
-- сделаны попапы: авторизация, регистрация, выпадающее меню на малых разрешениях экрана
-- попапы закрываются по ESC, крестики и клику мимо попапа
-- кастомная валидация полей в попапах
-- реализовано взаимодействие с внешнем API
-- реализовано взаимодействием с собственным REST API
-- настроены сборки: build, dev, deploy 
-- для сборки dev настроено атоматическое обновление hot reload
-- настроены вебпак и бабель для минификации CSS и транспиляциия JS, настроен префиксер CSS
-- настроено хэширование CSS и JS файлов при build сборке
-- фронтенд и бекэнд подняты на одном домене, настроен nginx
+- responsive wev design
+- BEM methodology
+- popups with missclick,
+- custom validation for inputs,
+- using API from newsapi.org
+- using the custom REST API
+- configurating Webpack with two modes - dev & prod
 
-
-АВТОР
+Author
 -----------
-Попов Степан
+Bimimot
 

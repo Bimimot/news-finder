@@ -2,7 +2,7 @@ export default class OutApi {
   constructor() {
     this.APIkey = '4117714a4686484785d1de46224edb53',
     // this.url = 'https://newsapi.org/v2/everything?';
-    this.url = 'https://nomoreparties.co/news/v2/everything?' // через прокси
+    this.url = 'https://nomoreparties.co/news/v2/everything?' // with proxy
   }
 
   getArticles(theme, dateFrom) {

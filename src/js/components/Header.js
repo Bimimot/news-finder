@@ -3,7 +3,7 @@ export default class Header {
     this.menuContainer = menuContainer;
   }
 
-  setMenu(menuMarkup, name) { // установка нового списка в хедер
+  setMenu(menuMarkup, name) {
     this.clearMenu();
     this.menuContainer.insertAdjacentHTML('beforeend', menuMarkup);
     if (name && name !== '') {
@@ -11,13 +11,13 @@ export default class Header {
     }
   }
 
-  clearMenu() { // очистка списка заголовков из хэдера
+  clearMenu() {
     while (this.menuContainer.firstChild) {
       this.menuContainer.removeChild(this.menuContainer.firstChild);
     }
   }
 
-  setNameOnButton(name) { // установка имени на кнопку
+  setNameOnButton(name) {
     this.menuContainer.querySelector('.header__link_type_button')
       .querySelector('.header__name')
       .textContent = `${name}\xa0`;

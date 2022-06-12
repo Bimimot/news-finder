@@ -1,5 +1,5 @@
 {
-  "name": "NewsFinder",
+  "name": "news-finder",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,25 +10,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Bimimot/NewsFinder.git"
+    "url": "git+https://github.com/Bimimot/news-finder.git"
   },
-  "author": "Stepan Popov",
+  "author": "Bimimot <bimimot@gmail.com> (https://github.com/Bimimot)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Bimimot/NewsFinder/issues"
+    "url": "https://github.com/Bimimot/news-finder/issues"
   },
   "devDependencies": {
-    "@babel/cli": "7.10.5",
+    "@babel/cli": "^7.17.10",
     "@babel/core": "7.11.1",
     "@babel/preset-env": "7.11.0",
     "autoprefixer": "9.8.6",
     "babel-loader": "8.1.0",
     "cross-env": "7.0.2",
     "css-loader": "4.2.1",
-    "cssnano": "4.1.10",
-    "eslint": "^7.7.0",
-    "eslint-config-airbnb-base": "14.2.0",
-    "eslint-plugin-import": "2.22.0",
     "file-loader": "6.0.0",
     "gh-pages": "2.0.1",
     "html-webpack-plugin": "4.3.0",
@@ -47,10 +43,10 @@
     "babel-polyfill": "6.26.0",
     "core-js": "3.4.1",
     "cors": "^2.8.5",
-    "eslint-config-airbnb": "18.2.0",
+    "cssnano": "^4.1.10",
     "express": "^4.17.1",
     "node": "14.8.0",
     "nodemon": "2.0.4"
   },
-  "homepage": "https://github.com/Bimimot/NewsFinder/"
+  "homepage": "https://github.com/Bimimot/news-finder/"
 }

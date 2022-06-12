@@ -7,20 +7,20 @@ export default class FormValidator {
     this.validateAll = this.validateAll.bind(this);
   }
 
-  checkInputValidaty(curInput, curError) { // валидация одного поля, принимает на входе текущее значени в поле и элемент ошибки
+  checkInputValidaty(curInput, curError) {
     if (!this.validateBlank(curInput, curError)) { return false; }
 
     if (!this.validateNameLength(curInput, curError)
-        || !this.validatePasswordLength(curInput, curError)
-        || !this.validateEmail(curInput, curError)
+      || !this.validatePasswordLength(curInput, curError)
+      || !this.validateEmail(curInput, curError)
     ) { return false; }
 
-    curError.textContent = ''; // если ошибок не было - текста ошибки нет, значение проверки true
+    curError.textContent = ''; // if no error
     return true;
   }
 
-  validateBlank(curInput, curError) { // валидация пустого поля
-    if (curInput.value.length === 0) // для 0 длины значения поля ошибку не выводим
+  validateBlank(curInput, curError) { // empty input vallidation
+    if (curInput.value.length === 0) // no err for 0 length
     {
       curError.textContent = '';
       return false;
@@ -30,9 +30,9 @@ export default class FormValidator {
 
   validateNameLength(curInput, curError) {
     if (curInput.getAttribute('type') === 'text'
-     && (curInput.getAttribute('name') === 'name')
-     && (curInput.validity.tooShort || curInput.validity.toolong)) {
-      curError.textContent = this.errorsMessages.validateNameL; // текст ошибки поля c именем по условию длины
+      && (curInput.getAttribute('name') === 'name')
+      && (curInput.validity.tooShort || curInput.validity.toolong)) {
+      curError.textContent = this.errorsMessages.validateNameL;
       return false;
     }
     return true;
@@ -40,9 +40,9 @@ export default class FormValidator {
 
   validatePasswordLength(curInput, curError) {
     if (curInput.getAttribute('type') === 'text'
-     && (curInput.getAttribute('name') === 'password')
-     && (curInput.validity.tooShort)) {
-      curError.textContent = this.errorsMessages.validatePasswordL; // текст ошибки поля c паролем по условию длины
+      && (curInput.getAttribute('name') === 'password')
+      && (curInput.validity.tooShort)) {
+      curError.textContent = this.errorsMessages.validatePasswordL;
       return false;
     }
     return true;
@@ -50,20 +50,21 @@ export default class FormValidator {
 
   validateEmail(curInput, curError) {
     if (curInput.getAttribute('type') === 'text'
-     && (curInput.getAttribute('name') === 'email')
-     && (curInput.validity.patternMismatch)) { // несовпадение паттерна
-      curError.textContent = this.errorsMessages.validateEmail; // текст ошибки поля c email по паттерну
+      && (curInput.getAttribute('name') === 'email')
+      && (curInput.validity.patternMismatch)) {
+      curError.textContent = this.errorsMessages.validateEmail;
       return false;
     }
     return true;
   }
 
   validateAll(inputs) {
-    let allCheck = true; // флаг проверки всех полей, изначально - true
+    let allCheck = true; // all input flag
     inputs.forEach((value) => {
       const curError = value.parentNode.querySelector('.error-message');
-      if (!this.checkInputValidaty(value, curError)) // если хоть одно из полей не пройдет проверку - флаг становится false
-      { allCheck = false; }
+      if (!this.checkInputValidaty(value, curError)) {
+        allCheck = false;
+      }
     });
     return allCheck;
   }
