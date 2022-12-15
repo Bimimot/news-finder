@@ -1,7 +1,7 @@
 {
   "name": "news-finder",
   "version": "1.0.0",
-  "description": "",
+  "description": "Search engine",
   "main": "index.js",
   "scripts": {
     "build": "rimraf dist && cross-env NODE_ENV=production webpack --mode production",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/Bimimot/news-finder.git"
   },
-  "author": "Bimimot <bimimot@gmail.com> (https://github.com/Bimimot)",
+  "author": "Stepan Popov <stepan.popov.dev@gmail.com> (https://github.com/Bimimot)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Bimimot/news-finder/issues"

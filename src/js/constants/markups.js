@@ -8,7 +8,8 @@ const fewKeysMarkup = `<p class="intro__keys">With keywords:
 </p>`
 
 const moreKeysMarkup = `<p class="intro__keys">With keywords:
-<span class="intro__keys intro__keys_accent_span"></span>\xa0и\xa0
+<span class="intro__keys intro__keys_accent_span"></span>
+\xa0and\xa0
 <span class="intro__keys intro__keys_accent_span intro__keys_type_add"></span>
 </p>`
 
@@ -159,7 +160,7 @@ const loginMarkup = `
   </div>
   <span class="error-message server-error"></span>
   <button type="submit" class="popup__submit">Login</button>
-  <span class="popup__text">или<button class="popup__button button_type_signup">Authorization</button></span>
+  <span class="popup__text">or<button class="popup__button button_type_signup">Signup</button></span>
 </form>
 </div>`;
 
@@ -188,8 +189,8 @@ const signupMarkup = `
           <span class="error-message"> </span>
         </div>
         <span class="error-message server-error"></span>
-        <button type="submit" class="popup__submit">Registration</button>
-        <span class="popup__text">или<button class="popup__button button_type_login">Signin</button></span>
+        <button type="submit" class="popup__submit">Signup</button>
+        <span class="popup__text">or<button class="popup__button button_type_login">Login</button></span>
       </form>
     </div>`;
 
