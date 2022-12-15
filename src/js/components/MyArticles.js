@@ -85,7 +85,7 @@ export default class MyArticles {
   _setMoreKeys(strKeys, addKeys) { // render 2 blocks of keys
     this.artSection.insertAdjacentHTML('beforeend', moreKeysMarkup);
     this.artSection.querySelector('.intro__keys_accent_span').textContent = strKeys;
-    this.artSection.querySelector('.intro__keys_type_add').textContent = `${addKeys} other`;
+    this.artSection.querySelector('.intro__keys_type_add').textContent = `${addKeys} others`;
   }
 
   addMycards(arrayCards) { // render user's cards
